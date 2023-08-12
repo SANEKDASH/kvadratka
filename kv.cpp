@@ -122,17 +122,21 @@ void print_output(sq_coeffs cur_cfs, double discr, salvs cur_salvs, RootsCount_t
         case kZeroRoots:
             printf("there are no any solutions\n");
             break;
+
         case kOneRoot:
             printf("there is one solution:\n");
             printf("\tx = %.2lf", cur_salvs.x1);
             break;
+
         case kTwoRoots:
             printf("there are two roots:\n");
             printf("\tx1 = %.2lf\n\tx2 = %.2lf\n", cur_salvs.x1, cur_salvs.x2);
             break;
+
         case kInfRoots:
             printf("there are a lot of roots :)\n");
             break;
+
         default:
             printf("what the fuck!?\n");
     }
@@ -142,7 +146,7 @@ void print_output(sq_coeffs cur_cfs, double discr, salvs cur_salvs, RootsCount_t
 
 
 
-main()
+int main()
 {
 
     sq_coeffs cur_cfs;
