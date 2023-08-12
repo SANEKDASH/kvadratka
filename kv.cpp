@@ -157,15 +157,18 @@ int main()
 
     read_cfs(&cur_cfs);
 
-    double d = 0;
-    d = find_dval(cur_cfs);
+    double discrt = 0;
+    discrt = find_dval(cur_cfs);
 
     RootsCount_t output_print_mode;
     salvs cur_salvs;
 
-    output_print_mode = solve_equasion(cur_cfs, d, &cur_salvs);
+    cur_salvs.x1 = 0;
+    cur_salvs.x2 = 0;
 
-    print_output(cur_cfs, d, cur_salvs, output_print_mode);
+    output_print_mode = solve_equasion(cur_cfs, discrt, &cur_salvs);
+
+    print_output(cur_cfs, discrt, cur_salvs, output_print_mode);
 
 
 
