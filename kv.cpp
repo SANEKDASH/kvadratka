@@ -160,12 +160,12 @@ int main()
     double d = 0;
     d = find_dval(cur_cfs);
 
-    RootsCount_t mode;
+    RootsCount_t output_print_mode;
     salvs cur_salvs;
 
-    mode = solve_equasion(cur_cfs, d, &cur_salvs);
+    output_print_mode = solve_equasion(cur_cfs, d, &cur_salvs);
 
-    print_output(cur_cfs, d, cur_salvs, mode);
+    print_output(cur_cfs, d, cur_salvs, output_print_mode);
 
 
 
