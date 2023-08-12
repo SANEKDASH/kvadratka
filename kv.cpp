@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-//
+
 typedef enum
 {
     kZeroRoots = 0,
@@ -8,7 +8,7 @@ typedef enum
     kTwoRoots  = 2,
     kInfRoots  = 3,
 } RootsCount_t;
-//
+
 
 typedef struct
 {
@@ -16,14 +16,14 @@ typedef struct
     double b;
     double c;
 } sq_coeffs;
-//
+
 
 typedef struct
 {
     double x1;
     double x2;
 } salvs;
-//
+
 
 double find_dval(sq_coeffs cur_cfs)
 {
@@ -125,7 +125,7 @@ void print_output(sq_coeffs cur_cfs, double discr, salvs cur_salvs, RootsCount_t
 
         case kOneRoot:
             printf("there is one solution:\n");
-            printf("\tx = %.2lf", cur_salvs.x1);
+            printf("\tx = %.2lf\n", cur_salvs.x1);
             break;
 
         case kTwoRoots:
