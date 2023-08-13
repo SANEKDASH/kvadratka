@@ -3,10 +3,10 @@
 
 typedef enum
 {
-    kZeroRoots = 0,
-    kOneRoot  = 1,
-    kTwoRoots  = 2,
-    kInfRoots  = 3,
+    kZeroRoots,
+    kOneRoot  ,
+    kTwoRoots ,
+    kInfRoots ,
 } RootsCount_t;
 
 
@@ -15,36 +15,40 @@ typedef struct
     double a;
     double b;
     double c;
-} sq_coeffs;
+} Coeffs;
 
 
 typedef struct
 {
     double x1;
     double x2;
-} salvs;
+} Solutions;
 
-
-double find_dval(sq_coeffs cur_cfs)
+typedef enum
 {
-    return pow(cur_cfs.b, 2) - 4 * cur_cfs.a * cur_cfs.c;
+    kReadError
+} ReadCases;
+
+double CalculateDiscriminant(Coeffs *ptr_coefficients)
+{
+    return pow(ptr_coefficients->b, 2) - 4 * ptr_coefficients->a * ptr_coefficients->c;
 }
 
 
-void solve_sq(sq_coeffs cur_cfs, double d, salvs* cur_salvs)
+void SolveQuadEquasion(Coeffs *ptr_coefficients, double discriminant, Solutions* solutions)
 {
-    cur_salvs->x1 = (-cur_cfs.b + sqrt(d)) / (2 * cur_cfs.a);
-    cur_salvs->x2 = (-cur_cfs.b - sqrt(d)) / (2 * cur_cfs.a);
+    solutions->x1 = (-ptr_coefficients->b + sqrt(discriminant)) / (2 * ptr_coefficients->a);
+    solutions->x2 = (-ptr_coefficients->b - sqrt(discriminant)) / (2 * ptr_coefficients->a);
 }
 
 
-double solve_linear(sq_coeffs cur_cfs, salvs* cur_salvs)
+void SolveLinearEquasionCase(Coeffs *ptr_coefficients, Solutions* ptr_solutions)
 {
-    cur_salvs->x1 = cur_salvs->x2 = -cur_cfs.c / cur_cfs.b;
+    ptr_solutions->x1 = ptr_solutions->x2 = -ptr_coefficients->c / ptr_coefficients->b;
 }
 
 
-int read_cfs(sq_coeffs* coeffs)
+int ReadCoeffs(Coeffs* coeffs)
 {
     printf("enter A coeff. value: ");
     while(scanf("%lf", &coeffs->a) < 0 )
@@ -60,20 +64,20 @@ int read_cfs(sq_coeffs* coeffs)
 }
 
 
-RootsCount_t solve_equasion(sq_coeffs cur_cfs,
+RootsCount_t solve_equasion(Coeffs *ptr_coefficients,
                             double discr,
-                            salvs* cur_salvs)
+                            Solutions* ptr_solutions)
 {
     if (discr < 0)
     {
         return kZeroRoots;
     }
-    else if (cur_cfs.a != 0)
+    else if (ptr_coefficients->a != 0)
     {
 
-        solve_sq(cur_cfs, discr, cur_salvs);
+        SolveQuadEquasion(ptr_coefficients, discr, ptr_solutions);
 
-        if (cur_salvs->x1 == cur_salvs->x2)
+        if (ptr_solutions->x1 == ptr_solutions->x2)
         {
             return kOneRoot;
         }
@@ -85,9 +89,9 @@ RootsCount_t solve_equasion(sq_coeffs cur_cfs,
     }
     else
     {
-        if (cur_cfs.b == 0)
+        if (ptr_coefficients->b == 0)
         {
-            if (cur_cfs.c == 0)
+            if (ptr_coefficients->c == 0)
             {
                 return kInfRoots;
             }
@@ -98,9 +102,7 @@ RootsCount_t solve_equasion(sq_coeffs cur_cfs,
         }
         else
         {
-
-
-            solve_linear(cur_cfs, cur_salvs);
+            SolveLinearEquasionCase(ptr_coefficients, ptr_solutions);
 
             return kOneRoot;
         }
@@ -110,14 +112,19 @@ RootsCount_t solve_equasion(sq_coeffs cur_cfs,
 }
 
 
-void print_output(sq_coeffs cur_cfs, double discr, salvs cur_salvs, RootsCount_t mode)
+void PrintOutput(Coeffs coefficients,
+                  double discriminant,
+                  Solutions solutions,
+                  RootsCount_t solutions_count)
 {
     printf("____________________________________\n");
-    printf("\nA = %0.2lf | B = %0.2lf | C = %0.2lf\n", cur_cfs.a, cur_cfs.b, cur_cfs.c);
-    printf("\tD = %.2lf\n", discr);
+    printf("\nA = %0.2lf | B = %0.2lf | C = %0.2lf\n", coefficients.a,
+                                                       coefficients.b,
+                                                       coefficients.c);
+    printf("\tD = %.2lf\n", discriminant);
     printf("____________________________________\n");
 
-    switch (mode)
+    switch (solutions_count)
     {
         case kZeroRoots:
             printf("there are no any solutions\n");
@@ -125,12 +132,12 @@ void print_output(sq_coeffs cur_cfs, double discr, salvs cur_salvs, RootsCount_t
 
         case kOneRoot:
             printf("there is one solution:\n");
-            printf("\tx = %.2lf\n", cur_salvs.x1);
+            printf("\tx = %.2lf\n", solutions.x1);
             break;
 
         case kTwoRoots:
             printf("there are two roots:\n");
-            printf("\tx1 = %.2lf\n\tx2 = %.2lf\n", cur_salvs.x1, cur_salvs.x2);
+            printf("\tx1 = %.2lf\n\tx2 = %.2lf\n", solutions.x1, solutions.x2);
             break;
 
         case kInfRoots:
@@ -139,6 +146,7 @@ void print_output(sq_coeffs cur_cfs, double discr, salvs cur_salvs, RootsCount_t
 
         default:
             printf("what the fuck!?\n");
+            break;
     }
 
     printf("____________________________________\n");
@@ -149,29 +157,23 @@ void print_output(sq_coeffs cur_cfs, double discr, salvs cur_salvs, RootsCount_t
 int main()
 {
 
-    sq_coeffs cur_cfs;
+    Coeffs coefficients;
+    coefficients = {0};
+;
+    ReadCoeffs(&coefficients);
 
-    cur_cfs.a = 0;
-    cur_cfs.c = 0;
-    cur_cfs.b = 0;
-
-    read_cfs(&cur_cfs);
-
-    double discrt = 0;
-    discrt = find_dval(cur_cfs);
+    double discriminant = 0;
+    discriminant = CalculateDiscriminant(&coefficients);
 
     RootsCount_t output_print_mode;
-    salvs cur_salvs;
+    Solutions solutions;
 
-    cur_salvs.x1 = 0;
-    cur_salvs.x2 = 0;
+    solutions = {0};
 
-    output_print_mode = solve_equasion(cur_cfs, discrt, &cur_salvs);
+    RootsCount_t solutions_count;
+    solutions_count = solve_equasion(&coefficients, discriminant, &solutions);
 
-    print_output(cur_cfs, discrt, cur_salvs, output_print_mode);
-
-
+    PrintOutput(coefficients, discriminant, solutions, solutions_count);
 
     return 0;
-
 }
