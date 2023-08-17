@@ -4,22 +4,21 @@
 int main()
 {
 
-    Coeffs coefficients ={0};
+    Coeffs coefficients = {0};
 
-    while(ReadCoeffs(&coefficients) != kInputSucces)
-    {
-        PrintInputErrorMessage();
-    }
+    ReadCoeffs(&coefficients);
 
-    double discriminant = 0;
-    discriminant = CalculateDiscriminant(&coefficients);
+    double discriminant = discriminant = CalculateDiscriminant(&coefficients);
 
     Solutions solutions = {0};
-    RootsCount solutions_count;
-    solutions_count = SolveEquasion(&coefficients, &discriminant, &solutions);
+    RootsCount solutions_count = SolveEquasion(&coefficients,
+                                               &discriminant,
+                                               &solutions);
 
-
-    PrintOutput(coefficients, discriminant, solutions, solutions_count);
+    PrintOutput(&coefficients,
+                &discriminant,
+                &solutions,
+                &solutions_count);
 
     return 0;
 }

@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <ctype.h>
 
+int kMaxBuf = 256;
 
 typedef enum
 {
@@ -46,9 +47,10 @@ double CalculateDiscriminant(Coeffs *ptr_coefficients)
 
 RootsCount SolveQuadCase(Coeffs *ptr_coefficients,
                          double *ptr_discriminant,
-                         Solutions* ptr_solutions)
+                         Solutions *ptr_solutions)
 {
     double D = sqrt(*ptr_discriminant);
+
     ptr_solutions->x1 = (-ptr_coefficients->b + D) / (2 * ptr_coefficients->a);
     ptr_solutions->x2 = (-ptr_coefficients->b - D) / (2 * ptr_coefficients->a);
 
@@ -103,19 +105,19 @@ RootsCount SolveEquasion(Coeffs *ptr_coefficients,
     }
 }
 
-void PrintOutput(Coeffs coefficients,
-                 double discriminant,
-                 Solutions solutions,
-                 RootsCount solutions_count)
+void PrintOutput(Coeffs *coefficients,
+                 double *discriminant,
+                 Solutions *solutions,
+                 RootsCount *solutions_count)
 {
     printf("____________________________________\n");
-    printf("\nA = %0.2lf | B = %0.2lf | C = %0.2lf\n", coefficients.a,
-                                                       coefficients.b,
-                                                       coefficients.c);
-    printf("\tD = %.2lf\n", discriminant);
+    printf("\nA = %0.2lf | B = %0.2lf | C = %0.2lf\n", coefficients->a,
+                                                       coefficients->b,
+                                                       coefficients->c);
+    printf("\tD = %.2lf\n", *discriminant);
     printf("____________________________________\n");
 
-    switch (solutions_count)
+    switch (*solutions_count)
     {
         case kZeroRoots:
         {
@@ -126,14 +128,14 @@ void PrintOutput(Coeffs coefficients,
         case kOneRoot:
         {
             printf("there is one solution:\n");
-            printf("\tx = %.2lf\n", solutions.x1);
+            printf("\tx = %.2lf\n", solutions->x1);
             break;
         }
 
         case kTwoRoots:
         {
             printf("there are two roots:\n");
-            printf("\tx1 = %.2lf\n\tx2 = %.2lf\n", solutions.x1, solutions.x2);
+            printf("\tx1 = %.2lf\n\tx2 = %.2lf\n", solutions->x1, solutions->x2);
             break;
         }
 
@@ -162,11 +164,13 @@ void PrintInputErrorMessage()
         printf("________________________________________________________________\n");
 }
 
-int debug_printf( const char *fmt, ...)
+int debug_printf(const char *fmt, ...)
 {
     va_list arg_list;
     va_start(arg_list, fmt);
+
     return vprintf( fmt, arg_list);
+
     va_end(arg_list);
 
     return 0;
@@ -176,66 +180,81 @@ ReadingResults CheckBuf(char buf[])
 {
     int i = 0;
 
-    for (; buf[i] != '\0'; ++i)
+    while (buf[i] == ' ' || buf[i] == '\t')
     {
-        if (!isdigit(buf[i]) && buf[i] != '-' && buf[i] != '+')
-            return kReadingError;
+        ++i;
+    }
+
+    if (buf[i] != '+' && buf[i] != '-' && !isdigit(buf[i]))
+    {
+        return kReadingError;
+    }
+
+    while (isdigit(buf[i]))
+    {
+        ++i;
     }
 
     if (buf[i] == '.')
     {
-        if (!isdigit(buf[++i]) && buf[i] != '\0')
+        ++i;
+
+        while (isdigit(buf[i]))
         {
-            return kReadingError;
+            ++i;
+        }
+    }
+
+    if (buf[i] == 'e' || buf[i] == 'E' )
+    {
+        ++i;
+
+        if (buf[i] == '+' || buf[i] == '-' || isdigit(buf[i]))
+        {
+            ++i;
+
+            while (isdigit(buf[i]))
+            {
+                ++i;
+            }
+        }
+    }
+
+    while (buf[i] == ' ' || buf[i] == '\t')
+    {
+        ++i;
+    }
+
+    if (buf[i] == '\0')
+    {
+        return kReadingSucces;
+    }
+    else
+    {
+        return kReadingError;
+    }
+}
+
+InputResults GetOneCoeff(double *a)
+{
+    static char buf[256];
+    int i = 0;
+    char c;
+
+    buf[0] = '\0';
+
+    while ((c = getchar()) != '\n')
+    {
+        if (c != EOF)
+        {
+            buf[i++] = c;
         }
         else
         {
-            for (; buf[i] != '\0';)
-                if (isdigit(buf[i]))
-                    i++;
-            else
-                break;
+            printf("Reached EOF\n");
+            abort();
         }
     }
-
-    if (buf[i] == 'e' || buf[i] == 'E')
-    {
-        if (buf[++i] == '+' || buf[i] == '-' || isdigit(buf[i]))
-        {
-            ++i;
-            for (; buf[i] != '\0';)
-                if (isdigit(buf[i]))
-                    i++;
-            else
-                break;
-        }
-    }
-
-    while (buf[i++] == ' ' || buf[i] == '\t')
-        ;
-
-    if (buf[i] == '\0')
-        return kReadingSucces;
-    else
-        return kReadingError;
-}
-
-int GetOneCoeff(double *a)
-{
-    static char buf[100];
-    int i = 0;
-    char c;
-    buf[i] = '\0';
-    while ((c = getchar()) == ' ' || c == '\t' && c != '\n')
-        ;
-
-    if (c == '\n')
-        return -1;
-    else
-        buf[i++] = c;
-
-    while ((c = getchar()) != '\n')
-        buf[i++] = c;
 
     buf[i] = '\0';
 
@@ -248,7 +267,6 @@ int GetOneCoeff(double *a)
         *a = atof(buf);
         return kInputSucces;
     }
-
 }
 
 InputResults ReadCoeffs(Coeffs *ptr_coefficients)
@@ -277,4 +295,13 @@ InputResults ReadCoeffs(Coeffs *ptr_coefficients)
     }
 
     return kInputSucces;
+}
+
+void CheckPointer(void *pointer, int line)
+{
+    if (pointer == NULL)
+    {
+        printf("pointer is equal to zero in line - %d", line);
+        abort();
+    }
 }
