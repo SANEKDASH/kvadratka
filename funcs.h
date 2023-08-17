@@ -61,7 +61,6 @@ RootsCount SolveQuadCase(Coeffs *ptr_coefficients,
     else
     {
         return kTwoRoots;
-
     }
 }
 
