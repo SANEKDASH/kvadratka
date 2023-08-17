@@ -234,7 +234,7 @@ ReadingResults CheckBuf(char buf[])
     }
 }
 
-InputResults GetOneCoeff(double *a)
+InputResults GetOneCoeff(double *coeff)
 {
     static char buf[256];
     int i = 0;
@@ -263,7 +263,7 @@ InputResults GetOneCoeff(double *a)
     }
     else
     {
-        *a = atof(buf);
+        *coeff = atof(buf);
         return kInputSucces;
     }
 }
