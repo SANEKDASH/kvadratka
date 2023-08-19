@@ -1,0 +1,67 @@
+#include "types.h"
+#include "output.h"
+#include <stdio.h>
+#include "debug.h"
+
+#define DEBUG 1
+
+#ifdef DEBUG
+#define CHECK(expression) CheckIt(expression, __LINE__, __func__)
+#else
+#define CHECK(expression) ;
+#endif
+
+void PrintOutput(Coeffs *coefficients,
+                 double discriminant,
+                 Solutions *solutions,
+                 RootsCount solutions_count)
+{
+    
+    
+    printf("____________________________________\n");
+    printf("\nA = %0.2lf | B = %0.2lf | C = %0.2lf\n", coefficients->a,
+                                                       coefficients->b,
+                                                       coefficients->c);
+
+    printf("\tD = %.2lf\n", discriminant);
+    printf("____________________________________\n");
+
+    switch (solutions_count)
+    {
+        case kZeroRoots:
+        {
+            printf("there are no any solutions\n");
+            break;
+        }
+
+        case kOneRoot:
+        {
+            printf("there is one solution:\n");
+            printf("\tx = %.2lf\n", solutions->x1);
+            break;
+        }
+
+        case kTwoRoots:
+        {
+            printf("there are two roots:\n");
+            printf("\tx1 = %.2lf\n\tx2 = %.2lf\n", solutions->x1, solutions->x2);
+            break;
+        }
+
+        case kInfRoots:
+        {
+            printf("there are a lot of roots :)\n");
+            break;
+        }
+
+        default:
+        {
+            printf("what the fuck!?\n");
+            break;
+        }
+    }
+
+    printf("____________________________________\n");
+}
+
+

@@ -4,7 +4,7 @@
 #include <stdarg.h>
 #include <ctype.h>
 
-int kMaxBuf = 256;
+
 
 typedef enum
 {
@@ -39,17 +39,36 @@ typedef enum
     kReadingSucces,
 } ReadingResults;
 
+double CalculateDiscriminant(Coeffs *ptr_coefficients);
 
+RootsCount SolveQuadCase(Coeffs *ptr_coefficients,
+                         double discriminant,
+                         Solutions *ptr_solutions);
+
+RootsCount SolveLinearCase(Coeffs *ptr_coefficients,
+                           Solutions *ptr_solutions);
+
+RootsCount SolveEquation(Coeffs *ptr_coefficients,
+                         double discriminant,
+                         Solutions *ptr_solutions)
+                         
+void PrintOutput(Coeffs *coefficients,
+                 double discriminant,
+                 Solutions *solutions,
+                 RootsCount solutions_count);
+
+void PrintInputErrorMessage();
+                         
 double CalculateDiscriminant(Coeffs *ptr_coefficients)
 {
     return ptr_coefficients->b*ptr_coefficients->b - 4 * ptr_coefficients->a * ptr_coefficients->c;
 }
 
 RootsCount SolveQuadCase(Coeffs *ptr_coefficients,
-                         double *ptr_discriminant,
+                         double discriminant,
                          Solutions *ptr_solutions)
 {
-    double D = sqrt(*ptr_discriminant);
+    double D = sqrt(discriminant);
 
     ptr_solutions->x1 = (-ptr_coefficients->b + D) / (2 * ptr_coefficients->a);
     ptr_solutions->x2 = (-ptr_coefficients->b - D) / (2 * ptr_coefficients->a);
@@ -72,17 +91,17 @@ RootsCount SolveLinearCase(Coeffs *ptr_coefficients,
     return kOneRoot;
 }
 
-RootsCount SolveEquasion(Coeffs *ptr_coefficients,
-                         double *ptr_discriminant,
+RootsCount SolveEquation(Coeffs *ptr_coefficients,
+                         double discriminant,
                          Solutions *ptr_solutions)
 {
-    if (*ptr_discriminant < 0)
+    if (discriminant < 0)
     {
         return kZeroRoots;
     }
     else if (ptr_coefficients->a < 0 || ptr_coefficients->a > 0)
     {
-        return SolveQuadCase(ptr_coefficients, ptr_discriminant, ptr_solutions);
+        return SolveQuadCase(ptr_coefficients, discriminant, ptr_solutions);
     }
     else
     {
@@ -105,18 +124,18 @@ RootsCount SolveEquasion(Coeffs *ptr_coefficients,
 }
 
 void PrintOutput(Coeffs *coefficients,
-                 double *discriminant,
+                 double discriminant,
                  Solutions *solutions,
-                 RootsCount *solutions_count)
+                 RootsCount solutions_count)
 {
     printf("____________________________________\n");
     printf("\nA = %0.2lf | B = %0.2lf | C = %0.2lf\n", coefficients->a,
                                                        coefficients->b,
                                                        coefficients->c);
-    printf("\tD = %.2lf\n", *discriminant);
+    printf("\tD = %.2lf\n", discriminant);
     printf("____________________________________\n");
 
-    switch (*solutions_count)
+    switch (solutions_count)
     {
         case kZeroRoots:
         {
@@ -234,9 +253,11 @@ ReadingResults CheckBuf(char buf[])
     }
 }
 
+const int kMaxBuf = 256;
+
 InputResults GetOneCoeff(double *coeff)
 {
-    static char buf[256];
+    char buf[kMaxBuf];
     int i = 0;
     char c;
 
@@ -255,7 +276,10 @@ InputResults GetOneCoeff(double *coeff)
         }
     }
 
-    buf[i] = '\0';
+    if (i > 0)
+    {
+        buf[i] = '\0';
+    }
 
     if (CheckBuf(buf) != kReadingSucces)
     {
@@ -270,8 +294,6 @@ InputResults GetOneCoeff(double *coeff)
 
 InputResults ReadCoeffs(Coeffs *ptr_coefficients)
 {
-    char buf[100];
-
     printf("enter A value: ");
     while (GetOneCoeff(&ptr_coefficients->a) != kInputSucces)
     {
@@ -296,7 +318,8 @@ InputResults ReadCoeffs(Coeffs *ptr_coefficients)
     return kInputSucces;
 }
 
-void CheckPointer(void *pointer, int line)
+void CheckPointer(void *pointer,
+                  int line)
 {
     if (pointer == NULL)
     {
