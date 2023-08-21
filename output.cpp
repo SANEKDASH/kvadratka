@@ -1,7 +1,7 @@
 #include "types.h"
 #include "output.h"
-#include <stdio.h>
 #include "debug.h"
+#include <stdio.h>
 
 #define DEBUG 1
 

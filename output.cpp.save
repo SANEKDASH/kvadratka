@@ -1,27 +1,28 @@
 #include "types.h"
 #include "output.h"
-#include <stdio.h>
 #include "debug.h"
+#include <stdio.h>
 
 #define DEBUG 1
 
 #ifdef DEBUG
-#define CHECK(expression) CheckIt(expression, __LINE__, __func__)
+#define CHECK(expression) CheckIt(expression, __LINE__, __func__, __FILE__)
 #else
 #define CHECK(expression) ;
 #endif
 
-void PrintOutput(Coeffs *coefficients,
+void PrintOutput(Coeffs *ptr_coefficients,
                  double discriminant,
-                 Solutions *solutions,
+                 Solutions *ptr_solutions,
                  RootsCount solutions_count)
 {
-    
-    
+    CHECK(ptr_coefficients);
+    CHECK(ptr_solutions);
+
     printf("____________________________________\n");
-    printf("\nA = %0.2lf | B = %0.2lf | C = %0.2lf\n", coefficients->a,
-                                                       coefficients->b,
-                                                       coefficients->c);
+    printf("\nA = %0.2lf | B = %0.2lf | C = %0.2lf\n", ptr_coefficients->a,
+                                                       ptr_coefficients->b,
+                                                       ptr_coefficients->c);
 
     printf("\tD = %.2lf\n", discriminant);
     printf("____________________________________\n");
@@ -37,14 +38,14 @@ void PrintOutput(Coeffs *coefficients,
         case kOneRoot:
         {
             printf("there is one solution:\n");
-            printf("\tx = %.2lf\n", solutions->x1);
+            printf("\tx = %.2lf\n", ptr_solutions->x1);
             break;
         }
 
         case kTwoRoots:
         {
             printf("there are two roots:\n");
-            printf("\tx1 = %.2lf\n\tx2 = %.2lf\n", solutions->x1, solutions->x2);
+            printf("\tx1 = %.2lf\n\tx2 = %.2lf\n", ptr_solutions->x1, ptr_solutions->x2);
             break;
         }
 

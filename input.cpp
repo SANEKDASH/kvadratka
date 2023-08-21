@@ -24,54 +24,11 @@ void PrintInputErrorMessage()
 
 ReadingResults CheckBuf(char buf[])
 {
-    int i = 0;
+    char *number_end;
 
-    while (buf[i] == ' ' || buf[i] == '\t')
-    {
-        ++i;
-    }
+    strtod(buf, &number_end);
 
-    if (buf[i] != '+' && buf[i] != '-' && !isdigit(buf[i]))
-    {
-        return kReadingError;
-    }
-
-    while (isdigit(buf[i]))
-    {
-        ++i;
-    }
-
-    if (buf[i] == '.')
-    {
-        ++i;
-
-        while (isdigit(buf[i]))
-        {
-            ++i;
-        }
-    }
-
-    if (buf[i] == 'e' || buf[i] == 'E' )
-    {
-        ++i;
-
-        if (buf[i] == '+' || buf[i] == '-' || isdigit(buf[i]))
-        {
-            ++i;
-
-            while (isdigit(buf[i]))
-            {
-                ++i;
-            }
-        }
-    }
-
-    while (buf[i] == ' ' || buf[i] == '\t')
-    {
-        ++i;
-    }
-
-    if (buf[i] == '\0')
+    if(*number_end == '\0')
     {
         return kReadingSucces;
     }
@@ -97,8 +54,8 @@ InputResults GetOneCoeff(double *coeff)
     {
         if (i > kMaxBuf - 1)
         {
-            printf("Buffer overflow\n");
-            return kInputError;
+            printf("buffer overflow\n");
+            abort();
         }
         else if (c != EOF)
         {
@@ -106,7 +63,7 @@ InputResults GetOneCoeff(double *coeff)
         }
         else
         {
-            printf("Reached EOF\n");
+            printf("Reached EOF\n");  //sho?
             abort();
         }
     }

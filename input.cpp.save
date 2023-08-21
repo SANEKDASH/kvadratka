@@ -3,12 +3,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <debug.h>
+#include "debug.h"
 
 #define DEBUG 1
 
 #ifdef DEBUG
-#define CHECK(expression) CheckIt(expression, __LINE__, __func__)
+#define CHECK(expression) CheckIt(expression, __LINE__, __func__, __FILE__)
 #else
 #define CHECK(expression) ;
 #endif
@@ -24,54 +24,11 @@ void PrintInputErrorMessage()
 
 ReadingResults CheckBuf(char buf[])
 {
-    int i = 0;
+    char *number_end;
+    
+    strtod(buf, &number_end);
 
-    while (buf[i] == ' ' || buf[i] == '\t')
-    {
-        ++i;
-    }
-
-    if (buf[i] != '+' && buf[i] != '-' && !isdigit(buf[i]))
-    {
-        return kReadingError;
-    }
-
-    while (isdigit(buf[i]))
-    {
-        ++i;
-    }
-
-    if (buf[i] == '.')
-    {
-        ++i;
-
-        while (isdigit(buf[i]))
-        {
-            ++i;
-        }
-    }
-
-    if (buf[i] == 'e' || buf[i] == 'E' )
-    {
-        ++i;
-
-        if (buf[i] == '+' || buf[i] == '-' || isdigit(buf[i]))
-        {
-            ++i;
-
-            while (isdigit(buf[i]))
-            {
-                ++i;
-            }
-        }
-    }
-
-    while (buf[i] == ' ' || buf[i] == '\t')
-    {
-        ++i;
-    }
-
-    if (buf[i] == '\0')
+    if(*number_end == '\0')
     {
         return kReadingSucces;
     }
@@ -86,7 +43,7 @@ const int kMaxBuf = 256;
 InputResults GetOneCoeff(double *coeff)
 {
     CHECK(coeff);
-    
+
     char buf[kMaxBuf];
     int i = 0;
     char c;
@@ -97,8 +54,8 @@ InputResults GetOneCoeff(double *coeff)
     {
         if (i > kMaxBuf - 1)
         {
-            printf("Buffer overflow\n");
-            return kInputError;
+            printf("buffer overflow\n");
+            abort();
         }
         else if (c != EOF)
         {
@@ -106,7 +63,7 @@ InputResults GetOneCoeff(double *coeff)
         }
         else
         {
-            printf("Reached EOF\n");
+            printf("Reached EOF\n");  //sho?
             abort();
         }
     }
@@ -116,7 +73,7 @@ InputResults GetOneCoeff(double *coeff)
         buf[i] = '\0';
     }
 
-    #if (CheckBuf(buf) != kReadingSucces)
+    if (CheckBuf(buf) != kReadingSucces)
     {
         return kInputError;
     }
@@ -129,6 +86,8 @@ InputResults GetOneCoeff(double *coeff)
 
 InputResults ReadCoeffs(Coeffs *ptr_coefficients)
 {
+    CHECK(ptr_coefficients);
+
     printf("enter A value: ");
     while (GetOneCoeff(&ptr_coefficients->a) != kInputSucces)
     {

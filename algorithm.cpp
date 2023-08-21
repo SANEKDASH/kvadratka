@@ -29,7 +29,7 @@ RootsCount SolveQuadCase(Coeffs *ptr_coefficients,
     ptr_solutions->x1 = (-ptr_coefficients->b + D) / (2 * ptr_coefficients->a);
     ptr_solutions->x2 = (-ptr_coefficients->b - D) / (2 * ptr_coefficients->a);
 
-    if (ptr_solutions->x1 == ptr_solutions->x2)
+    if (AreEqual(ptr_solutions->x1, ptr_solutions->x2) == 0)
     {
         return kOneRoot;
     }
@@ -61,19 +61,19 @@ RootsCount SolveEquation(Coeffs *ptr_coefficients,
     {
         return kZeroRoots;
     }
-    else if (ptr_coefficients->a < 0 || ptr_coefficients->a > 0)
+    else if (AreEqual(ptr_coefficients->a, 0) != 0)
     {
         return SolveQuadCase(ptr_coefficients, discriminant, ptr_solutions);
     }
     else
     {
-        if (ptr_coefficients->b < 0 || ptr_coefficients->b > 0)
+        if (AreEqual(ptr_coefficients->b, 0) != 0)
         {
             return SolveLinearCase(ptr_coefficients, ptr_solutions);
         }
         else
         {
-            if (ptr_coefficients->c < 0 || ptr_coefficients->c > 0)
+            if (AreEqual(ptr_coefficients->c, 0) != 0)
             {
                 return kZeroRoots;
             }
@@ -83,4 +83,14 @@ RootsCount SolveEquation(Coeffs *ptr_coefficients,
             }
         }
     }
+}
+
+int AreEqual(double number_1, double number_2)
+{
+    if (number_1 > number_2)
+        return 1;
+    else if (number_1 < number_2)
+        return -1;
+    else
+        return 0;
 }
