@@ -8,7 +8,6 @@ RootsCount SolveLinearCase(Coeffs *ptr_coefficients,
                            Solutions *ptr_solutions);
 
 RootsCount SolveEquation(Coeffs *ptr_coefficients,
-                         double discriminant,
                          Solutions *ptr_solutions);
-                        
+
 int AreEqual(double number_1, double number_2);

@@ -23,11 +23,7 @@ typedef enum
 {
     kInputError,
     kInputSucces,
+    kBufferOverflowError,
+    kEofError,
 } InputResults;
 
-typedef enum
-{
-    kReadingError,
-    kReadingSucces,
-    kBufferOverflowError,
-} ReadingResults;

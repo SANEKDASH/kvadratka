@@ -6,18 +6,16 @@
 
 int main()
 {
+    PrintWelcome();
+
     Coeffs coefficients = {0};
     ReadCoeffs(&coefficients);
 
-    double discriminant = CalculateDiscriminant(&coefficients);
-
     Solutions solutions = {0};
     RootsCount solutions_count = SolveEquation(&coefficients,
-                                               discriminant,
                                                &solutions);
 
     PrintOutput(&coefficients,
-                discriminant,
                 &solutions,
                 solutions_count);
 

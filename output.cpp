@@ -1,6 +1,7 @@
 #include "types.h"
 #include "output.h"
 #include "debug.h"
+#include "algorithm.h"
 #include <stdio.h>
 
 #define DEBUG 1
@@ -11,8 +12,13 @@
 #define CHECK(expression) ;
 #endif
 
+void PrintWelcome()
+{
+    printf("#Hello! This program solves quadratic equations.\n"
+           "#Put some coefficients below.\n");
+}
+
 void PrintOutput(Coeffs *ptr_coefficients,
-                 double discriminant,
                  Solutions *ptr_solutions,
                  RootsCount solutions_count)
 {
@@ -23,6 +29,8 @@ void PrintOutput(Coeffs *ptr_coefficients,
     printf("\nA = %0.2lf | B = %0.2lf | C = %0.2lf\n", ptr_coefficients->a,
                                                        ptr_coefficients->b,
                                                        ptr_coefficients->c);
+
+    double discriminant = CalculateDiscriminant(ptr_coefficients);
 
     printf("\tD = %.2lf\n", discriminant);
     printf("____________________________________\n");

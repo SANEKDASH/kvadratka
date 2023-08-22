@@ -14,7 +14,8 @@
 double CalculateDiscriminant(Coeffs *ptr_coefficients)
 {
     CHECK(ptr_coefficients);
-    return ptr_coefficients->b*ptr_coefficients->b - 4 * ptr_coefficients->a * ptr_coefficients->c;
+
+    return ptr_coefficients->b * ptr_coefficients->b - 4 * ptr_coefficients->a * ptr_coefficients->c;
 }
 
 RootsCount SolveQuadCase(Coeffs *ptr_coefficients,
@@ -50,12 +51,15 @@ RootsCount SolveLinearCase(Coeffs *ptr_coefficients,
     return kOneRoot;
 }
 
+
+
 RootsCount SolveEquation(Coeffs *ptr_coefficients,
-                         double discriminant,
                          Solutions *ptr_solutions)
 {
     CHECK(ptr_coefficients);
     CHECK(ptr_solutions);
+
+    double discriminant = CalculateDiscriminant(ptr_coefficients);
 
     if (discriminant < 0)
     {
@@ -88,9 +92,15 @@ RootsCount SolveEquation(Coeffs *ptr_coefficients,
 int AreEqual(double number_1, double number_2)
 {
     if (number_1 > number_2)
+    {
         return 1;
+    }
     else if (number_1 < number_2)
+    {
         return -1;
+    }
     else
+    {
         return 0;
+    }
 }
