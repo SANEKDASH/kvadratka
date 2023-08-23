@@ -1,6 +1,6 @@
 #include "types.h"
 #include "algorithm.h"
-#include "math.h"
+#include <math.h>
 #include "debug.h"
 
 #define DEBUG 1
@@ -14,6 +14,7 @@
 double CalculateDiscriminant(Coeffs *ptr_coefficients)
 {
     CHECK(ptr_coefficients);
+
     return ptr_coefficients->b * ptr_coefficients->b - 4 * ptr_coefficients->a * ptr_coefficients->c;
 }
 
@@ -39,7 +40,7 @@ RootsCount SolveQuadCase(Coeffs *ptr_coefficients,
     }
 }
 
-RootsCount SolveLinearCase(Coeffs *ptr_coefficients,
+RootsCount SolveLinearCase(const Coeffs *ptr_coefficients,
                            Solutions *ptr_solutions)
 {
     CHECK(ptr_coefficients);
@@ -57,7 +58,7 @@ RootsCount SolveEquation(Coeffs *ptr_coefficients,
 {
     CHECK(ptr_coefficients);
     CHECK(ptr_solutions);
-    
+
     double discriminant = CalculateDiscriminant(ptr_coefficients);
 
     if (discriminant < 0)

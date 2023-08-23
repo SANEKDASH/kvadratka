@@ -1,8 +1,9 @@
 void PrintInputErrorMessage();
 
-InputResults GetOneCoeff(double *coeff);
+InputResults GetInput(double *ptr_coefficient);
 
 void ReadCoeffs(Coeffs *ptr_coefficients);
 
-void CallReadingInterface(double *ptr_coefficient, const char *);
+void CallReadingInterface(double *ptr_coefficient, const char *coeff_name);
 
+InputResults ConvertBuf(char* buf, double *ptr_coefficient);

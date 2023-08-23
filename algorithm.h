@@ -1,13 +1,18 @@
-double CalculateDiscriminant(Coeffs *ptr_coefficients);
+#ifndef algorithm
+#define algorithm
 
-RootsCount SolveQuadCase(Coeffs *ptr_coefficients,
+double CalculateDiscriminant(const Coeffs *ptr_coefficients);
+
+RootsCount SolveQuadCase(const Coeffs *ptr_coefficients,
                          double discriminant,
                          Solutions *ptr_solutions);
 
-RootsCount SolveLinearCase(Coeffs *ptr_coefficients,
+RootsCount SolveLinearCase(const Coeffs *ptr_coefficients,
                            Solutions *ptr_solutions);
 
-RootsCount SolveEquation(Coeffs *ptr_coefficients,
+RootsCount SolveEquation(const Coeffs *ptr_coefficients,
                          Solutions *ptr_solutions);
 
 int AreEqual(double number_1, double number_2);
+
+#endif

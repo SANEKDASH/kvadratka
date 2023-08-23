@@ -1,11 +1,12 @@
+#include <string.h>
+#include "types.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "types.h"
 #include "input.h"
 #include "debug.h"
-
-#define DEBUG 1
+#include "algorithm.h"
+#include "output.h"
 
 #ifdef DEBUG
 #define CHECK(expression) CheckIt(expression, __LINE__, __func__, __FILE__)
@@ -13,28 +14,109 @@
 #define CHECK(expression) ;
 #endif
 
+void CallReadingInterface(Coeffs *ptr_coefficients, Solutions *ptr_solutions)
+{
+
+    CHECK(ptr_coefficients);
+
+    InputResults status = kInputSucces;
+
+    printf("#/ Write the command or type 'help' to invoke list of commands.\n"
+           "#/ ");
+
+    while ((status = GetInput(stdin, ptr_coefficients)) != kQuit && status != kEofError)
+    {
+        switch (status)
+        {
+            case kHelp:
+            {
+                PrintHelpList();
+                break;
+            }
+            case kInputError:
+            {
+                printf("#/ Hey, buddy, try to write a command one more time! Or write 'help'.\n"
+                       "#/ ");
+                break;
+            }
+            case kBufferOverflowError:
+            {
+                printf("#/ Hey, buddy, program spotted buffer overflow.\n"
+                       "#/ ");
+                break;
+            }
+            case kEofError:
+            {
+                printf("#/ Hey, buddy, we reached so called EOF.\n");
+                break;
+            }
+            case kInputSucces:
+            {
+
+                RootsCount roots_count = SolveEquation(ptr_coefficients,
+                                                       ptr_solutions);
+
+                PrintOutput(ptr_coefficients,
+                            ptr_solutions,
+                            roots_count);
+
+                break;
+            }
+            case kMeow:
+            {
+                PrintKitty();
+                break;
+            }
+            case kTest:
+            {
+
+                break;
+            }
+            case kZeroStr:
+            {
+                printf("#/ ");
+                break;
+            }
+            default:
+            {
+                CHECK(0);
+                printf("#/ What the fuck!?\n");
+                printf("#/ Write the command or type 'help' to invoke list of commands.\n");
+                break;
+            }
+        }
+    }
+
+    printf("#/ Have a good evening.");
+}
+
 const int kMaxBuf = 257;
 
-InputResults GetOneCoeff(double *coeff)
+InputResults GetInput(FILE *ptr_file, Coeffs *ptr_coefficients)
 {
-    CHECK(coeff);
+    CHECK(ptr_coefficients);
 
-    static char buf[kMaxBuf];
+    static char buf[kMaxBuf] = {0};
     buf[0] = '\0';
 
     int i = 0;
 
-    char c = 0;
+    int c = 0;
 
     bool BufferOverflowStatus = false;
 
-    while ((c = getchar()) != '\n')
+    if (ferror(ptr_file))
+    {
+        return kFileError;
+    }
+
+    while ((c = getc(ptr_file)) != '\n')
     {
         if (i < kMaxBuf - 1)
         {
             if (c != EOF)
             {
-                buf[i++] = c;
+                buf[i++] = (char) c;
             }
             else
             {
@@ -57,9 +139,54 @@ InputResults GetOneCoeff(double *coeff)
         buf[i] = '\0';
     }
 
-    char *number_end;
+    return ConvertBuf(buf, ptr_coefficients);
+}
 
-    double num_copy = strtod(buf, &number_end);
+InputResults ConvertBuf(char *buf, Coeffs *ptr_coefficients)
+{
+    if (buf[0] == '\0')
+    {
+        return kZeroStr;
+    }
+    else if (strcmp(buf, "help") == 0)
+    {
+        return kHelp;
+    }
+    else if (strcmp(buf, "quit") == 0)
+    {
+        return kQuit;
+    }
+    else if (strcmp(buf, "meow") == 0)
+    {
+        return kMeow;
+    }
+    else if (strcmp(buf, "test") == 0)
+    {
+        return kTest;
+    }
+    else
+    {
+        return ConvertBufToCoeffs(buf, ptr_coefficients);
+    }
+}
+
+InputResults ConvertBufToCoeffs(char *buf, Coeffs *ptr_coefficients)
+{
+    char *number_end = nullptr;
+
+    ptr_coefficients->a = strtod(buf, &number_end);
+
+    if (buf != number_end)
+    {
+        buf = number_end;
+        ptr_coefficients->b = strtod(buf, &number_end);
+    }
+
+    if (buf != number_end)
+    {
+        buf = number_end;
+        ptr_coefficients->c = strtod(buf, &number_end);
+    }
 
     while (isspace(*number_end))
     {
@@ -68,8 +195,6 @@ InputResults GetOneCoeff(double *coeff)
 
     if (*number_end == '\0' && buf[0] != '\0')
     {
-        *coeff = num_copy;
-
         return kInputSucces;
     }
     else
@@ -78,55 +203,5 @@ InputResults GetOneCoeff(double *coeff)
     }
 }
 
-void ReadCoeffs(Coeffs *ptr_coefficients)
-{
-    CHECK(ptr_coefficients);
 
-    CallReadingInterface(&ptr_coefficients->a, "A");
-
-    CallReadingInterface(&ptr_coefficients->b, "B");
-
-    CallReadingInterface(&ptr_coefficients->c, "C");
-}
-
-void CallReadingInterface(double *ptr_coefficient, const char *coeff_name)
-{
-
-    CHECK(ptr_coefficient);
-
-    InputResults status = kInputSucces;
-
-    printf("#/ Enter %s value: ", coeff_name);
-
-    while ((status = GetOneCoeff(ptr_coefficient)) != kInputSucces)
-    {
-        switch (status)
-        {
-            case kInputError:
-            {
-                printf("#/ Hey, buddy, try to write coefficient one more time!\n");
-                printf("#/ Enter %s value: ", coeff_name);
-                break;
-            }
-            case kBufferOverflowError:
-            {
-                printf("#/ Hey, buddy, program spotted buffer overflow.\n");
-                printf("#/ Enter %s value: ", coeff_name);
-                break;
-            }
-            case kEofError:
-            {
-                printf("#/ Hey, buddy, we reached so called EOF.\n");
-                printf("#/ Enter %s value: ", coeff_name);
-                break;
-            }
-            default:
-            {
-                printf("#/ What the fuck!?\n");
-                printf("#/ Enter %s value: ", coeff_name);
-                break;
-            }
-        }
-    }
-}
 

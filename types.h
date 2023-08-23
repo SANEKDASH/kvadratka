@@ -25,5 +25,11 @@ typedef enum
     kInputSucces,
     kBufferOverflowError,
     kEofError,
+    kFileError,
+    kHelp,
+    kQuit,
+    kMeow,
+    kTest,
+    kZeroStr,
 } InputResults;
 

@@ -14,8 +14,16 @@
 
 void PrintWelcome()
 {
-    printf("#/ Hello! This program solves quadratic equations.\n"
-           "#/ Put some coefficients below.\n");
+    printf("#/ Hello! This program does many things.\n");
+}
+
+void PrintHelpList()
+{
+    printf("#/ 'coeff_a' 'coeff_b' 'coeff_c' - to solve quadratic equation with this coefficients\n"
+           "#/ 'meow' - to print a kitty\n"
+           "#/ 'quit' - to shutdown the program\n"
+           "#/ 'test' - to start testing algorithm, using information from file test.txt in directory\n"
+           "#/ ");
 }
 
 void PrintOutput(Coeffs *ptr_coefficients,
@@ -70,7 +78,15 @@ void PrintOutput(Coeffs *ptr_coefficients,
         }
     }
 
-    printf("____________________________________\n");
+    printf("____________________________________\n"
+           "#/ ");
+}
+
+void PrintKitty()
+{
+    printf("  /\\_/\\  \n"
+           " ( o.o ) \n"
+           "  > ^ <  \n");
 }
 
 

@@ -1,21 +1,29 @@
+#include <stdio.h>
+#include <string.h>
 #include "types.h"
 #include "input.h"
 #include "algorithm.h"
 #include "output.h"
 #include "debug.h"
+#include "test.h"
 
-int main()
+
+int main(int argc, const char *argv[])
 {
-    Coeffs coefficients = {0};
-    ReadCoeffs(&coefficients);
+    PrintWelcome();
 
+    Coeffs coefficients = {0};
     Solutions solutions = {0};
-    RootsCount solutions_count = SolveEquation(&coefficients,
-                                               &solutions);
+
+    CallReadingInterface(&coefficients, 
+                         &solutions);
+
+    RootsCount roots_count = SolveEquation(&coefficients,
+                                           &solutions);
 
     PrintOutput(&coefficients,
                 &solutions,
-                solutions_count);
+                roots_count);
 
     return 0;
 }

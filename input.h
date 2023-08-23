@@ -1,8 +1,14 @@
+#ifndef input
+#define input
+
 void PrintInputErrorMessage();
 
-InputResults GetOneCoeff(double *coeff);
+InputResults GetInput(FILE *ptr_file, Coeffs *ptr_coefficients);
 
-void ReadCoeffs(Coeffs *ptr_coefficients);
+void CallReadingInterface(Coeffs *ptr_coefficients, Solutions *solutions);
 
-void CallReadingInterface(double *ptr_coefficient, const char *coeff_name);
+InputResults ConvertBuf(char *buf, Coeffs *ptr_coefficients);
 
+InputResults ConvertBufToCoeffs(char *buf, Coeffs *ptr_coefficients);
+
+#endif
