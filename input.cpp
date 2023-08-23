@@ -13,16 +13,7 @@
 #define CHECK(expression) ;
 #endif
 
-void PrintInputErrorMessage()
-{
-    printf("________________________________________________________________\n"
-           "Have troubles with entering a number?"
-           "\nCall your mom  or shut down your computer, maybe it will help."
-           "\nAfter doing that you will have a chance to do it once more.\n"
-           "________________________________________________________________\n");
-}
-
-const int kMaxBuf = 5;
+const int kMaxBuf = 257;
 
 InputResults GetOneCoeff(double *coeff)
 {
@@ -105,7 +96,7 @@ void CallReadingInterface(double *ptr_coefficient, const char *coeff_name)
 
     InputResults status = kInputSucces;
 
-    printf("#Enter %s value: ", coeff_name);
+    printf("#/ Enter %s value: ", coeff_name);
 
     while ((status = GetOneCoeff(ptr_coefficient)) != kInputSucces)
     {
@@ -113,26 +104,26 @@ void CallReadingInterface(double *ptr_coefficient, const char *coeff_name)
         {
             case kInputError:
             {
-                printf("#Hey, buddy, try to write coefficient one more time!\n");
-                printf("#Enter %s value: ", coeff_name);
+                printf("#/ Hey, buddy, try to write coefficient one more time!\n");
+                printf("#/ Enter %s value: ", coeff_name);
                 break;
             }
             case kBufferOverflowError:
             {
-                printf("#Hey, buddy, program spotted buffer overflow.\n");
-                printf("#Enter %s value: ", coeff_name);
+                printf("#/ Hey, buddy, program spotted buffer overflow.\n");
+                printf("#/ Enter %s value: ", coeff_name);
                 break;
             }
             case kEofError:
             {
-                printf("#Hey, buddy, we reached so called EOF.\n");
-                printf("#Enter %s value: ", coeff_name);
+                printf("#/ Hey, buddy, we reached so called EOF.\n");
+                printf("#/ Enter %s value: ", coeff_name);
                 break;
             }
             default:
             {
-                printf("#What the fuck!?\n");
-                printf("#Enter %s value: ", coeff_name);
+                printf("#/ What the fuck!?\n");
+                printf("#/ Enter %s value: ", coeff_name);
                 break;
             }
         }

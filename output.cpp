@@ -14,8 +14,8 @@
 
 void PrintWelcome()
 {
-    printf("#Hello! This program solves quadratic equations.\n"
-           "#Put some coefficients below.\n");
+    printf("#/ Hello! This program solves quadratic equations.\n"
+           "#/ Put some coefficients below.\n");
 }
 
 void PrintOutput(Coeffs *ptr_coefficients,

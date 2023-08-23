@@ -22,7 +22,7 @@ void PrintInputErrorMessage()
            "________________________________________________________________\n");
 }
 
-const int kMaxBuf = 5;
+const int kMaxBuf = 257;
 
 InputResults GetOneCoeff(double *coeff)
 {
@@ -67,6 +67,7 @@ InputResults GetOneCoeff(double *coeff)
     }
 
     char *number_end;
+
     double num_copy = strtod(buf, &number_end);
 
     while (isspace(*number_end))
@@ -124,8 +125,9 @@ void CallReadingInterface(double *ptr_coefficient, const char *coeff_name)
             }
             case kEofError:
             {
-                printf("#Hey, buddy, we reached so called EOF.");
-                printf("#Enter %s value: ", coe);
+                printf("#Hey, buddy, we reached so called EOF.\n");
+                printf("#Enter %s value: ", coeff_name);
+                break;
             }
             default:
             {

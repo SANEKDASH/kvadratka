@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int DebugPrintf(const char *fmt, ...)
+int DebugPrintf(const char *fmt, ...) //gavno
 {
     va_list arg_list;
     va_start(arg_list, fmt);
@@ -49,7 +49,7 @@ void CheckIt(bool expr,
                "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@G5PP5GGGP5PPPP5PYJB&@@@@@@@@@@@"
                "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#BBG#&#GGBGGGGPGB&@@@@@@@@@@@@@");
 
-        printf("\n//Checker spoted a problem in file: %s, function: %s, line: %d", file_name, func_name, line);
-        abort(); /////segfault
+        printf("\n#/ Checker spoted a problem in file: %s, function: %s, line: %d", file_name, func_name, line);
+        abort();
     }
 }
