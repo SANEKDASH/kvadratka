@@ -3,21 +3,61 @@
 #include <ctype.h>
 #include "types.h"
 #include "algorithm.h"
+#include "test.h"
+#include "debug.h"
+
+#ifdef DEBUG
+#define CHECK(expression) CheckIt(expression, __LINE__, __func__, __FILE__)
+#else
+#define CHECK(expression) ;
+#endif
 
 void Test()
 {
-    Coeffs coefficients;
-    
-    
-    
+    Coeffs coefficients = {0};
+    Solutions real_solutions = {0};
+
     FILE *ptr_file = fopen("test.txt", "r");
-    
-    for (int i = 0; GetInput(ptr_file))
+    InputResults result;
+    int i = 1;
+    for (i; (result = GetInput_test(ptr_file,
+                                    &coefficients,
+                                    &real_solutions)) != kEofError;)
+    {
+        switch (result)
+        {
+            case kInputSucces:
+            {
+                printf("#/ Test %d: ", i++);
+
+                TestAlgorithm(&coefficients,
+                              &real_solutions);
+                break;
+            }
+
+            case kInputError:
+            {
+                printf("#/ Please, check spelling of coefficients and roots in test: %d.\n", i);
+                break;
+            }
+
+            default:
+            {
+                printf("#/ I don't know.\n");
+                break;
+            }
+        }
+
+    }
+
+    if("#/ There is nothing to test in 'test.txt.\n'")
+
+    fclose(ptr_file);
+    printf("#/ ");
 }
 
 int TestAlgorithm(Coeffs *ptr_coefficients,
-                  Solutions *ptr_real_solutions,
-                  RootsCount real_roots_count)
+                  Solutions *ptr_real_solutions)
 {
     Solutions solutions = {0};
 
@@ -32,11 +72,10 @@ int TestAlgorithm(Coeffs *ptr_coefficients,
     }
 
     if (AreEqual(solutions.x1, ptr_real_solutions->x1) != 0 ||
-        AreEqual(solutions.x2, ptr_real_solutions->x2) != 0 ||
-        roots_count != real_roots_count)
+        AreEqual(solutions.x2, ptr_real_solutions->x2) != 0)
     {
-        printf("#/ Test failed: x1 = %lf, x2 = %lf.\n"
-               "#/ Expected: x1 = %lf, x2 = %lf", solutions.x1,
+        printf("Test failed: x1 = %lf, x2 = %lf.\n"
+               "Expected: x1 = %lf, x2 = %lf", solutions.x1,
                                                   solutions.x2,
                                                   ptr_real_solutions->x1,
                                                   ptr_real_solutions->x2);
@@ -44,14 +83,19 @@ int TestAlgorithm(Coeffs *ptr_coefficients,
     }
     else
     {
-        printf("#/ Test succeed!\n");
+        printf("Test succeed!\n");
         return 1;
     }
 }
 
-InputResults GetInput(FILE *ptr_file, Coeffs *ptr_coefficients)
+const int kMaxBuf = 257;
+
+InputResults GetInput_test(FILE *ptr_file,
+                           Coeffs *ptr_coefficients,
+                           Solutions *ptr_solutions)
 {
     CHECK(ptr_coefficients);
+    CHECK(ptr_solutions);
 
     static char buf[kMaxBuf] = {0};
     buf[0] = '\0';
@@ -96,13 +140,18 @@ InputResults GetInput(FILE *ptr_file, Coeffs *ptr_coefficients)
         buf[i] = '\0';
     }
 
-    return GetCo(buf, ptr_coefficients, ptr_solutions);
+    return GetCoeffsAndSolutions(buf, ptr_coefficients, ptr_solutions);
 }
 
-InputResults ConvertBufToCoeffs_test(char *buf,
-                                     Coeffs *ptr_coefficients,
-                                     Solutions *ptr_solutions)
+InputResults GetCoeffsAndSolutions(char *buf,
+                                   Coeffs *ptr_coefficients,
+                                   Solutions *ptr_solutions)
 {
+    if (buf[0] = '\0')
+    {
+    
+    }
+
     char *number_end = nullptr;
 
     ptr_coefficients->a = strtod(buf, &number_end);

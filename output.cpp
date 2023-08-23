@@ -86,7 +86,8 @@ void PrintKitty()
 {
     printf("  /\\_/\\  \n"
            " ( o.o ) \n"
-           "  > ^ <  \n");
+           "  > U <  \n");
+    printf("#/ ");
 }
 
 

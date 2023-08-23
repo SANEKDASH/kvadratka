@@ -11,49 +11,7 @@
 #define CHECK(expression) ;
 #endif
 
-double CalculateDiscriminant(Coeffs *ptr_coefficients)
-{
-    CHECK(ptr_coefficients);
-
-    return ptr_coefficients->b * ptr_coefficients->b - 4 * ptr_coefficients->a * ptr_coefficients->c;
-}
-
-RootsCount SolveQuadCase(Coeffs *ptr_coefficients,
-                         double discriminant,
-                         Solutions *ptr_solutions)
-{
-    CHECK(ptr_coefficients);
-    CHECK(ptr_solutions);
-
-    double D = sqrt(discriminant);
-
-    ptr_solutions->x1 = (-ptr_coefficients->b + D) / (2 * ptr_coefficients->a);
-    ptr_solutions->x2 = (-ptr_coefficients->b - D) / (2 * ptr_coefficients->a);
-
-    if (AreEqual(ptr_solutions->x1, ptr_solutions->x2) == 0)
-    {
-        return kOneRoot;
-    }
-    else
-    {
-        return kTwoRoots;
-    }
-}
-
-RootsCount SolveLinearCase(const Coeffs *ptr_coefficients,
-                           Solutions *ptr_solutions)
-{
-    CHECK(ptr_coefficients);
-    CHECK(ptr_solutions);
-
-    ptr_solutions->x1 = ptr_solutions->x2 = -ptr_coefficients->c / ptr_coefficients->b;
-
-    return kOneRoot;
-}
-
-
-
-RootsCount SolveEquation(Coeffs *ptr_coefficients,
+RootsCount SolveEquation(const Coeffs *ptr_coefficients,
                          Solutions *ptr_solutions)
 {
     CHECK(ptr_coefficients);
@@ -89,15 +47,52 @@ RootsCount SolveEquation(Coeffs *ptr_coefficients,
     }
 }
 
+double CalculateDiscriminant(const Coeffs *ptr_coefficients)
+{
+    CHECK(ptr_coefficients);
+
+    return ptr_coefficients->b * ptr_coefficients->b - 4 * ptr_coefficients->a * ptr_coefficients->c;
+}
+
+RootsCount SolveQuadCase(const Coeffs *ptr_coefficients,
+                         double discriminant,
+                         Solutions *ptr_solutions)
+{
+    CHECK(ptr_coefficients);
+    CHECK(ptr_solutions);
+
+    double D = sqrt(discriminant);
+
+    ptr_solutions->x1 = (-ptr_coefficients->b + D) / (2 * ptr_coefficients->a);
+    ptr_solutions->x2 = (-ptr_coefficients->b - D) / (2 * ptr_coefficients->a);
+
+    if (AreEqual(ptr_solutions->x1, ptr_solutions->x2) == 0)
+    {
+        return kOneRoot;
+    }
+    else
+    {
+        return kTwoRoots;
+    }
+}
+
+RootsCount SolveLinearCase(const Coeffs *ptr_coefficients,
+                           Solutions *ptr_solutions)
+{
+    CHECK(ptr_coefficients);
+    CHECK(ptr_solutions);
+
+    ptr_solutions->x1 = ptr_solutions->x2 = -ptr_coefficients->c / ptr_coefficients->b;
+
+    return kOneRoot;
+}
+
 int AreEqual(double number_1, double number_2)
 {
-    if (number_1 > number_2)
+    static const double kE = 1e-10;
+    if (fabs(number_1 - number_2 > kE)
     {
         return 1;
-    }
-    else if (number_1 < number_2)
-    {
-        return -1;
     }
     else
     {

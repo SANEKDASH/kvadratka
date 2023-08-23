@@ -7,6 +7,7 @@
 #include "debug.h"
 #include "algorithm.h"
 #include "output.h"
+#include "test.h"
 
 #ifdef DEBUG
 #define CHECK(expression) CheckIt(expression, __LINE__, __func__, __FILE__)
@@ -69,7 +70,7 @@ void CallReadingInterface(Coeffs *ptr_coefficients, Solutions *ptr_solutions)
             }
             case kTest:
             {
-
+                Test();
                 break;
             }
             case kZeroStr:
@@ -92,7 +93,8 @@ void CallReadingInterface(Coeffs *ptr_coefficients, Solutions *ptr_solutions)
 
 const int kMaxBuf = 257;
 
-InputResults GetInput(FILE *ptr_file, Coeffs *ptr_coefficients)
+InputResults GetInput(FILE *ptr_file,
+                      Coeffs *ptr_coefficients)
 {
     CHECK(ptr_coefficients);
 
@@ -142,7 +144,8 @@ InputResults GetInput(FILE *ptr_file, Coeffs *ptr_coefficients)
     return ConvertBuf(buf, ptr_coefficients);
 }
 
-InputResults ConvertBuf(char *buf, Coeffs *ptr_coefficients)
+InputResults ConvertBuf(char *buf,
+                        Coeffs *ptr_coefficients)
 {
     if (buf[0] == '\0')
     {
@@ -166,11 +169,13 @@ InputResults ConvertBuf(char *buf, Coeffs *ptr_coefficients)
     }
     else
     {
-        return ConvertBufToCoeffs(buf, ptr_coefficients);
+        return ConvertBufToCoeffs(buf,
+                                  ptr_coefficients);
     }
 }
 
-InputResults ConvertBufToCoeffs(char *buf, Coeffs *ptr_coefficients)
+InputResults ConvertBufToCoeffs(char *buf,
+                                Coeffs *ptr_coefficients)
 {
     char *number_end = nullptr;
 

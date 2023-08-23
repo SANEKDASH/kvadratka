@@ -22,7 +22,7 @@ void PrintHelpList()
     printf("#/ 'coeff_a' 'coeff_b' 'coeff_c' - to solve quadratic equation with this coefficients\n"
            "#/ 'meow' - to print a kitty\n"
            "#/ 'quit' - to shutdown the program\n"
-           "#/ 'test' - to start testing algorithm, using information from file test.txt in directory\n
+           "#/ 'test' - to start testing algorithm, using information from file test.txt in directory\n"
            "#/ ");
 }
 
@@ -79,14 +79,13 @@ void PrintOutput(Coeffs *ptr_coefficients,
     }
 
     printf("____________________________________\n"
-          );
+           "#/ ");
 }
 
 void PrintKitty()
 {
-    printf("  /\\_/\\  \n"
-           " ( o.o ) \n"
-           "  > ^ <  \n");
+    printf(" _._     _,-'""`-._"
+          );
 }
 
 
