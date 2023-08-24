@@ -3,17 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int DebugPrintf(const char *fmt, ...) //gavno
-{
-    va_list arg_list;
-    va_start(arg_list, fmt);
-
-    return vprintf(fmt, arg_list);
-
-    va_end(arg_list);
-
-    return 0;
-}
 
 void CheckIt(bool expr,
              int line,

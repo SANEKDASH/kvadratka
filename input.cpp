@@ -9,15 +9,17 @@
 #include "output.h"
 #include "test.h"
 
+
+
 #ifdef DEBUG
 #define CHECK(expression) CheckIt(expression, __LINE__, __func__, __FILE__)
 #else
 #define CHECK(expression) ;
+
 #endif
 
-void CallReadingInterface(Coeffs *ptr_coefficients, Solutions *ptr_solutions)
+void CallInputInterface(Coeffs *ptr_coefficients, Solutions *ptr_solutions)
 {
-
     CHECK(ptr_coefficients);
 
     InputResults status = kInputSucces;
@@ -68,16 +70,24 @@ void CallReadingInterface(Coeffs *ptr_coefficients, Solutions *ptr_solutions)
                 PrintKitty();
                 break;
             }
+            #ifdef DEBUG
             case kTest:
             {
                 Test();
                 break;
             }
+            #endif
             case kZeroStr:
             {
                 printf("#/ ");
                 break;
             }
+            case kFileError:
+            {
+                printf("#/ Hey, buddy, we got a problem while opening file for tests.\n#/ ");
+            }
+            case kQuit:
+
             default:
             {
                 CHECK(0);
@@ -147,31 +157,15 @@ InputResults GetInput(FILE *ptr_file,
 InputResults ConvertBuf(char *buf,
                         Coeffs *ptr_coefficients)
 {
-    if (buf[0] == '\0')
+    for (int i = 0; i < kCommandArraySize; ++i)
     {
-        return kZeroStr;
+        if (strcmp(buf, command_array[i].command_name) == 0)
+            return command_array[i].result;
     }
-    else if (strcmp(buf, "help") == 0)
-    {
-        return kHelp;
-    }
-    else if (strcmp(buf, "quit") == 0)
-    {
-        return kQuit;
-    }
-    else if (strcmp(buf, "meow") == 0)
-    {
-        return kMeow;
-    }
-    else if (strcmp(buf, "test") == 0)
-    {
-        return kTest;
-    }
-    else
-    {
-        return ConvertBufToCoeffs(buf,
-                                  ptr_coefficients);
-    }
+
+    return ConvertBufToCoeffs(buf,
+                              ptr_coefficients);
+
 }
 
 InputResults ConvertBufToCoeffs(char *buf,

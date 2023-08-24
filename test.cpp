@@ -21,9 +21,7 @@ void Test()
 
     InputResults result = kInputSucces;
 
-    int i = 1;
-
-    for (i; (result = GetInput_test(ptr_file,
+    for (int i = 1; (result = GetInput_test(ptr_file,
                                     &coefficients,
                                     &real_solutions)) != kEofError;)
     {
@@ -49,6 +47,26 @@ void Test()
                 break;
             }
 
+            case kBufferOverflowError:
+            {
+                printf("#/ Spotted buffer overflow in test: %d.\n", i++);
+                break;
+            }
+            case kFileError:
+            {
+                printf("#/ Got problem with opening file.\n");
+                break;
+            }
+            case kMeow:
+
+            case kQuit:
+
+            case kHelp:
+
+            case kTest:
+
+            case kEofError:
+
             default:
             {
                 printf("#/ I don't know.\n");
@@ -69,15 +87,15 @@ int TestAlgorithm(Coeffs *ptr_coefficients,
 {
     Solutions solutions = {0};
 
-    RootsCount roots_count = SolveEquation(ptr_coefficients,
-                                           &solutions);
-
     if (ptr_real_solutions->x1 < ptr_real_solutions->x2)
     {
         double tmp_number = ptr_real_solutions->x1;
         ptr_real_solutions->x1 = ptr_real_solutions->x2;
         ptr_real_solutions->x2 = tmp_number;
     }
+
+    SolveEquation(ptr_coefficients,
+                  &solutions);
 
     if (AreEqual(solutions.x1, ptr_real_solutions->x1) != 0 ||
         AreEqual(solutions.x2, ptr_real_solutions->x2) != 0)

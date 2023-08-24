@@ -1,0 +1,101 @@
+\doxysection{algorithm.\+h File Reference}
+\hypertarget{algorithm_8h}{}\label{algorithm_8h}\index{algorithm.h@{algorithm.h}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{algorithm_8h_ae9b3e898621c5f5e23c866a18a20aa58}{Calculate\+Discriminant}} (const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients)
+\item 
+\mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} \mbox{\hyperlink{algorithm_8h_a07a82d6b2ac6d7e02882fe722f8f2ab7}{Solve\+Quad\+Case}} (const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients, double discriminant, \mbox{\hyperlink{struct_solutions}{Solutions}} \texorpdfstring{$\ast$}{*}ptr\+\_\+solutions)
+\item 
+\mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} \mbox{\hyperlink{algorithm_8h_a5edcaa42676499669b2439cbde3022e3}{Solve\+Linear\+Case}} (const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients, \mbox{\hyperlink{struct_solutions}{Solutions}} \texorpdfstring{$\ast$}{*}ptr\+\_\+solutions)
+\item 
+\mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} \mbox{\hyperlink{algorithm_8h_a40060615451cf9fa6a66662078b869e7}{Solve\+Equation}} (const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients, \mbox{\hyperlink{struct_solutions}{Solutions}} \texorpdfstring{$\ast$}{*}ptr\+\_\+solutions)
+\item 
+int \mbox{\hyperlink{algorithm_8h_a86a9f3f3b2fab9fe796c8906e0ba92e8}{Are\+Equal}} (double number\+\_\+1, double number\+\_\+2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{algorithm_8h_a86a9f3f3b2fab9fe796c8906e0ba92e8}\label{algorithm_8h_a86a9f3f3b2fab9fe796c8906e0ba92e8} 
+\index{algorithm.h@{algorithm.h}!AreEqual@{AreEqual}}
+\index{AreEqual@{AreEqual}!algorithm.h@{algorithm.h}}
+\doxysubsubsection{\texorpdfstring{AreEqual()}{AreEqual()}}
+{\footnotesize\ttfamily int Are\+Equal (\begin{DoxyParamCaption}\item[{double}]{number\+\_\+1,  }\item[{double}]{number\+\_\+2 }\end{DoxyParamCaption})}
+
+\Hypertarget{algorithm_8h_ae9b3e898621c5f5e23c866a18a20aa58}\label{algorithm_8h_ae9b3e898621c5f5e23c866a18a20aa58} 
+\index{algorithm.h@{algorithm.h}!CalculateDiscriminant@{CalculateDiscriminant}}
+\index{CalculateDiscriminant@{CalculateDiscriminant}!algorithm.h@{algorithm.h}}
+\doxysubsubsection{\texorpdfstring{CalculateDiscriminant()}{CalculateDiscriminant()}}
+{\footnotesize\ttfamily double Calculate\+Discriminant (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients }\end{DoxyParamCaption})}
+
+Functions in this header do all calculation job.
+
+/\texorpdfstring{$\ast$}{*}! Calculates the discriminant, returns its value based on the values of the coefficients of the quadratic equation
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr\+\_\+coeffients} & pointer to the structure with the coefficients of the quadratic equation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{algorithm_8h_a40060615451cf9fa6a66662078b869e7}\label{algorithm_8h_a40060615451cf9fa6a66662078b869e7} 
+\index{algorithm.h@{algorithm.h}!SolveEquation@{SolveEquation}}
+\index{SolveEquation@{SolveEquation}!algorithm.h@{algorithm.h}}
+\doxysubsubsection{\texorpdfstring{SolveEquation()}{SolveEquation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} Solve\+Equation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients,  }\item[{\mbox{\hyperlink{struct_solutions}{Solutions}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+solutions }\end{DoxyParamCaption})}
+
+Solves a quadratic equation. Returns a constant corresponding to the number of roots.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr\+\_\+coefficients} & pointer to a structure with quadratic equation coefficients \\
+\hline
+{\em ptr\+\_\+solutions} & pointer to a structure with roots of a quadratic equation\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{types_8h}{types.\+h} 
+\end{DoxySeeAlso}
+\Hypertarget{algorithm_8h_a5edcaa42676499669b2439cbde3022e3}\label{algorithm_8h_a5edcaa42676499669b2439cbde3022e3} 
+\index{algorithm.h@{algorithm.h}!SolveLinearCase@{SolveLinearCase}}
+\index{SolveLinearCase@{SolveLinearCase}!algorithm.h@{algorithm.h}}
+\doxysubsubsection{\texorpdfstring{SolveLinearCase()}{SolveLinearCase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} Solve\+Linear\+Case (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients,  }\item[{\mbox{\hyperlink{struct_solutions}{Solutions}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+solutions }\end{DoxyParamCaption})}
+
+Calculates the values of the single root of the equation with the coefficient A = 0 Returns a constant corresponding to one root
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr\+\_\+coeffients} & pointer to a structure with coefficients of a quadratic equation \\
+\hline
+{\em ptr\+\_\+solutions} & pointer to a structure with roots of a quadratic equation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+both roots in the structure become equal to each other \texorpdfstring{$\ast$}{*} 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{types_8h}{types.\+h} 
+\end{DoxySeeAlso}
+\Hypertarget{algorithm_8h_a07a82d6b2ac6d7e02882fe722f8f2ab7}\label{algorithm_8h_a07a82d6b2ac6d7e02882fe722f8f2ab7} 
+\index{algorithm.h@{algorithm.h}!SolveQuadCase@{SolveQuadCase}}
+\index{SolveQuadCase@{SolveQuadCase}!algorithm.h@{algorithm.h}}
+\doxysubsubsection{\texorpdfstring{SolveQuadCase()}{SolveQuadCase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} Solve\+Quad\+Case (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients,  }\item[{double}]{discriminant,  }\item[{\mbox{\hyperlink{struct_solutions}{Solutions}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+solutions }\end{DoxyParamCaption})}
+
+Calculates the roots of a quadratic equation, writes their value into a structure with roots. Returns a constant corresponding to two or one root
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr\+\_\+coeffients} & pointer to a structure with coefficients of a quadratic equation \\
+\hline
+{\em discriminant} & discriminant value \\
+\hline
+{\em ptr\+\_\+solutions} & pointer to the structure with the roots of the quadratic equation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+if the root of the square equation is one, then both roots in the solution structure are equal
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{types_8h}{types.\+h} 
+\end{DoxySeeAlso}

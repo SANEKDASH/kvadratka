@@ -4,8 +4,6 @@
 #include "algorithm.h"
 #include <stdio.h>
 
-#define DEBUG 1
-
 #ifdef DEBUG
 #define CHECK(expression) CheckIt(expression, __LINE__, __func__, __FILE__)
 #else
@@ -19,16 +17,17 @@ void PrintWelcome()
 
 void PrintHelpList()
 {
-    printf("#/ 'coeff_a' 'coeff_b' 'coeff_c' - to solve quadratic equation with this coefficients\n"
-           "#/ 'meow' - to print a kitty\n"
-           "#/ 'quit' - to shutdown the program\n"
-           "#/ 'test' - to start testing algorithm, using information from file test.txt in directory\n"
-           "#/ ");
+    printf("#/ type 3 numbers to solve quadratic equation with this coefficients.\n");
+    for(int i = 0; i < kCommandArraySize; i++)
+        printf("#/ '%s' - %s.\n",command_array[i].command_name,
+                                command_array[i].help_text);
+    printf("#/ ");
+
 }
 
-void PrintOutput(Coeffs *ptr_coefficients,
-                 Solutions *ptr_solutions,
-                 RootsCount solutions_count)
+void PrintOutput(const Coeffs *ptr_coefficients,
+                 const Solutions *ptr_solutions,
+                 const RootsCount solutions_count)
 {
     CHECK(ptr_coefficients);
     CHECK(ptr_solutions);

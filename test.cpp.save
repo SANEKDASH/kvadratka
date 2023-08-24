@@ -18,9 +18,10 @@ void Test()
     Solutions real_solutions = {0};
 
     FILE *ptr_file = fopen("test.txt", "r");
-    InputResults result;
-    int i = 1;
-    for (i; (result = GetInput_test(ptr_file,
+
+    InputResults result = kInputSucces;
+
+    for (int i = 1; (result = GetInput_test(ptr_file,
                                     &coefficients,
                                     &real_solutions)) != kEofError;)
     {
@@ -41,6 +42,20 @@ void Test()
                 break;
             }
 
+            case kZeroStr:
+            {
+                break;
+            }
+            
+            case kBufferOverflowError:
+            {
+                printf("#/ Spotted buffer overflow in test: %d.\n", i++);
+                break;
+            }
+            case kFileError:
+            {
+                printf("#/ Got problem with opening file.\n");
+            }
             default:
             {
                 printf("#/ I don't know.\n");
@@ -61,9 +76,6 @@ int TestAlgorithm(Coeffs *ptr_coefficients,
 {
     Solutions solutions = {0};
 
-    RootsCount roots_count = SolveEquation(ptr_coefficients,
-                                           &solutions);
-
     if (ptr_real_solutions->x1 < ptr_real_solutions->x2)
     {
         double tmp_number = ptr_real_solutions->x1;
@@ -72,10 +84,10 @@ int TestAlgorithm(Coeffs *ptr_coefficients,
     }
 
     if (AreEqual(solutions.x1, ptr_real_solutions->x1) != 0 ||
-        AreEqual(solutions.x2, ptr_real_solutions->x2) != 0)
+        AreEqual(solutions.x2, ptr_real_solutions->x2) != 0 ||)
     {
         printf("Test failed: x1 = %lf, x2 = %lf.\n"
-               "Expected: x1 = %lf, x2 = %lf", solutions.x1,
+               "   Expected: x1 = %lf, x2 = %lf\n", solutions.x1,
                                                   solutions.x2,
                                                   ptr_real_solutions->x1,
                                                   ptr_real_solutions->x2);
@@ -147,9 +159,9 @@ InputResults GetCoeffsAndSolutions(char *buf,
                                    Coeffs *ptr_coefficients,
                                    Solutions *ptr_solutions)
 {
-    if (buf[0] = '\0')
+    if (buf[0] == '\0')
     {
-    
+        return kZeroStr;
     }
 
     char *number_end = nullptr;

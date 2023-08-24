@@ -7,15 +7,14 @@
 #include "debug.h"
 #include "test.h"
 
-
-int main(int argc, const char *argv[])
+int main()
 {
     PrintWelcome();
 
     Coeffs coefficients = {0};
     Solutions solutions = {0};
 
-    CallReadingInterface(&coefficients, &solutions);
+    CallInputInterface(&coefficients, &solutions);
 
     return 0;
 }

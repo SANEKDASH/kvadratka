@@ -3,8 +3,6 @@
 #include <math.h>
 #include "debug.h"
 
-#define DEBUG 1
-
 #ifdef DEBUG
 #define CHECK(expression) CheckIt(expression, __LINE__, __func__, __FILE__)
 #else
@@ -90,6 +88,7 @@ RootsCount SolveLinearCase(const Coeffs *ptr_coefficients,
 int AreEqual(double number_1, double number_2)
 {
     static const double kE = 1e-10;
+
     if (fabs(number_1 - number_2) > kE)
     {
         return 1;
