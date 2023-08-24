@@ -1,43 +1,22 @@
-\doxysection{input.\+h File Reference}
-\hypertarget{input_8h}{}\label{input_8h}\index{input.h@{input.h}}
-\doxysubsubsection*{Functions}
+\hypertarget{input_8h}{}\doxysection{input.\+h File Reference}
+\label{input_8h}\index{input.h@{input.h}}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} \mbox{\hyperlink{input_8h_a6b7fb0f42c18210de8288d5742c79474}{Get\+Input}} (FILE \texorpdfstring{$\ast$}{*}ptr\+\_\+file, \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients)
+\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} \mbox{\hyperlink{input_8h_a6b7fb0f42c18210de8288d5742c79474}{Get\+Input}} (FILE $\ast$ptr\+\_\+file, \mbox{\hyperlink{struct_coeffs}{Coeffs}} $\ast$ptr\+\_\+coefficients)
 \item 
-void \mbox{\hyperlink{input_8h_a5b9e10199679f9e15feb531897ef9774}{Call\+Input\+Interface}} (\mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients, \mbox{\hyperlink{struct_solutions}{Solutions}} \texorpdfstring{$\ast$}{*}solutions)
+\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} \mbox{\hyperlink{input_8h_ab91f1cbe9d87c6e6408ecaa3a5a60c13}{Convert\+Buf}} (char $\ast$buf, \mbox{\hyperlink{struct_coeffs}{Coeffs}} $\ast$ptr\+\_\+coefficients)
 \item 
-\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} \mbox{\hyperlink{input_8h_ab91f1cbe9d87c6e6408ecaa3a5a60c13}{Convert\+Buf}} (char \texorpdfstring{$\ast$}{*}buf, \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients)
-\item 
-\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} \mbox{\hyperlink{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}{Convert\+Buf\+To\+Coeffs}} (char \texorpdfstring{$\ast$}{*}buf, \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients)
+\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} \mbox{\hyperlink{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}{Convert\+Buf\+To\+Coeffs}} (char $\ast$buf, \mbox{\hyperlink{struct_coeffs}{Coeffs}} $\ast$ptr\+\_\+coefficients)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{input_8h_a5b9e10199679f9e15feb531897ef9774}\label{input_8h_a5b9e10199679f9e15feb531897ef9774} 
-\index{input.h@{input.h}!CallInputInterface@{CallInputInterface}}
-\index{CallInputInterface@{CallInputInterface}!input.h@{input.h}}
-\doxysubsubsection{\texorpdfstring{CallInputInterface()}{CallInputInterface()}}
-{\footnotesize\ttfamily void Call\+Input\+Interface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients,  }\item[{\mbox{\hyperlink{struct_solutions}{Solutions}} \texorpdfstring{$\ast$}{*}}]{solutions }\end{DoxyParamCaption})}
-
-Causes interference 
-\begin{DoxyParams}{Parameters}
-{\em ptr\+\_\+coeffisients} & pointer to the structure of the coefficients of the quadratic equation. \\
-\hline
-{\em solutions} & pointer to a structure with solutions of a quadratic equation.\\
-\hline
-\end{DoxyParams}
-\begin{DoxyNote}{Note}
-when entering certain commands, outputs the corresponding text
-\end{DoxyNote}
-\begin{DoxySeeAlso}{See also}
-\doxylink{input_8h_a6b7fb0f42c18210de8288d5742c79474}{Get\+Input()} \doxylink{input_8h_ab91f1cbe9d87c6e6408ecaa3a5a60c13}{Convert\+Buf()} \doxylink{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}{Convert\+Buf\+To\+Coeffs()} \doxylink{input_8h}{input.\+h} 
-\end{DoxySeeAlso}
-\Hypertarget{input_8h_ab91f1cbe9d87c6e6408ecaa3a5a60c13}\label{input_8h_ab91f1cbe9d87c6e6408ecaa3a5a60c13} 
+\mbox{\Hypertarget{input_8h_ab91f1cbe9d87c6e6408ecaa3a5a60c13}\label{input_8h_ab91f1cbe9d87c6e6408ecaa3a5a60c13}} 
 \index{input.h@{input.h}!ConvertBuf@{ConvertBuf}}
 \index{ConvertBuf@{ConvertBuf}!input.h@{input.h}}
 \doxysubsubsection{\texorpdfstring{ConvertBuf()}{ConvertBuf()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} Convert\+Buf (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{\mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} Convert\+Buf (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{\mbox{\hyperlink{struct_coeffs}{Coeffs}} $\ast$}]{ptr\+\_\+coefficients }\end{DoxyParamCaption})}
 
 Checks whether the string written in the buffer is a command. Outputs the constant corresponding to the command. 
 \begin{DoxyParams}{Parameters}
@@ -50,13 +29,13 @@ Checks whether the string written in the buffer is a command. Outputs the consta
 if there are three coefficients in the buffer, they are written to the structure pointed to by ptr\+\_\+coeffients.
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
-\doxylink{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}{Convert\+Buf\+To\+Coeffs()} \doxylink{input_8h}{input.\+h} 
+\mbox{\hyperlink{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}{Convert\+Buf\+To\+Coeffs()}} \mbox{\hyperlink{input_8h}{input.\+h}} 
 \end{DoxySeeAlso}
-\Hypertarget{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}\label{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e} 
+\mbox{\Hypertarget{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}\label{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}} 
 \index{input.h@{input.h}!ConvertBufToCoeffs@{ConvertBufToCoeffs}}
 \index{ConvertBufToCoeffs@{ConvertBufToCoeffs}!input.h@{input.h}}
 \doxysubsubsection{\texorpdfstring{ConvertBufToCoeffs()}{ConvertBufToCoeffs()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} Convert\+Buf\+To\+Coeffs (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{\mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} Convert\+Buf\+To\+Coeffs (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{\mbox{\hyperlink{struct_coeffs}{Coeffs}} $\ast$}]{ptr\+\_\+coefficients }\end{DoxyParamCaption})}
 
 Writes the values of the coefficients specified in the buffer to the coefficient structure
 
@@ -71,15 +50,13 @@ Writes the values of the coefficients specified in the buffer to the coefficient
 if coefficients are written incorrectly in the buffer, returns the k\+Input\+Error error
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
-\doxylink{input_8h}{input.\+h} 
+\mbox{\hyperlink{input_8h}{input.\+h}} 
 \end{DoxySeeAlso}
-\Hypertarget{input_8h_a6b7fb0f42c18210de8288d5742c79474}\label{input_8h_a6b7fb0f42c18210de8288d5742c79474} 
+\mbox{\Hypertarget{input_8h_a6b7fb0f42c18210de8288d5742c79474}\label{input_8h_a6b7fb0f42c18210de8288d5742c79474}} 
 \index{input.h@{input.h}!GetInput@{GetInput}}
 \index{GetInput@{GetInput}!input.h@{input.h}}
 \doxysubsubsection{\texorpdfstring{GetInput()}{GetInput()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} Get\+Input (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+file,  }\item[{\mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients }\end{DoxyParamCaption})}
-
-The functions in this header are responsible for the user\textquotesingle{}s interaction with the program.
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} Get\+Input (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{ptr\+\_\+file,  }\item[{\mbox{\hyperlink{struct_coeffs}{Coeffs}} $\ast$}]{ptr\+\_\+coefficients }\end{DoxyParamCaption})}
 
 Writes the characters read from the file to the buffer, outputs a constant corresponding to the command written to the buffer. 
 \begin{DoxyParams}{Parameters}
@@ -92,5 +69,5 @@ Writes the characters read from the file to the buffer, outputs a constant corre
 if there are three coefficients in the buffer, they are written to the structure pointed to by ptr\+\_\+coeffients.
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
-\doxylink{input_8h_ab91f1cbe9d87c6e6408ecaa3a5a60c13}{Convert\+Buf()} \doxylink{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}{Convert\+Buf\+To\+Coeffs()}\doxylink{input_8h}{input.\+h} 
+\mbox{\hyperlink{input_8h_ab91f1cbe9d87c6e6408ecaa3a5a60c13}{Convert\+Buf()}} \mbox{\hyperlink{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}{Convert\+Buf\+To\+Coeffs()}}\mbox{\hyperlink{input_8h}{input.\+h}} 
 \end{DoxySeeAlso}

@@ -1,7 +1,7 @@
-all: quadro
+all: Kvadratka
 
-quadro: main.o input.o algorithm.o output.o debug.o test.o
-	g++ main.o input.o algorithm.o output.o debug.o -o quadro 
+Kvadratka: main.o input.o algorithm.o output.o debug.o test.o
+	g++ main.o input.o algorithm.o output.o debug.o -o Kvadratka 
 
 main.o: main.cpp
 	g++ -c main.cpp
@@ -18,5 +18,8 @@ output.o: output.cpp
 debug.o: debug.cpp
 	g++ -c debug.cpp
 
-test.o: test.cpp`
+test.o: test.cpp
 	g++ -c test.cpp
+
+clean:
+	rm -rf *.o Kvadratka

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['solutions_0',['Solutions',['../struct_solutions.html',1,'']]],
-  ['solveequation_1',['SolveEquation',['../algorithm_8h.html#a40060615451cf9fa6a66662078b869e7',1,'algorithm.h']]],
-  ['solvelinearcase_2',['SolveLinearCase',['../algorithm_8h.html#a5edcaa42676499669b2439cbde3022e3',1,'algorithm.h']]],
-  ['solvequadcase_3',['SolveQuadCase',['../algorithm_8h.html#a07a82d6b2ac6d7e02882fe722f8f2ab7',1,'algorithm.h']]]
+  ['printhelplist_37',['PrintHelpList',['../output_8h.html#aaf4fc82b310247c2feb814360683fc1e',1,'output.h']]],
+  ['printkitty_38',['PrintKitty',['../output_8h.html#ab523a9678e66976cbe8cc95c9034c5bc',1,'output.h']]],
+  ['printoutput_39',['PrintOutput',['../output_8h.html#a8b0452811c5edfc767c7992f889d549e',1,'output.h']]],
+  ['printwelcome_40',['PrintWelcome',['../output_8h.html#a5dbae1932946c4088c927f1d534d2cd1',1,'output.h']]]
 ];

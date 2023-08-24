@@ -1,0 +1,25 @@
+allDebug: KvadratkaDebug
+
+KvadratkaDebug: main.o input.o algorithm.o output.o debug.o test.o
+	g++ -DDEBUG main.o input.o algorithm.o output.o debug.o -o KvadratkaDebug 
+
+main.o: main.cpp
+	g++ -DDEBUG -c main.cpp
+
+input.o: input.cpp
+	g++ -DDEBUG -c input.cpp
+
+algorithm.o: algorithm.cpp
+	g++ -DDEBUG -c algorithm.cpp
+
+output.o: output.cpp
+	g++ -DDEBUG -c output.cpp
+
+debug.o: debug.cpp
+	g++ -DDEBUG -c debug.cpp
+
+test.o: test.cpp
+	g++ -DDEBUG -c test.cpp
+
+clean:
+	rm -rf *.o KvadratkaDebug

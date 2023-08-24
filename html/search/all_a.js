@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['test_0',['Test',['../test_8h.html#afcffe8329a548c8c085ea0d987613a0e',1,'test.h']]],
-  ['test_2eh_1',['test.h',['../test_8h.html',1,'']]],
-  ['testalgorithm_2',['TestAlgorithm',['../test_8h.html#a46356e1df1cff3c88a3681d96406ad1a',1,'test.h']]],
-  ['types_2eh_3',['types.h',['../types_8h.html',1,'']]]
+  ['result_41',['result',['../struct_command.html#ac3a3bfd38769f40d000c1ebb968082c5',1,'Command']]],
+  ['roots_5fcount_42',['roots_count',['../struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599',1,'Solutions']]],
+  ['rootscount_43',['RootsCount',['../types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3',1,'types.h']]]
 ];

@@ -6,12 +6,6 @@
 #include "test.h"
 #include "debug.h"
 
-#ifdef DEBUG
-#define CHECK(expression) CheckIt(expression, __LINE__, __func__, __FILE__)
-#else
-#define CHECK(expression) ;
-#endif
-
 void Test()
 {
     Coeffs coefficients = {0};
@@ -19,15 +13,15 @@ void Test()
 
     FILE *ptr_file = fopen("test.txt", "r");
 
-    InputResults result = kInputSucces;
+    InputResults result = kInputSuccess;
 
-    for (int i = 1; (result = GetInput_test(ptr_file,
-                                    &coefficients,
-                                    &real_solutions)) != kEofError;)
+    for (int i = 1; (result = GetInputTest(ptr_file,
+                                           &coefficients,
+                                           &real_solutions)) != kEofError;)
     {
         switch (result)
         {
-            case kInputSucces:
+            case kInputSuccess:
             {
                 printf("#/ Test %d: ", i++);
 
@@ -69,6 +63,7 @@ void Test()
 
             default:
             {
+                CHECK(0);
                 printf("#/ I don't know.\n");
                 break;
             }
@@ -96,6 +91,8 @@ int TestAlgorithm(Coeffs *ptr_coefficients,
 
     SolveEquation(ptr_coefficients,
                   &solutions);
+    // Presumes that SolveEquation() gives sorted roots.
+    CHECK(solutions.x1 >= solutions.x2);
 
     if (AreEqual(solutions.x1, ptr_real_solutions->x1) != 0 ||
         AreEqual(solutions.x2, ptr_real_solutions->x2) != 0)
@@ -116,10 +113,11 @@ int TestAlgorithm(Coeffs *ptr_coefficients,
 
 const int kMaxBuf = 257;
 
-InputResults GetInput_test(FILE *ptr_file,
-                           Coeffs *ptr_coefficients,
-                           Solutions *ptr_solutions)
+InputResults GetInputTest(FILE *ptr_file,
+                          Coeffs *ptr_coefficients,
+                          Solutions *ptr_solutions)
 {
+    CHECK(ptr_file);
     CHECK(ptr_coefficients);
     CHECK(ptr_solutions);
 
@@ -134,7 +132,7 @@ InputResults GetInput_test(FILE *ptr_file,
 
     if (ferror(ptr_file))
     {
-        return kFileError;
+        return kTestFileError;
     }
 
     while ((c = getc(ptr_file)) != '\n')
@@ -173,6 +171,10 @@ InputResults GetCoeffsAndSolutions(char *buf,
                                    Coeffs *ptr_coefficients,
                                    Solutions *ptr_solutions)
 {
+    CHECK(buf);
+    CHECK(ptr_coefficients);
+    CHECK(ptr_solutions);
+
     if (buf[0] == '\0')
     {
         return kZeroStr;
@@ -206,6 +208,13 @@ InputResults GetCoeffsAndSolutions(char *buf,
         ptr_solutions->x2 = strtod(buf, &number_end);
     }
 
+    if (buf != number_end)
+    {
+        buf = number_end;
+
+        ptr_solutions->roots_count = (RootsCount) strtoul(buf, &number_end, 10);
+    }
+
     while (isspace(*number_end))
     {
         ++number_end;
@@ -213,7 +222,7 @@ InputResults GetCoeffsAndSolutions(char *buf,
 
     if (*number_end == '\0' && buf[0] != '\0')
     {
-        return kInputSucces;
+        return kInputSuccess;
     }
     else
     {

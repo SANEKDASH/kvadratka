@@ -9,104 +9,13 @@
 #include "output.h"
 #include "test.h"
 
-
-
-#ifdef DEBUG
-#define CHECK(expression) CheckIt(expression, __LINE__, __func__, __FILE__)
-#else
-#define CHECK(expression) ;
-
-#endif
-
-void CallInputInterface(Coeffs *ptr_coefficients, Solutions *ptr_solutions)
-{
-    CHECK(ptr_coefficients);
-
-    InputResults status = kInputSucces;
-
-    printf("#/ Write the command or type 'help' to invoke list of commands.\n"
-           "#/ ");
-
-    while ((status = GetInput(stdin, ptr_coefficients)) != kQuit && status != kEofError)
-    {
-        switch (status)
-        {
-            case kHelp:
-            {
-                PrintHelpList();
-                break;
-            }
-            case kInputError:
-            {
-                printf("#/ Hey, buddy, try to write a command one more time! Or write 'help'.\n"
-                       "#/ ");
-                break;
-            }
-            case kBufferOverflowError:
-            {
-                printf("#/ Hey, buddy, program spotted buffer overflow.\n"
-                       "#/ ");
-                break;
-            }
-            case kEofError:
-            {
-                printf("#/ Hey, buddy, we reached so called EOF.\n");
-                break;
-            }
-            case kInputSucces:
-            {
-
-                RootsCount roots_count = SolveEquation(ptr_coefficients,
-                                                       ptr_solutions);
-
-                PrintOutput(ptr_coefficients,
-                            ptr_solutions,
-                            roots_count);
-
-                break;
-            }
-            case kMeow:
-            {
-                PrintKitty();
-                break;
-            }
-            #ifdef DEBUG
-            case kTest:
-            {
-                Test();
-                break;
-            }
-            #endif
-            case kZeroStr:
-            {
-                printf("#/ ");
-                break;
-            }
-            case kFileError:
-            {
-                printf("#/ Hey, buddy, we got a problem while opening file for tests.\n#/ ");
-            }
-            case kQuit:
-
-            default:
-            {
-                CHECK(0);
-                printf("#/ What the fuck!?\n");
-                printf("#/ Write the command or type 'help' to invoke list of commands.\n");
-                break;
-            }
-        }
-    }
-
-    printf("#/ Have a good evening.");
-}
-
 const int kMaxBuf = 257;
 
 InputResults GetInput(FILE *ptr_file,
                       Coeffs *ptr_coefficients)
 {
     CHECK(ptr_coefficients);
+    CHECK(ptr_file);
 
     static char buf[kMaxBuf] = {0};
     buf[0] = '\0';
@@ -119,7 +28,7 @@ InputResults GetInput(FILE *ptr_file,
 
     if (ferror(ptr_file))
     {
-        return kFileError;
+        return kInputFileError;
     }
 
     while ((c = getc(ptr_file)) != '\n')
@@ -141,6 +50,11 @@ InputResults GetInput(FILE *ptr_file,
         }
     }
 
+    if (buf[0] == '\0')
+    {
+        return kZeroStr;
+    }
+
     if (BufferOverflowStatus)
     {
         return kBufferOverflowError;
@@ -157,20 +71,31 @@ InputResults GetInput(FILE *ptr_file,
 InputResults ConvertBuf(char *buf,
                         Coeffs *ptr_coefficients)
 {
+    CHECK(buf);
+    CHECK(ptr_coefficients);
+
+    static const int kMaxCommand = 257;
+
     for (int i = 0; i < kCommandArraySize; ++i)
     {
-        if (strcmp(buf, command_array[i].command_name) == 0)
-            return command_array[i].result;
+        char command[kMaxCommand];
+
+        if (strcmp(buf, CommandArray[i].command_name) == 0)
+        {
+            return CommandArray[i].result;
+        }
     }
 
     return ConvertBufToCoeffs(buf,
                               ptr_coefficients);
-
 }
 
 InputResults ConvertBufToCoeffs(char *buf,
                                 Coeffs *ptr_coefficients)
 {
+    CHECK(buf);
+    CHECK(ptr_coefficients);
+
     char *number_end = nullptr;
 
     ptr_coefficients->a = strtod(buf, &number_end);
@@ -194,7 +119,7 @@ InputResults ConvertBufToCoeffs(char *buf,
 
     if (*number_end == '\0' && buf[0] != '\0')
     {
-        return kInputSucces;
+        return kInputSuccess;
     }
     else
     {
@@ -202,5 +127,26 @@ InputResults ConvertBufToCoeffs(char *buf,
     }
 }
 
+bool GetCommand(const char *buf, char *command)
+{
+    CHECK(buf);
+    CHECK(command);
 
+    int i = 0;
+    while(isspace(buf[i++]))
+        ;
+
+    int j = 0;
+    while(!isspace(buf[i++]))
+    {
+        command[j++] = buf[i];
+    }
+
+    command[j] = '\0';
+
+    while(isspace(buf[i++]))
+        ;
+
+    return buf[i] == '\0';
+}
 

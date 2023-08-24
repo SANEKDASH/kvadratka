@@ -1,19 +1,18 @@
 #ifndef debug
 #define debug
 
-/*!
- * Debug header
- */
+#ifdef DEBUG
+#define CHECK(expression) CheckIt(expression, __LINE__, __func__, __FILE__)
+#else
+#define CHECK(expression) ;
+#endif
 
-/*!
- * Checks expr expression for falsity (used when debagging)
- *
- * @param expr expression being checked
- * @param line line number
- * @param func_name name of the function in which the check is performed
- * @param file_name name of the file in which the check is performed
- */
-
+//! Checks expr expression for falsity (used when debugging)    // I want my bag back!
+//!
+//! @param    expr expression being checked
+//! @param    line line number
+//! @param    func_name name of the function in which the check is performed
+//! @param    file_name name of the file in which the check is performed
 void CheckIt(bool expr,
              int line,
              const char* func_name,
