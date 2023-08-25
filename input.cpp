@@ -9,7 +9,15 @@
 #include "output.h"
 #include "test.h"
 
-const int kMaxBuf = 257;
+static const int kMaxBuf = 257;
+
+//! Cuts spaces out of buffer and full the 'command' with the remaining string.
+//!
+//! @param buf    buffer,
+//! @param command    command keyword.
+//!
+//! @return false if there are more then one word in buffer. True if there is one word in buffer.
+static bool CutSpaces(const char *buf, char *command);
 
 InputResults GetInput(FILE *ptr_file,
                       Coeffs *ptr_coefficients)
@@ -24,12 +32,12 @@ InputResults GetInput(FILE *ptr_file,
 
     int c = 0;
 
-    bool BufferOverflowStatus = false;
-
     if (ferror(ptr_file))
     {
         return kInputFileError;
     }
+
+    bool BufferOverflowStatus = false;
 
     while ((c = getc(ptr_file)) != '\n')
     {
@@ -68,21 +76,28 @@ InputResults GetInput(FILE *ptr_file,
     return ConvertBuf(buf, ptr_coefficients);
 }
 
+
+
 InputResults ConvertBuf(char *buf,
                         Coeffs *ptr_coefficients)
 {
     CHECK(buf);
     CHECK(ptr_coefficients);
 
-    static const int kMaxCommand = 257;
+    char command[kMaxBuf] = {0};
+    command[0] = '\0';
 
-    for (int i = 0; i < kCommandArraySize; ++i)
+
+    bool is_one_word = CutSpaces(buf, command);
+
+    if (is_one_word)
     {
-        char command[kMaxCommand];
-
-        if (strcmp(buf, CommandArray[i].command_name) == 0)
+        for (int i = 0; i < kCommandArraySize; ++i)
         {
-            return CommandArray[i].result;
+            if (strcmp(command, CommandArray[i].command_name) == 0)
+            {
+                return CommandArray[i].result;
+            }
         }
     }
 
@@ -127,25 +142,25 @@ InputResults ConvertBufToCoeffs(char *buf,
     }
 }
 
-bool GetCommand(const char *buf, char *command)
+static bool CutSpaces(const char *buf, char *command)
 {
     CHECK(buf);
     CHECK(command);
 
     int i = 0;
-    while(isspace(buf[i++]))
-        ;
+
+    while (isspace(buf[i]))
+        ++i;
 
     int j = 0;
-    while(!isspace(buf[i++]))
+    while (!isspace(buf[i]) && buf[i] != '\0')
     {
-        command[j++] = buf[i];
+        command[j++] = buf[i++];
     }
-
     command[j] = '\0';
 
-    while(isspace(buf[i++]))
-        ;
+    while (isspace(buf[i]))
+        ++i;
 
     return buf[i] == '\0';
 }

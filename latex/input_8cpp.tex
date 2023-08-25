@@ -1,0 +1,239 @@
+\doxysection{input.\+cpp File Reference}
+\hypertarget{input_8cpp}{}\label{input_8cpp}\index{input.cpp@{input.cpp}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \"{}types.\+h\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include \"{}input.\+h\"{}}\newline
+{\ttfamily \#include \"{}debug.\+h\"{}}\newline
+{\ttfamily \#include \"{}algorithm.\+h\"{}}\newline
+{\ttfamily \#include \"{}output.\+h\"{}}\newline
+{\ttfamily \#include \"{}test.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} \mbox{\hyperlink{input_8cpp_a6b7fb0f42c18210de8288d5742c79474}{Get\+Input}} (FILE \texorpdfstring{$\ast$}{*}ptr\+\_\+file, \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients)
+\item 
+\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} \mbox{\hyperlink{input_8cpp_ab91f1cbe9d87c6e6408ecaa3a5a60c13}{Convert\+Buf}} (char \texorpdfstring{$\ast$}{*}buf, \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients)
+\item 
+\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} \mbox{\hyperlink{input_8cpp_aaf73914d4c7ca2e77061d41564fe4b2e}{Convert\+Buf\+To\+Coeffs}} (char \texorpdfstring{$\ast$}{*}buf, \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{input_8cpp_ab91f1cbe9d87c6e6408ecaa3a5a60c13}\label{input_8cpp_ab91f1cbe9d87c6e6408ecaa3a5a60c13} 
+\index{input.cpp@{input.cpp}!ConvertBuf@{ConvertBuf}}
+\index{ConvertBuf@{ConvertBuf}!input.cpp@{input.cpp}}
+\doxysubsubsection{\texorpdfstring{ConvertBuf()}{ConvertBuf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} Convert\+Buf (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{\mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients }\end{DoxyParamCaption})}
+
+Checks whether the string written in the buffer is a command. Outputs the constant corresponding to the command. 
+\begin{DoxyParams}{Parameters}
+{\em buf} & buffer \\
+\hline
+{\em ptr\+\_\+coeffients} & pointer to the coefficient structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+if there are three coefficients in the buffer, they are written to the structure pointed to by ptr\+\_\+coeffients.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}{Convert\+Buf\+To\+Coeffs()} \doxylink{input_8h}{input.\+h} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{input_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ CHECK(buf);}
+\DoxyCodeLine{00085\ \ \ \ \ CHECK(ptr\_coefficients);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{char}\ command[kMaxBuf]\ =\ \{0\};}
+\DoxyCodeLine{00088\ \ \ \ \ command[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_one\_word\ =\ CutSpaces(buf,\ command);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_one\_word)}
+\DoxyCodeLine{00094\ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{types_8h_a31d76570de85ceee764be01089e36338}{kCommandArraySize}};\ ++i)}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(command,\ \mbox{\hyperlink{types_8h_a0dc2133321a8d5b34317e2a1c5d20c63}{CommandArray}}[i].command\_name)\ ==\ 0)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a0dc2133321a8d5b34317e2a1c5d20c63}{CommandArray}}[i].\mbox{\hyperlink{struct_command_ac3a3bfd38769f40d000c1ebb968082c5}{result}};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8cpp_aaf73914d4c7ca2e77061d41564fe4b2e}{ConvertBufToCoeffs}}(buf,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr\_coefficients);}
+\DoxyCodeLine{00106\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{types_8h_source_l00057}{Command\+Array}}, \mbox{\hyperlink{input_8cpp_source_l00108}{Convert\+Buf\+To\+Coeffs()}}, \mbox{\hyperlink{types_8h_source_l00046}{k\+Command\+Array\+Size}}, and \mbox{\hyperlink{types_8h_source_l00053}{Command\+::result}}.
+
+
+
+Referenced by \mbox{\hyperlink{input_8cpp_source_l00022}{Get\+Input()}}.
+
+\Hypertarget{input_8cpp_aaf73914d4c7ca2e77061d41564fe4b2e}\label{input_8cpp_aaf73914d4c7ca2e77061d41564fe4b2e} 
+\index{input.cpp@{input.cpp}!ConvertBufToCoeffs@{ConvertBufToCoeffs}}
+\index{ConvertBufToCoeffs@{ConvertBufToCoeffs}!input.cpp@{input.cpp}}
+\doxysubsubsection{\texorpdfstring{ConvertBufToCoeffs()}{ConvertBufToCoeffs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} Convert\+Buf\+To\+Coeffs (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{\mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients }\end{DoxyParamCaption})}
+
+Writes the values of the coefficients specified in the buffer to the coefficient structure
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & buffer \\
+\hline
+{\em ptr\+\_\+coeffients} & pointer to the structure of coefficients\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+if coefficients are written incorrectly in the buffer, returns the k\+Input\+Error error
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{input_8h}{input.\+h} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{input_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00110\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ CHECK(buf);}
+\DoxyCodeLine{00112\ \ \ \ \ CHECK(ptr\_coefficients);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{char}\ *number\_end\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_a9fd94e3f65fc2a6a73dfc6a62b6967fb}{a}}\ =\ strtod(buf,\ \&number\_end);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{if}\ (buf\ !=\ number\_end)}
+\DoxyCodeLine{00119\ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ buf\ =\ number\_end;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_ab88d1e5cb2a4d1584367319561acd096}{b}}\ =\ strtod(buf,\ \&number\_end);}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (buf\ !=\ number\_end)}
+\DoxyCodeLine{00125\ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ buf\ =\ number\_end;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_a43de4f7abb7965c80b34c895d4506cef}{c}}\ =\ strtod(buf,\ \&number\_end);}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{while}\ (isspace(*number\_end))}
+\DoxyCodeLine{00131\ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ ++number\_end;}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{if}\ (*number\_end\ ==\ \textcolor{charliteral}{'\(\backslash\)0'}\ \&\&\ buf[0]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})}
+\DoxyCodeLine{00136\ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa}{kInputSuccess}};}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0}{kInputError}};}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{types_8h_source_l00014}{Coeffs\+::a}}, \mbox{\hyperlink{types_8h_source_l00015}{Coeffs\+::b}}, \mbox{\hyperlink{types_8h_source_l00016}{Coeffs\+::c}}, \mbox{\hyperlink{types_8h_source_l00030}{k\+Input\+Error}}, and \mbox{\hyperlink{types_8h_source_l00031}{k\+Input\+Success}}.
+
+
+
+Referenced by \mbox{\hyperlink{input_8cpp_source_l00081}{Convert\+Buf()}}.
+
+\Hypertarget{input_8cpp_a6b7fb0f42c18210de8288d5742c79474}\label{input_8cpp_a6b7fb0f42c18210de8288d5742c79474} 
+\index{input.cpp@{input.cpp}!GetInput@{GetInput}}
+\index{GetInput@{GetInput}!input.cpp@{input.cpp}}
+\doxysubsubsection{\texorpdfstring{GetInput()}{GetInput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} Get\+Input (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+file,  }\item[{\mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients }\end{DoxyParamCaption})}
+
+Writes the characters read from the file to the buffer, outputs a constant corresponding to the command written to the buffer. 
+\begin{DoxyParams}{Parameters}
+{\em ptr\+\_\+file} & pointer to a readable file. \\
+\hline
+{\em ptr\+\_\+coeffients} & pointer to the structure of coefficients.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+if there are three coefficients in the buffer, they are written to the structure pointed to by ptr\+\_\+coeffients.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{input_8h_ab91f1cbe9d87c6e6408ecaa3a5a60c13}{Convert\+Buf()} \doxylink{input_8h_aaf73914d4c7ca2e77061d41564fe4b2e}{Convert\+Buf\+To\+Coeffs()}\doxylink{input_8h}{input.\+h} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{input_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ CHECK(ptr\_coefficients);}
+\DoxyCodeLine{00026\ \ \ \ \ CHECK(ptr\_file);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ buf[kMaxBuf]\ =\ \{0\};}
+\DoxyCodeLine{00029\ \ \ \ \ buf[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ c\ =\ 0;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (ferror(ptr\_file))}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a1e64a3973034ef5626a318f8d01ae43e}{kInputFileError}};}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ BufferOverflowStatus\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{while}\ ((c\ =\ getc(ptr\_file))\ !=\ \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ kMaxBuf\ -\/\ 1)}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ !=\ EOF)}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buf[i++]\ =\ (char)\ c;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550ae1b71afe494c96a4657a33fe9bd2a80e}{kEofError}};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ BufferOverflowStatus\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (buf[0]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'})}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762}{kZeroStr}};}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (BufferOverflowStatus)}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a856ff97b1ffed6526ea7b9829d269f6c}{kBufferOverflowError}};}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 0)}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ buf[i]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8cpp_ab91f1cbe9d87c6e6408ecaa3a5a60c13}{ConvertBuf}}(buf,\ ptr\_coefficients);}
+\DoxyCodeLine{00077\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{input_8cpp_source_l00081}{Convert\+Buf()}}, \mbox{\hyperlink{types_8h_source_l00032}{k\+Buffer\+Overflow\+Error}}, \mbox{\hyperlink{types_8h_source_l00033}{k\+Eof\+Error}}, \mbox{\hyperlink{types_8h_source_l00034}{k\+Input\+File\+Error}}, and \mbox{\hyperlink{types_8h_source_l00040}{k\+Zero\+Str}}.
+

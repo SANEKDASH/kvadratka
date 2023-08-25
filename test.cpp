@@ -46,7 +46,7 @@ void Test()
                 printf("#/ Spotted buffer overflow in test: %d.\n", i++);
                 break;
             }
-            case kFileError:
+            case kTestFileError:
             {
                 printf("#/ Got problem with opening file.\n");
                 break;
@@ -61,6 +61,8 @@ void Test()
 
             case kEofError:
 
+            case kInputFileError:
+
             default:
             {
                 CHECK(0);
@@ -71,7 +73,7 @@ void Test()
 
     }
 
-    if("#/ There is nothing to test in 'test.txt.\n'")
+    if("#/ There is nothing to test in 'test.txt'.\n")
 
     fclose(ptr_file);
     printf("#/ ");
@@ -94,14 +96,16 @@ int TestAlgorithm(Coeffs *ptr_coefficients,
     // Presumes that SolveEquation() gives sorted roots.
     CHECK(solutions.x1 >= solutions.x2);
 
-    if (AreEqual(solutions.x1, ptr_real_solutions->x1) != 0 ||
-        AreEqual(solutions.x2, ptr_real_solutions->x2) != 0)
+    if (!AreEqual(solutions.x1, ptr_real_solutions->x1) ||
+        !AreEqual(solutions.x2, ptr_real_solutions->x2) ||
+        !AreEqual(solutions.roots_count, ptr_real_solutions->roots_count))
     {
         printf("Test failed: x1 = %lf, x2 = %lf.\n"
                "   Expected: x1 = %lf, x2 = %lf\n", solutions.x1,
-                                                  solutions.x2,
-                                                  ptr_real_solutions->x1,
-                                                  ptr_real_solutions->x2);
+                                                    solutions.x2,
+                                                    ptr_real_solutions->x1,
+                                                    ptr_real_solutions->x2);
+
         return 0;
     }
     else

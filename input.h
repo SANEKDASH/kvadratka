@@ -32,8 +32,6 @@ InputResults ConvertBuf(char *buf,
 InputResults ConvertBufToCoeffs(char *buf,
                                 Coeffs *ptr_coefficients);
 
-bool GetCommand(const char *buf, char *command);
-
 #endif
 
 

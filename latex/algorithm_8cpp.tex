@@ -1,0 +1,158 @@
+\doxysection{algorithm.\+cpp File Reference}
+\hypertarget{algorithm_8cpp}{}\label{algorithm_8cpp}\index{algorithm.cpp@{algorithm.cpp}}
+{\ttfamily \#include \"{}types.\+h\"{}}\newline
+{\ttfamily \#include \"{}algorithm.\+h\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \"{}debug.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{algorithm_8cpp_a34ee873441039d53bf2e644ccb538376}{Solve\+Equation}} (const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients, \mbox{\hyperlink{struct_solutions}{Solutions}} \texorpdfstring{$\ast$}{*}ptr\+\_\+solutions)
+\item 
+double \mbox{\hyperlink{algorithm_8cpp_ae9b3e898621c5f5e23c866a18a20aa58}{Calculate\+Discriminant}} (const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}ptr\+\_\+coefficients)
+\item 
+bool \mbox{\hyperlink{algorithm_8cpp_a5e9d9163a48db731bbd190b4b7162f61}{Are\+Equal}} (double number\+\_\+1, double number\+\_\+2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{algorithm_8cpp_a5e9d9163a48db731bbd190b4b7162f61}\label{algorithm_8cpp_a5e9d9163a48db731bbd190b4b7162f61} 
+\index{algorithm.cpp@{algorithm.cpp}!AreEqual@{AreEqual}}
+\index{AreEqual@{AreEqual}!algorithm.cpp@{algorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{AreEqual()}{AreEqual()}}
+{\footnotesize\ttfamily bool Are\+Equal (\begin{DoxyParamCaption}\item[{double}]{number\+\_\+1,  }\item[{double}]{number\+\_\+2 }\end{DoxyParamCaption})}
+
+Determines if two numbers are equal 
+\begin{DoxyParams}{Parameters}
+{\em number\+\_\+1} & the first number \\
+\hline
+{\em number\+\_\+2} & the second number \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{algorithm_8cpp_source_l00116}{116}} of file \mbox{\hyperlink{algorithm_8cpp_source}{algorithm.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00117\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ kE\ =\ 1e-\/4;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{return}\ fabs(number\_1\ -\/\ number\_2)\ <\ kE;}
+\DoxyCodeLine{00121\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{algorithm_8cpp_source_l00030}{Solve\+Equation()}}.
+
+\Hypertarget{algorithm_8cpp_ae9b3e898621c5f5e23c866a18a20aa58}\label{algorithm_8cpp_ae9b3e898621c5f5e23c866a18a20aa58} 
+\index{algorithm.cpp@{algorithm.cpp}!CalculateDiscriminant@{CalculateDiscriminant}}
+\index{CalculateDiscriminant@{CalculateDiscriminant}!algorithm.cpp@{algorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{CalculateDiscriminant()}{CalculateDiscriminant()}}
+{\footnotesize\ttfamily double Calculate\+Discriminant (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients }\end{DoxyParamCaption})}
+
+Calculates the discriminant, returns its value based on the values of the coefficients of the quadratic equation
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr\+\_\+coeffients} & pointer to the structure with the coefficients of the quadratic equation \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{algorithm_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{algorithm_8cpp_source}{algorithm.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ CHECK(ptr\_coefficients);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_ab88d1e5cb2a4d1584367319561acd096}{b}}\ *\ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_ab88d1e5cb2a4d1584367319561acd096}{b}}\ -\/\ 4\ *\ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_a9fd94e3f65fc2a6a73dfc6a62b6967fb}{a}}\ *\ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_a43de4f7abb7965c80b34c895d4506cef}{c}};}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{types_8h_source_l00014}{Coeffs\+::a}}, \mbox{\hyperlink{types_8h_source_l00015}{Coeffs\+::b}}, and \mbox{\hyperlink{types_8h_source_l00016}{Coeffs\+::c}}.
+
+
+
+Referenced by \mbox{\hyperlink{algorithm_8cpp_source_l00030}{Solve\+Equation()}}.
+
+\Hypertarget{algorithm_8cpp_a34ee873441039d53bf2e644ccb538376}\label{algorithm_8cpp_a34ee873441039d53bf2e644ccb538376} 
+\index{algorithm.cpp@{algorithm.cpp}!SolveEquation@{SolveEquation}}
+\index{SolveEquation@{SolveEquation}!algorithm.cpp@{algorithm.cpp}}
+\doxysubsubsection{\texorpdfstring{SolveEquation()}{SolveEquation()}}
+{\footnotesize\ttfamily void Solve\+Equation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+coefficients,  }\item[{\mbox{\hyperlink{struct_solutions}{Solutions}} \texorpdfstring{$\ast$}{*}}]{ptr\+\_\+solutions }\end{DoxyParamCaption})}
+
+Solves a quadratic equation. Returns a constant corresponding to the number of roots.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr\+\_\+coefficients} & pointer to a structure with quadratic equation coefficients \\
+\hline
+{\em ptr\+\_\+solutions} & pointer to a structure with roots of a quadratic equation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If two roots are present, first root is greater. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{types_8h}{types.\+h} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{algorithm_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{algorithm_8cpp_source}{algorithm.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ CHECK(ptr\_coefficients);}
+\DoxyCodeLine{00034\ \ \ \ \ CHECK(ptr\_solutions);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{double}\ discriminant\ =\ \mbox{\hyperlink{algorithm_8cpp_ae9b3e898621c5f5e23c866a18a20aa58}{CalculateDiscriminant}}(ptr\_coefficients);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (discriminant\ <\ 0)}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ ptr\_solutions-\/>\mbox{\hyperlink{struct_solutions_a6bbe8ebb92a0ca5b42d2e57db2b58599}{roots\_count}}\ =\ \ \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9}{kZeroRoots}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{algorithm_8cpp_a5e9d9163a48db731bbd190b4b7162f61}{AreEqual}}(ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_a9fd94e3f65fc2a6a73dfc6a62b6967fb}{a}},\ 0))}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ ptr\_solutions-\/>\mbox{\hyperlink{struct_solutions_a6bbe8ebb92a0ca5b42d2e57db2b58599}{roots\_count}}\ =\ SolveQuadCase(ptr\_coefficients,\ discriminant,\ ptr\_solutions);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{algorithm_8cpp_a5e9d9163a48db731bbd190b4b7162f61}{AreEqual}}(ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_ab88d1e5cb2a4d1584367319561acd096}{b}},\ 0))}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ ptr\_solutions-\/>\mbox{\hyperlink{struct_solutions_a6bbe8ebb92a0ca5b42d2e57db2b58599}{roots\_count}}\ =\ SolveLinearCase(ptr\_coefficients,\ ptr\_solutions);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{algorithm_8cpp_a5e9d9163a48db731bbd190b4b7162f61}{AreEqual}}(ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_a43de4f7abb7965c80b34c895d4506cef}{c}},\ 0))}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr\_solutions-\/>\mbox{\hyperlink{struct_solutions_a6bbe8ebb92a0ca5b42d2e57db2b58599}{roots\_count}}\ =\ \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9}{kZeroRoots}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr\_solutions-\/>\mbox{\hyperlink{struct_solutions_a6bbe8ebb92a0ca5b42d2e57db2b58599}{roots\_count}}\ =\ \ \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484}{kInfRoots}};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{types_8h_source_l00014}{Coeffs\+::a}}, \mbox{\hyperlink{algorithm_8cpp_source_l00116}{Are\+Equal()}}, \mbox{\hyperlink{types_8h_source_l00015}{Coeffs\+::b}}, \mbox{\hyperlink{types_8h_source_l00016}{Coeffs\+::c}}, \mbox{\hyperlink{algorithm_8cpp_source_l00076}{Calculate\+Discriminant()}}, \mbox{\hyperlink{types_8h_source_l00006}{k\+Inf\+Roots}}, \mbox{\hyperlink{types_8h_source_l00007}{k\+Zero\+Roots}}, and \mbox{\hyperlink{types_8h_source_l00024}{Solutions\+::roots\+\_\+count}}.
+

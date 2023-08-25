@@ -1,15 +1,15 @@
-\hypertarget{types_8h}{}\doxysection{types.\+h File Reference}
-\label{types_8h}\index{types.h@{types.h}}
-\doxysubsection*{Classes}
+\doxysection{types.\+h File Reference}
+\hypertarget{types_8h}{}\label{types_8h}\index{types.h@{types.h}}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_coeffs}{Coeffs}}
-\item 
+\begin{DoxyCompactList}\small\item\em The structure of the coefficients of the quadratic equation. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_solutions}{Solutions}}
-\item 
+\begin{DoxyCompactList}\small\item\em Structure of solutions of the quadratic equation. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_command}{Command}}
-\end{DoxyCompactItemize}
-\doxysubsection*{Enumerations}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_command}{Command} structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}} \{ \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3a254747bd3b190109b73ddda4a9ad730b}{k\+One\+Root}} = 1
@@ -17,23 +17,24 @@ enum \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}}
 , \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484}{k\+Inf\+Roots}} = 8
 , \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9}{k\+Zero\+Roots}} = 0
  \}
-\item 
+\begin{DoxyCompactList}\small\item\em Type of constants, each of which corresponds to a certain number of roots of the quadratic equation. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}} \{ \newline
 \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0}{k\+Input\+Error}}
 , \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa}{k\+Input\+Success}}
 , \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a856ff97b1ffed6526ea7b9829d269f6c}{k\+Buffer\+Overflow\+Error}}
 , \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550ae1b71afe494c96a4657a33fe9bd2a80e}{k\+Eof\+Error}}
 , \newline
-\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a2180a79e9577a989550f46fc508c28c1}{k\+File\+Error}}
+\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a1e64a3973034ef5626a318f8d01ae43e}{k\+Input\+File\+Error}}
+, \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550ae12a271e3f7fe20bb7df0790f74476a7}{k\+Test\+File\+Error}}
 , \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a19a40b0bd9c88fd3525b7e1c6044dc52}{k\+Help}}
 , \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a542f150f613f98cdd2084c45122bb656}{k\+Quit}}
-, \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a0a2fdcd20fdfe72375e858518c309c30}{k\+Meow}}
 , \newline
-\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a2e1f96cba1827daa1d5bfc4f8194f6e9}{k\+Test}}
+\mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a0a2fdcd20fdfe72375e858518c309c30}{k\+Meow}}
+, \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a2e1f96cba1827daa1d5bfc4f8194f6e9}{k\+Test}}
 , \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762}{k\+Zero\+Str}}
  \}
-\end{DoxyCompactItemize}
-\doxysubsection*{Variables}
+\begin{DoxyCompactList}\small\item\em Type of constants responsible for the operation of Call\+Interface() \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 const int \mbox{\hyperlink{types_8h_a31d76570de85ceee764be01089e36338}{k\+Command\+Array\+Size}} = 3
@@ -43,141 +44,129 @@ const \mbox{\hyperlink{struct_command}{Command}} \mbox{\hyperlink{types_8h_a0dc2
 
 
 \doxysubsection{Enumeration Type Documentation}
-\mbox{\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550}} 
+\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550} 
 \index{types.h@{types.h}!InputResults@{InputResults}}
 \index{InputResults@{InputResults}!types.h@{types.h}}
 \doxysubsubsection{\texorpdfstring{InputResults}{InputResults}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{Input\+Results}}}
 
-Type of constants responsible for the operation of Call\+Interface()
 
 
-\begin{DoxyParams}{Parameters}
-{\em k\+Input\+Error} & an unknown function has been introduced \\
-\hline
-{\em k\+Buffer\+Over\+Flow\+Error} & buffer is full \\
-\hline
-{\em k\+Eof\+Error} & ran into EOF \\
-\hline
-{\em k\+File\+Error} & error in opening the file \\
-\hline
-{\em k\+Help} & the help command is entered \\
-\hline
-{\em k\+Quit} & the quit command is entered \\
-\hline
-{\em k\+Meow} & the meow command has been introduced \\
-\hline
-{\em k\+Test} & the test command is entered \\
-\hline
-{\em k\+Zero\+Str} & the null line is entered \\
-\hline
-\end{DoxyParams}
+Type of constants responsible for the operation of Call\+Interface() 
+
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kInputError@{kInputError}!types.h@{types.h}}\index{types.h@{types.h}!kInputError@{kInputError}}}\mbox{\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0}} 
-k\+Input\+Error&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kInputError@{kInputError}!types.h@{types.h}}\index{types.h@{types.h}!kInputError@{kInputError}}}\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0} 
+k\+Input\+Error&an unknown function has been introduced \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kInputSuccess@{kInputSuccess}!types.h@{types.h}}\index{types.h@{types.h}!kInputSuccess@{kInputSuccess}}}\mbox{\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kInputSuccess@{kInputSuccess}!types.h@{types.h}}\index{types.h@{types.h}!kInputSuccess@{kInputSuccess}}}\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa} 
 k\+Input\+Success&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kBufferOverflowError@{kBufferOverflowError}!types.h@{types.h}}\index{types.h@{types.h}!kBufferOverflowError@{kBufferOverflowError}}}\mbox{\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a856ff97b1ffed6526ea7b9829d269f6c}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a856ff97b1ffed6526ea7b9829d269f6c}} 
-k\+Buffer\+Overflow\+Error&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kBufferOverflowError@{kBufferOverflowError}!types.h@{types.h}}\index{types.h@{types.h}!kBufferOverflowError@{kBufferOverflowError}}}\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a856ff97b1ffed6526ea7b9829d269f6c}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a856ff97b1ffed6526ea7b9829d269f6c} 
+k\+Buffer\+Overflow\+Error&buffer is full \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kEofError@{kEofError}!types.h@{types.h}}\index{types.h@{types.h}!kEofError@{kEofError}}}\mbox{\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550ae1b71afe494c96a4657a33fe9bd2a80e}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550ae1b71afe494c96a4657a33fe9bd2a80e}} 
-k\+Eof\+Error&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kEofError@{kEofError}!types.h@{types.h}}\index{types.h@{types.h}!kEofError@{kEofError}}}\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550ae1b71afe494c96a4657a33fe9bd2a80e}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550ae1b71afe494c96a4657a33fe9bd2a80e} 
+k\+Eof\+Error&ran into EOF \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kFileError@{kFileError}!types.h@{types.h}}\index{types.h@{types.h}!kFileError@{kFileError}}}\mbox{\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a2180a79e9577a989550f46fc508c28c1}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a2180a79e9577a989550f46fc508c28c1}} 
-k\+File\+Error&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kInputFileError@{kInputFileError}!types.h@{types.h}}\index{types.h@{types.h}!kInputFileError@{kInputFileError}}}\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a1e64a3973034ef5626a318f8d01ae43e}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a1e64a3973034ef5626a318f8d01ae43e} 
+k\+Input\+File\+Error&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kHelp@{kHelp}!types.h@{types.h}}\index{types.h@{types.h}!kHelp@{kHelp}}}\mbox{\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a19a40b0bd9c88fd3525b7e1c6044dc52}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a19a40b0bd9c88fd3525b7e1c6044dc52}} 
-k\+Help&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kTestFileError@{kTestFileError}!types.h@{types.h}}\index{types.h@{types.h}!kTestFileError@{kTestFileError}}}\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550ae12a271e3f7fe20bb7df0790f74476a7}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550ae12a271e3f7fe20bb7df0790f74476a7} 
+k\+Test\+File\+Error&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kQuit@{kQuit}!types.h@{types.h}}\index{types.h@{types.h}!kQuit@{kQuit}}}\mbox{\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a542f150f613f98cdd2084c45122bb656}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a542f150f613f98cdd2084c45122bb656}} 
-k\+Quit&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kHelp@{kHelp}!types.h@{types.h}}\index{types.h@{types.h}!kHelp@{kHelp}}}\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a19a40b0bd9c88fd3525b7e1c6044dc52}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a19a40b0bd9c88fd3525b7e1c6044dc52} 
+k\+Help&the help command is entered \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kMeow@{kMeow}!types.h@{types.h}}\index{types.h@{types.h}!kMeow@{kMeow}}}\mbox{\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a0a2fdcd20fdfe72375e858518c309c30}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a0a2fdcd20fdfe72375e858518c309c30}} 
-k\+Meow&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kQuit@{kQuit}!types.h@{types.h}}\index{types.h@{types.h}!kQuit@{kQuit}}}\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a542f150f613f98cdd2084c45122bb656}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a542f150f613f98cdd2084c45122bb656} 
+k\+Quit&the quit command is entered \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kTest@{kTest}!types.h@{types.h}}\index{types.h@{types.h}!kTest@{kTest}}}\mbox{\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a2e1f96cba1827daa1d5bfc4f8194f6e9}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a2e1f96cba1827daa1d5bfc4f8194f6e9}} 
-k\+Test&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kMeow@{kMeow}!types.h@{types.h}}\index{types.h@{types.h}!kMeow@{kMeow}}}\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a0a2fdcd20fdfe72375e858518c309c30}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a0a2fdcd20fdfe72375e858518c309c30} 
+k\+Meow&the meow command has been introduced \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kZeroStr@{kZeroStr}!types.h@{types.h}}\index{types.h@{types.h}!kZeroStr@{kZeroStr}}}\mbox{\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762}} 
-k\+Zero\+Str&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kTest@{kTest}!types.h@{types.h}}\index{types.h@{types.h}!kTest@{kTest}}}\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a2e1f96cba1827daa1d5bfc4f8194f6e9}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a2e1f96cba1827daa1d5bfc4f8194f6e9} 
+k\+Test&the test command is entered \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kZeroStr@{kZeroStr}!types.h@{types.h}}\index{types.h@{types.h}!kZeroStr@{kZeroStr}}}\Hypertarget{types_8h_a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762}\label{types_8h_a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762} 
+k\+Zero\+Str&the null line is entered \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line 53 of file types.\+h.
+Definition at line \mbox{\hyperlink{types_8h_source_l00028}{28}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{54 \{}
-\DoxyCodeLine{55     \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0}{kInputError}},}
-\DoxyCodeLine{56     \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa}{kInputSuccess}},}
-\DoxyCodeLine{57     \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a856ff97b1ffed6526ea7b9829d269f6c}{kBufferOverflowError}},}
-\DoxyCodeLine{58     \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550ae1b71afe494c96a4657a33fe9bd2a80e}{kEofError}},}
-\DoxyCodeLine{59     \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a2180a79e9577a989550f46fc508c28c1}{kFileError}},}
-\DoxyCodeLine{60     \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a19a40b0bd9c88fd3525b7e1c6044dc52}{kHelp}},}
-\DoxyCodeLine{61     \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a542f150f613f98cdd2084c45122bb656}{kQuit}},}
-\DoxyCodeLine{62     \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a0a2fdcd20fdfe72375e858518c309c30}{kMeow}},}
-\DoxyCodeLine{63     \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a2e1f96cba1827daa1d5bfc4f8194f6e9}{kTest}},}
-\DoxyCodeLine{64     \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762}{kZeroStr}},}
-\DoxyCodeLine{65 \} \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{InputResults}};}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0}{kInputError}},\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa}{kInputSuccess}},\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a856ff97b1ffed6526ea7b9829d269f6c}{kBufferOverflowError}},\ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550ae1b71afe494c96a4657a33fe9bd2a80e}{kEofError}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a1e64a3973034ef5626a318f8d01ae43e}{kInputFileError}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550ae12a271e3f7fe20bb7df0790f74476a7}{kTestFileError}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a19a40b0bd9c88fd3525b7e1c6044dc52}{kHelp}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a542f150f613f98cdd2084c45122bb656}{kQuit}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a0a2fdcd20fdfe72375e858518c309c30}{kMeow}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a2e1f96cba1827daa1d5bfc4f8194f6e9}{kTest}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762}{kZeroStr}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \}\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550}{InputResults}};}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}\label{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}} 
+\Hypertarget{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}\label{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3} 
 \index{types.h@{types.h}!RootsCount@{RootsCount}}
 \index{RootsCount@{RootsCount}!types.h@{types.h}}
 \doxysubsubsection{\texorpdfstring{RootsCount}{RootsCount}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{Roots\+Count}}}
 
-!! Type of constants, each of which corresponds to a certain number of roots of the quadratic equation
 
-k\+Zero\+Roots -\/ 0 roots k\+One\+Root -\/ 1 root k\+Two\+Roots -\/ 2 roots k\+Inf\+Roots -\/ infinite number of roots / \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kOneRoot@{kOneRoot}!types.h@{types.h}}\index{types.h@{types.h}!kOneRoot@{kOneRoot}}}\mbox{\Hypertarget{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3a254747bd3b190109b73ddda4a9ad730b}\label{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3a254747bd3b190109b73ddda4a9ad730b}} 
-k\+One\+Root&\\
+
+Type of constants, each of which corresponds to a certain number of roots of the quadratic equation. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kOneRoot@{kOneRoot}!types.h@{types.h}}\index{types.h@{types.h}!kOneRoot@{kOneRoot}}}\Hypertarget{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3a254747bd3b190109b73ddda4a9ad730b}\label{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3a254747bd3b190109b73ddda4a9ad730b} 
+k\+One\+Root&0 roots \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kTwoRoots@{kTwoRoots}!types.h@{types.h}}\index{types.h@{types.h}!kTwoRoots@{kTwoRoots}}}\mbox{\Hypertarget{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad5781ea813002777dc4074a016e62172}\label{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad5781ea813002777dc4074a016e62172}} 
-k\+Two\+Roots&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kTwoRoots@{kTwoRoots}!types.h@{types.h}}\index{types.h@{types.h}!kTwoRoots@{kTwoRoots}}}\Hypertarget{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad5781ea813002777dc4074a016e62172}\label{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad5781ea813002777dc4074a016e62172} 
+k\+Two\+Roots&1 root \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kInfRoots@{kInfRoots}!types.h@{types.h}}\index{types.h@{types.h}!kInfRoots@{kInfRoots}}}\mbox{\Hypertarget{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484}\label{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484}} 
-k\+Inf\+Roots&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kInfRoots@{kInfRoots}!types.h@{types.h}}\index{types.h@{types.h}!kInfRoots@{kInfRoots}}}\Hypertarget{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484}\label{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484} 
+k\+Inf\+Roots&2 roots \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{kZeroRoots@{kZeroRoots}!types.h@{types.h}}\index{types.h@{types.h}!kZeroRoots@{kZeroRoots}}}\mbox{\Hypertarget{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9}\label{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9}} 
-k\+Zero\+Roots&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kZeroRoots@{kZeroRoots}!types.h@{types.h}}\index{types.h@{types.h}!kZeroRoots@{kZeroRoots}}}\Hypertarget{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9}\label{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9} 
+k\+Zero\+Roots&infinite number of roots \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line 9 of file types.\+h.
+Definition at line \mbox{\hyperlink{types_8h_source_l00002}{2}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{10 \{}
-\DoxyCodeLine{11     \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3a254747bd3b190109b73ddda4a9ad730b}{kOneRoot}}   = 1,}
-\DoxyCodeLine{12     \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad5781ea813002777dc4074a016e62172}{kTwoRoots}}  = 2,}
-\DoxyCodeLine{13     \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484}{kInfRoots}}  = 8,}
-\DoxyCodeLine{14     \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9}{kZeroRoots}} = 0,}
-\DoxyCodeLine{15 \} \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{RootsCount}};}
+\DoxyCodeLine{00003\ \{}
+\DoxyCodeLine{00004\ \ \ \ \ \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3a254747bd3b190109b73ddda4a9ad730b}{kOneRoot}}\ \ \ =\ 1,\ }
+\DoxyCodeLine{00005\ \ \ \ \ \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad5781ea813002777dc4074a016e62172}{kTwoRoots}}\ \ =\ 2,\ }
+\DoxyCodeLine{00006\ \ \ \ \ \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484}{kInfRoots}}\ \ =\ 8,\ }
+\DoxyCodeLine{00007\ \ \ \ \ \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9}{kZeroRoots}}\ =\ 0,\ }
+\DoxyCodeLine{00008\ \}\ \mbox{\hyperlink{types_8h_aa25c6d8cdf0bee88e27388ccef3dcdc3}{RootsCount}};}
 
 \end{DoxyCode}
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{types_8h_a0dc2133321a8d5b34317e2a1c5d20c63}\label{types_8h_a0dc2133321a8d5b34317e2a1c5d20c63}} 
+\Hypertarget{types_8h_a0dc2133321a8d5b34317e2a1c5d20c63}\label{types_8h_a0dc2133321a8d5b34317e2a1c5d20c63} 
 \index{types.h@{types.h}!CommandArray@{CommandArray}}
 \index{CommandArray@{CommandArray}!types.h@{types.h}}
 \doxysubsubsection{\texorpdfstring{CommandArray}{CommandArray}}
@@ -185,21 +174,25 @@ Definition at line 9 of file types.\+h.
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{= \{}
+\DoxyCodeLine{=\ \{}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
-\DoxyCodeLine{                                                   \textcolor{stringliteral}{"{}help"{}}, \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a19a40b0bd9c88fd3525b7e1c6044dc52}{kHelp}},\textcolor{stringliteral}{"{}invokes list of commands"{}},}
-\DoxyCodeLine{                                                   \textcolor{stringliteral}{"{}meow"{}}, \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a0a2fdcd20fdfe72375e858518c309c30}{kMeow}},\textcolor{stringliteral}{"{}to print a kitty"{}},}
-\DoxyCodeLine{                                                   \textcolor{stringliteral}{"{}quit"{}}, \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a542f150f613f98cdd2084c45122bb656}{kQuit}},\textcolor{stringliteral}{"{}to shutdown the program"{}}}
-\DoxyCodeLine{                                                  \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}help"{}},\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a19a40b0bd9c88fd3525b7e1c6044dc52}{kHelp}},\textcolor{stringliteral}{"{}invokes\ list\ of\ commands"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}meow"{}},\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a0a2fdcd20fdfe72375e858518c309c30}{kMeow}},\textcolor{stringliteral}{"{}to\ print\ a\ kitty"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}quit"{}},\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a542f150f613f98cdd2084c45122bb656}{kQuit}},\textcolor{stringliteral}{"{}to\ shutdown\ the\ program"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 
 \end{DoxyCode}
 
 
-Definition at line 85 of file types.\+h.
+Definition at line \mbox{\hyperlink{types_8h_source_l00057}{57}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
 
-\mbox{\Hypertarget{types_8h_a31d76570de85ceee764be01089e36338}\label{types_8h_a31d76570de85ceee764be01089e36338}} 
+
+
+Referenced by \mbox{\hyperlink{input_8cpp_source_l00081}{Convert\+Buf()}}.
+
+\Hypertarget{types_8h_a31d76570de85ceee764be01089e36338}\label{types_8h_a31d76570de85ceee764be01089e36338} 
 \index{types.h@{types.h}!kCommandArraySize@{kCommandArraySize}}
 \index{kCommandArraySize@{kCommandArraySize}!types.h@{types.h}}
 \doxysubsubsection{\texorpdfstring{kCommandArraySize}{kCommandArraySize}}
@@ -207,5 +200,9 @@ Definition at line 85 of file types.\+h.
 
 
 
-Definition at line 70 of file types.\+h.
+Definition at line \mbox{\hyperlink{types_8h_source_l00046}{46}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{input_8cpp_source_l00081}{Convert\+Buf()}}.
 

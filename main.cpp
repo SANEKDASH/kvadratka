@@ -16,21 +16,13 @@ int main()
     Coeffs coefficients = {0};
     Solutions solutions = {0};
 
-    CallInputInterface(&coefficients, &solutions);
-
-    return 0;
-}
-
-void CallInputInterface(Coeffs *ptr_coefficients, Solutions *ptr_solutions)
-{
-    CHECK(ptr_coefficients);
-    CHECK(ptr_solutions);
-
     InputResults status = kInputSuccess;
 
     printf("#/ Write the command or type 'help' to invoke list of commands.\n#/ ");
 
-    while ((status = GetInput(stdin, ptr_coefficients)) != kQuit && status != kEofError)
+    while ((status = GetInput(stdin, &coefficients)) != kQuit &&
+            status != kEofError &&
+            status != kInputFileError)
     {
         switch (status)
         {
@@ -39,39 +31,45 @@ void CallInputInterface(Coeffs *ptr_coefficients, Solutions *ptr_solutions)
                 PrintHelpList();
                 break;
             }
+
             case kInputError:
             {
                 printf("#/ Hey, buddy, try to write a command one more time! Or write 'help'.\n#/ ");
                 break;
             }
+
             case kBufferOverflowError:
             {
                 printf("#/ Hey, buddy, program spotted buffer overflow.\n#/ ");
                 break;
             }
+
             case kInputSuccess:
             {
 
-                SolveEquation(ptr_coefficients,
-                              ptr_solutions);
+                SolveEquation(&coefficients,
+                              &solutions);
 
-                PrintOutput(ptr_coefficients,
-                            ptr_solutions);
+                PrintOutput(&coefficients,
+                            &solutions);
 
 
                 break;
             }
+
             case kMeow:
             {
                 PrintKitty();
                 break;
             }
+
             #ifdef DEBUG
             case kTest:
             {
                 Test();
                 break;
             }
+
             #endif
             case kZeroStr:
             {
@@ -84,15 +82,19 @@ void CallInputInterface(Coeffs *ptr_coefficients, Solutions *ptr_solutions)
                 printf("#/ Hey, buddy, we got a problem with test file.\n#/");
                 break;
             }
+
             case kQuit:
 
             case kEofError:
 
+            case kInputFileError:
+
             default:
             {
                 CHECK(0);
+
                 printf("#/ What the fuck!?\n");
-                printf("#/ Write the command or type 'help' to invoke list of commands.\n");
+
                 break;
             }
         }
@@ -105,17 +107,46 @@ void CallInputInterface(Coeffs *ptr_coefficients, Solutions *ptr_solutions)
             printf("#/ Hey, buddy, we were blinded by EOF.\n");
             break;
         }
+
         case kInputFileError:
         {
             printf("#/ Hey, buddy, something went wrong with input file.\n#/ ");
             break;
         }
+
         case kQuit:
         {
             printf("#/ Have a good evening.");
             break;
         }
+
+        case kInputError:
+
+        case kInputSuccess:
+
+        case kBufferOverflowError:
+
+        case kTestFileError:
+
+        case kHelp:
+
+        case kMeow:
+
+        case kTest:
+
+        case kZeroStr:
+
+        default:
+        {
+            CHECK(0);
+
+            printf("#/ what the fuck?");
+
+            break;
+        }
     }
 
-
+    return 0;
 }
+
+

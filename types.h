@@ -1,68 +1,43 @@
-///!!
 //! Type of constants, each of which corresponds to a certain number of roots of the quadratic equation
-//!
-//! kZeroRoots - 0 roots
-//! kOneRoot - 1 root
-//! kTwoRoots - 2 roots
-//! kInfRoots - infinite number of roots
-//!/
 typedef enum
 {
-    kOneRoot   = 1,
-    kTwoRoots  = 2,
-    kInfRoots  = 8,
-    kZeroRoots = 0,
+    kOneRoot   = 1, //!< 0 roots
+    kTwoRoots  = 2, //!< 1 root
+    kInfRoots  = 8, //!< 2 roots
+    kZeroRoots = 0, //!< infinite number of roots
 } RootsCount;
 
 
 //! The structure of the coefficients of the quadratic equation
-//!
-//! @param a    coefficient x^2,
-//! @param b    coefficient x,
-//! @param c    free coefficient ,
 typedef struct
 {
-    double a;
-    double b;
-    double c;
+    double a;  //!< coefficient x^2
+    double b;  //!< coefficient x
+    double c;  //!< free coefficient
 } Coeffs;
 
 //! Structure of solutions of the quadratic equation
-//!
-//! @param x1    is the first root
-//! @param x2    is the second root
-//! @param roots_count    number of roots in this case
 typedef struct
 {
-    double x1;
-    double x2;
-    RootsCount roots_count;
+    double x1;              //!< the first root
+    double x2;              //!< the second root
+    RootsCount roots_count; //!< number of roots in this case
 } Solutions;
 
 //! Type of constants responsible for the operation of CallInterface()
-//!
-//! @param kInputError    an unknown function has been introduced
-//! @param kBufferOverFlowError    buffer is full
-//! @param kEofError    ran into EOF
-//! @param kFileError    error in opening the file
-//! @param kHelp    the help command is entered
-//! @param kQuit    the quit command is entered
-//! @param kMeow    the meow command has been introduced
-//! @param kTest    the test command is entered
-//! @param kZeroStr    the null line is entered
 typedef enum
 {
-    kInputError,
-    kInputSuccess,
-    kBufferOverflowError,
-    kEofError,
-    kInputFileError,
-    kTestFileError,
-    kHelp,
-    kQuit,
-    kMeow,
-    kTest,
-    kZeroStr,
+    kInputError,            //!< an unknown function has been introduced
+    kInputSuccess,          //!<
+    kBufferOverflowError,   //!< buffer is full
+    kEofError,              //!< ran into EOF
+    kInputFileError,        //!<
+    kTestFileError,         //!<
+    kHelp,                  //!< the help command is entered
+    kQuit,                  //!< the quit command is entered
+    kMeow,                  //!< the meow command has been introduced
+    kTest,                  //!< the test command is entered
+    kZeroStr,               //!< the null line is entered
 } InputResults;
 
 #ifdef DEBUG
@@ -72,15 +47,11 @@ const int kCommandArraySize = 3;
 #endif
 
 //! Command structure
-//!
-//! @param command    name command name
-//! @param result    is a constant corresponding to the command
-//! @param help_text    command actions
 typedef struct
 {
-    const char *command_name;
-    InputResults result;
-    const char *help_text;
+    const char *command_name; //!< name of command
+    InputResults result;      //!< is a constant corresponding to the command
+    const char *help_text;    //!< command actions
 } Command;
 
 const Command CommandArray[kCommandArraySize] = {

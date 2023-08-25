@@ -53,7 +53,8 @@ void PrintOutput(const Coeffs *ptr_coefficients,
         case kTwoRoots:
         {
             printf("there are two roots:\n");
-            printf("\tx1 = %.4lf\n\tx2 = %.4lf\n", ptr_solutions->x1, ptr_solutions->x2);
+            printf("\tx1 = %.4lf\n\tx2 = %.4lf\n", ptr_solutions->x1,
+                                                   ptr_solutions->x2);
             break;
         }
 
