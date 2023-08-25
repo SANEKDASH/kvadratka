@@ -5,6 +5,38 @@
 #include "algorithm.h"
 #include "test.h"
 #include "debug.h"
+#include "output.h"
+
+//! Checks whether the values of the roots obtained from the file are equal test.txt , with the values of the roots obtained by the algorithm of the program
+//!
+//! @param ptr_coeffients    pointer to the structure with the coefficients of the quadratic equation
+//! @param ptr_real_solutions    pointer to a structure with solutions of sq.ur. obtained from test.txt
+static int TestAlgorithm(Coeffs *ptr_coefficients,
+                  Solutions *ptr_real_solutions);
+
+//! Records the coefficients, the real roots of the square.ur from file to buffer.
+//!
+//! @param ptr_file    pointer to the file being read
+//! @param solutions_count    variable equal to the constant corresponding to the number of roots of sq.ur.
+//! @param ptr_solutions    pointer to the structure with the roots of the quadratic equation
+//!
+//! @note In case of incorrect entry returns the kInputError error
+//!
+//! @see types.h
+static InputResults GetInputTest(FILE *ptr_file,
+                          Coeffs *ptr_coefficients,
+                          Solutions *ptr_solutions);
+
+//! Reads the coefficients, the real roots of the equation from the buffer
+//!
+//! @param buf    buffer
+//! @param solutions_count    variable equal to the constant corresponding to the number of roots of the square unit.
+//! @param ptr_solutions    pointer to the structure with the roots and number of roots in quadratic equation
+//!
+//!@see types.h
+static InputResults GetCoeffsAndSolutions(char *buf,
+                                   Coeffs *ptr_coefficients,
+                                   Solutions *ptr_solutions);
 
 void Test()
 {
@@ -43,12 +75,16 @@ void Test()
 
             case kBufferOverflowError:
             {
+                SetColor(4);
                 printf("#/ Spotted buffer overflow in test: %d.\n", i++);
+                SetColor(7);
                 break;
             }
             case kTestFileError:
             {
+                SetColor(4);
                 printf("#/ Got problem with opening file.\n");
+                SetColor(7);
                 break;
             }
             case kMeow:
@@ -73,13 +109,11 @@ void Test()
 
     }
 
-    if("#/ There is nothing to test in 'test.txt'.\n")
-
     fclose(ptr_file);
     printf("#/ ");
 }
 
-int TestAlgorithm(Coeffs *ptr_coefficients,
+static int TestAlgorithm(Coeffs *ptr_coefficients,
                   Solutions *ptr_real_solutions)
 {
     Solutions solutions = {0};
@@ -100,26 +134,30 @@ int TestAlgorithm(Coeffs *ptr_coefficients,
         !AreEqual(solutions.x2, ptr_real_solutions->x2) ||
         !AreEqual(solutions.roots_count, ptr_real_solutions->roots_count))
     {
+        SetColor(4);
         printf("Test failed: x1 = %lf, x2 = %lf.\n"
-               "   Expected: x1 = %lf, x2 = %lf\n", solutions.x1,
-                                                    solutions.x2,
-                                                    ptr_real_solutions->x1,
-                                                    ptr_real_solutions->x2);
+               "              Expected: x1 = %lf, x2 = %lf\n", solutions.x1,
+                                                               solutions.x2,
+                                                               ptr_real_solutions->x1,
+                                                               ptr_real_solutions->x2);
 
+        SetColor(7);
         return 0;
     }
     else
     {
+        SetColor(2);
         printf("Test succeed!\n");
+        SetColor(7);
         return 1;
     }
 }
 
 const int kMaxBuf = 257;
 
-InputResults GetInputTest(FILE *ptr_file,
-                          Coeffs *ptr_coefficients,
-                          Solutions *ptr_solutions)
+static InputResults GetInputTest(FILE *ptr_file,
+                                 Coeffs *ptr_coefficients,
+                                 Solutions *ptr_solutions)
 {
     CHECK(ptr_file);
     CHECK(ptr_coefficients);
@@ -171,9 +209,9 @@ InputResults GetInputTest(FILE *ptr_file,
     return GetCoeffsAndSolutions(buf, ptr_coefficients, ptr_solutions);
 }
 
-InputResults GetCoeffsAndSolutions(char *buf,
-                                   Coeffs *ptr_coefficients,
-                                   Solutions *ptr_solutions)
+static InputResults GetCoeffsAndSolutions(char *buf,
+                                          Coeffs *ptr_coefficients,
+                                          Solutions *ptr_solutions)
 {
     CHECK(buf);
     CHECK(ptr_coefficients);

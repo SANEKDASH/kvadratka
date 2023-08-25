@@ -1,4 +1,28 @@
 var searchData=
 [
-  ['output_2eh_0',['output.h',['../output_8h.html',1,'']]]
+  ['kblue_0',['kBlue',['../types_8h.html#a55ecd4f2ec2ebfe8d5b0163e4ac2a967aab48c32302f7159d81e081c41dc2d3d2',1,'types.h']]],
+  ['kbufferoverflowerror_1',['kBufferOverflowError',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550a856ff97b1ffed6526ea7b9829d269f6c',1,'types.h']]],
+  ['kcommandarraysize_2',['kCommandArraySize',['../types_8h.html#a31d76570de85ceee764be01089e36338',1,'types.h']]],
+  ['kdblue_3',['kDBlue',['../types_8h.html#a55ecd4f2ec2ebfe8d5b0163e4ac2a967a74e41d5978684d5b845bca305e84611c',1,'types.h']]],
+  ['keoferror_4',['kEofError',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550ae1b71afe494c96a4657a33fe9bd2a80e',1,'types.h']]],
+  ['kgold_5',['kGold',['../types_8h.html#a55ecd4f2ec2ebfe8d5b0163e4ac2a967a14ef40d42e6bb88349bc9ad97aed7bdb',1,'types.h']]],
+  ['kgreen_6',['kGreen',['../types_8h.html#a55ecd4f2ec2ebfe8d5b0163e4ac2a967a8ea4b941d1d41f4bd88387c38e13e9d3',1,'types.h']]],
+  ['kgrey_7',['kGrey',['../types_8h.html#a55ecd4f2ec2ebfe8d5b0163e4ac2a967a1226fdde52098b2d57904e138bd54bc4',1,'types.h']]],
+  ['khelp_8',['kHelp',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550a19a40b0bd9c88fd3525b7e1c6044dc52',1,'types.h']]],
+  ['kinfroots_9',['kInfRoots',['../types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484',1,'types.h']]],
+  ['kinputerror_10',['kInputError',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0',1,'types.h']]],
+  ['kinputfileerror_11',['kInputFileError',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550a1e64a3973034ef5626a318f8d01ae43e',1,'types.h']]],
+  ['kinputsuccess_12',['kInputSuccess',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa',1,'types.h']]],
+  ['kmaxbuf_13',['kMaxBuf',['../test_8cpp.html#ab280b7cfe35f6cb5d3ba0f16eb094faa',1,'test.cpp']]],
+  ['kmeow_14',['kMeow',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550a0a2fdcd20fdfe72375e858518c309c30',1,'types.h']]],
+  ['koneroot_15',['kOneRoot',['../types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3a254747bd3b190109b73ddda4a9ad730b',1,'types.h']]],
+  ['kpurp_16',['kPurp',['../types_8h.html#a55ecd4f2ec2ebfe8d5b0163e4ac2a967aa932451ca7557dcceb86cd6726e51513',1,'types.h']]],
+  ['kquit_17',['kQuit',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550a542f150f613f98cdd2084c45122bb656',1,'types.h']]],
+  ['kred_18',['kRed',['../types_8h.html#a55ecd4f2ec2ebfe8d5b0163e4ac2a967a5a655b1a02e5b0311571ca57ce4f3900',1,'types.h']]],
+  ['ksky_19',['kSky',['../types_8h.html#a55ecd4f2ec2ebfe8d5b0163e4ac2a967af13b699279d41ade38e5958d72312fd0',1,'types.h']]],
+  ['ktestfileerror_20',['kTestFileError',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550ae12a271e3f7fe20bb7df0790f74476a7',1,'types.h']]],
+  ['ktworoots_21',['kTwoRoots',['../types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3ad5781ea813002777dc4074a016e62172',1,'types.h']]],
+  ['kwhite_22',['kWhite',['../types_8h.html#a55ecd4f2ec2ebfe8d5b0163e4ac2a967a9e1b2d3dcb56c17a372440853228ad01',1,'types.h']]],
+  ['kzeroroots_23',['kZeroRoots',['../types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9',1,'types.h']]],
+  ['kzerostr_24',['kZeroStr',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762',1,'types.h']]]
 ];

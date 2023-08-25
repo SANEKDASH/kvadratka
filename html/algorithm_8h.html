@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Kvadratka: algorithm.h File Reference</title>
+<title>My Project: algorithm.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Kvadratka
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -120,12 +120,12 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="algorithm_8cpp_source.html#l00116">116</a> of file <a class="el" href="algorithm_8cpp_source.html">algorithm.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  117</span>{</div>
-<div class="line"><span class="lineno">  118</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">double</span> kE = 1e-4;</div>
-<div class="line"><span class="lineno">  119</span> </div>
-<div class="line"><span class="lineno">  120</span>    <span class="keywordflow">return</span> fabs(number_1 - number_2) &lt; kE;</div>
-<div class="line"><span class="lineno">  121</span>}</div>
+<p class="definition">Definition at line <a class="el" href="algorithm_8cpp_source.html#l00119">119</a> of file <a class="el" href="algorithm_8cpp_source.html">algorithm.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  120</span>{</div>
+<div class="line"><span class="lineno">  121</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">double</span> kE = 1e-4;</div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">return</span> fabs(number_1 - number_2) &lt; kE;</div>
+<div class="line"><span class="lineno">  124</span>}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="algorithm_8cpp_source.html#l00030">SolveEquation()</a>.</p>
 
@@ -154,17 +154,18 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="algorithm_8cpp_source.html#l00076">76</a> of file <a class="el" href="algorithm_8cpp_source.html">algorithm.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   77</span>{</div>
-<div class="line"><span class="lineno">   78</span>    CHECK(ptr_coefficients);</div>
-<div class="line"><span class="lineno">   79</span> </div>
-<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">return</span> ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#ab88d1e5cb2a4d1584367319561acd096">b</a> * ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#ab88d1e5cb2a4d1584367319561acd096">b</a> - 4 * ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#a9fd94e3f65fc2a6a73dfc6a62b6967fb">a</a> * ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#a43de4f7abb7965c80b34c895d4506cef">c</a>;</div>
-<div class="line"><span class="lineno">   81</span>}</div>
+<p class="definition">Definition at line <a class="el" href="algorithm_8cpp_source.html#l00079">79</a> of file <a class="el" href="algorithm_8cpp_source.html">algorithm.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>{</div>
+<div class="line"><span class="lineno">   81</span>    <a class="code hl_define" href="debug_8h.html#a7b0a4b3c393708bef4a73475d5c2656c">CHECK</a>(ptr_coefficients);</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">return</span> ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#ab88d1e5cb2a4d1584367319561acd096">b</a> * ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#ab88d1e5cb2a4d1584367319561acd096">b</a> - 4 * ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#a9fd94e3f65fc2a6a73dfc6a62b6967fb">a</a> * ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#a43de4f7abb7965c80b34c895d4506cef">c</a>;</div>
+<div class="line"><span class="lineno">   84</span>}</div>
+<div class="ttc" id="adebug_8h_html_a7b0a4b3c393708bef4a73475d5c2656c"><div class="ttname"><a href="debug_8h.html#a7b0a4b3c393708bef4a73475d5c2656c">CHECK</a></div><div class="ttdeci">#define CHECK(expression)</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00007">debug.h:7</a></div></div>
 <div class="ttc" id="astruct_coeffs_html_a43de4f7abb7965c80b34c895d4506cef"><div class="ttname"><a href="struct_coeffs.html#a43de4f7abb7965c80b34c895d4506cef">Coeffs::c</a></div><div class="ttdeci">double c</div><div class="ttdoc">free coefficient</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00016">types.h:16</a></div></div>
 <div class="ttc" id="astruct_coeffs_html_a9fd94e3f65fc2a6a73dfc6a62b6967fb"><div class="ttname"><a href="struct_coeffs.html#a9fd94e3f65fc2a6a73dfc6a62b6967fb">Coeffs::a</a></div><div class="ttdeci">double a</div><div class="ttdoc">coefficient x^2</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00014">types.h:14</a></div></div>
 <div class="ttc" id="astruct_coeffs_html_ab88d1e5cb2a4d1584367319561acd096"><div class="ttname"><a href="struct_coeffs.html#ab88d1e5cb2a4d1584367319561acd096">Coeffs::b</a></div><div class="ttdeci">double b</div><div class="ttdoc">coefficient x</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="types_8h_source.html#l00014">Coeffs::a</a>, <a class="el" href="types_8h_source.html#l00015">Coeffs::b</a>, and <a class="el" href="types_8h_source.html#l00016">Coeffs::c</a>.</p>
+<p class="reference">References <a class="el" href="types_8h_source.html#l00014">Coeffs::a</a>, <a class="el" href="types_8h_source.html#l00015">Coeffs::b</a>, <a class="el" href="types_8h_source.html#l00016">Coeffs::c</a>, and <a class="el" href="debug_8h_source.html#l00007">CHECK</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="algorithm_8cpp_source.html#l00030">SolveEquation()</a>.</p>
 
@@ -208,8 +209,8 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="algorithm_8cpp_source.html#l00030">30</a> of file <a class="el" href="algorithm_8cpp_source.html">algorithm.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   32</span>{</div>
-<div class="line"><span class="lineno">   33</span>    CHECK(ptr_coefficients);</div>
-<div class="line"><span class="lineno">   34</span>    CHECK(ptr_solutions);</div>
+<div class="line"><span class="lineno">   33</span>    <a class="code hl_define" href="debug_8h.html#a7b0a4b3c393708bef4a73475d5c2656c">CHECK</a>(ptr_coefficients);</div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_define" href="debug_8h.html#a7b0a4b3c393708bef4a73475d5c2656c">CHECK</a>(ptr_solutions);</div>
 <div class="line"><span class="lineno">   35</span> </div>
 <div class="line"><span class="lineno">   36</span>    <span class="keywordtype">double</span> discriminant = <a class="code hl_function" href="algorithm_8cpp.html#ae9b3e898621c5f5e23c866a18a20aa58">CalculateDiscriminant</a>(ptr_coefficients);</div>
 <div class="line"><span class="lineno">   37</span> </div>
@@ -221,42 +222,45 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   43</span>    }</div>
 <div class="line"><span class="lineno">   44</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!<a class="code hl_function" href="algorithm_8cpp.html#a5e9d9163a48db731bbd190b4b7162f61">AreEqual</a>(ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#a9fd94e3f65fc2a6a73dfc6a62b6967fb">a</a>, 0))</div>
 <div class="line"><span class="lineno">   45</span>    {</div>
-<div class="line"><span class="lineno">   46</span>        ptr_solutions-&gt;<a class="code hl_variable" href="struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599">roots_count</a> = SolveQuadCase(ptr_coefficients, discriminant, ptr_solutions);</div>
-<div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   49</span>    }</div>
-<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   51</span>    {</div>
-<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="algorithm_8cpp.html#a5e9d9163a48db731bbd190b4b7162f61">AreEqual</a>(ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#ab88d1e5cb2a4d1584367319561acd096">b</a>, 0))</div>
-<div class="line"><span class="lineno">   53</span>        {</div>
-<div class="line"><span class="lineno">   54</span>            ptr_solutions-&gt;<a class="code hl_variable" href="struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599">roots_count</a> = SolveLinearCase(ptr_coefficients, ptr_solutions);</div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   57</span>        }</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   59</span>        {</div>
-<div class="line"><span class="lineno">   60</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="algorithm_8cpp.html#a5e9d9163a48db731bbd190b4b7162f61">AreEqual</a>(ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#a43de4f7abb7965c80b34c895d4506cef">c</a>, 0))</div>
-<div class="line"><span class="lineno">   61</span>            {</div>
-<div class="line"><span class="lineno">   62</span>                ptr_solutions-&gt;<a class="code hl_variable" href="struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599">roots_count</a> = <a class="code hl_enumvalue" href="types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9">kZeroRoots</a>;</div>
-<div class="line"><span class="lineno">   63</span> </div>
-<div class="line"><span class="lineno">   64</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   65</span>            }</div>
-<div class="line"><span class="lineno">   66</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   67</span>            {</div>
-<div class="line"><span class="lineno">   68</span>                ptr_solutions-&gt;<a class="code hl_variable" href="struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599">roots_count</a> =  <a class="code hl_enumvalue" href="types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484">kInfRoots</a>;</div>
-<div class="line"><span class="lineno">   69</span> </div>
-<div class="line"><span class="lineno">   70</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   71</span>            }</div>
-<div class="line"><span class="lineno">   72</span>        }</div>
-<div class="line"><span class="lineno">   73</span>    }</div>
-<div class="line"><span class="lineno">   74</span>}</div>
-<div class="ttc" id="aalgorithm_8cpp_html_a5e9d9163a48db731bbd190b4b7162f61"><div class="ttname"><a href="algorithm_8cpp.html#a5e9d9163a48db731bbd190b4b7162f61">AreEqual</a></div><div class="ttdeci">bool AreEqual(double number_1, double number_2)</div><div class="ttdef"><b>Definition</b> <a href="algorithm_8cpp_source.html#l00116">algorithm.cpp:116</a></div></div>
-<div class="ttc" id="aalgorithm_8cpp_html_ae9b3e898621c5f5e23c866a18a20aa58"><div class="ttname"><a href="algorithm_8cpp.html#ae9b3e898621c5f5e23c866a18a20aa58">CalculateDiscriminant</a></div><div class="ttdeci">double CalculateDiscriminant(const Coeffs *ptr_coefficients)</div><div class="ttdef"><b>Definition</b> <a href="algorithm_8cpp_source.html#l00076">algorithm.cpp:76</a></div></div>
+<div class="line"><span class="lineno">   46</span>        ptr_solutions-&gt;<a class="code hl_variable" href="struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599">roots_count</a> = SolveQuadCase(ptr_coefficients,</div>
+<div class="line"><span class="lineno">   47</span>                                                   discriminant,</div>
+<div class="line"><span class="lineno">   48</span>                                                   ptr_solutions);</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   51</span>    }</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   53</span>    {</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="algorithm_8cpp.html#a5e9d9163a48db731bbd190b4b7162f61">AreEqual</a>(ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#ab88d1e5cb2a4d1584367319561acd096">b</a>, 0))</div>
+<div class="line"><span class="lineno">   55</span>        {</div>
+<div class="line"><span class="lineno">   56</span>            ptr_solutions-&gt;<a class="code hl_variable" href="struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599">roots_count</a> = SolveLinearCase(ptr_coefficients,</div>
+<div class="line"><span class="lineno">   57</span>                                                         ptr_solutions);</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   60</span>        }</div>
+<div class="line"><span class="lineno">   61</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   62</span>        {</div>
+<div class="line"><span class="lineno">   63</span>            <span class="keywordflow">if</span> (!<a class="code hl_function" href="algorithm_8cpp.html#a5e9d9163a48db731bbd190b4b7162f61">AreEqual</a>(ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#a43de4f7abb7965c80b34c895d4506cef">c</a>, 0))</div>
+<div class="line"><span class="lineno">   64</span>            {</div>
+<div class="line"><span class="lineno">   65</span>                ptr_solutions-&gt;<a class="code hl_variable" href="struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599">roots_count</a> = <a class="code hl_enumvalue" href="types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9">kZeroRoots</a>;</div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   68</span>            }</div>
+<div class="line"><span class="lineno">   69</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   70</span>            {</div>
+<div class="line"><span class="lineno">   71</span>                ptr_solutions-&gt;<a class="code hl_variable" href="struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599">roots_count</a> =  <a class="code hl_enumvalue" href="types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484">kInfRoots</a>;</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   74</span>            }</div>
+<div class="line"><span class="lineno">   75</span>        }</div>
+<div class="line"><span class="lineno">   76</span>    }</div>
+<div class="line"><span class="lineno">   77</span>}</div>
+<div class="ttc" id="aalgorithm_8cpp_html_a5e9d9163a48db731bbd190b4b7162f61"><div class="ttname"><a href="algorithm_8cpp.html#a5e9d9163a48db731bbd190b4b7162f61">AreEqual</a></div><div class="ttdeci">bool AreEqual(double number_1, double number_2)</div><div class="ttdef"><b>Definition</b> <a href="algorithm_8cpp_source.html#l00119">algorithm.cpp:119</a></div></div>
+<div class="ttc" id="aalgorithm_8cpp_html_ae9b3e898621c5f5e23c866a18a20aa58"><div class="ttname"><a href="algorithm_8cpp.html#ae9b3e898621c5f5e23c866a18a20aa58">CalculateDiscriminant</a></div><div class="ttdeci">double CalculateDiscriminant(const Coeffs *ptr_coefficients)</div><div class="ttdef"><b>Definition</b> <a href="algorithm_8cpp_source.html#l00079">algorithm.cpp:79</a></div></div>
 <div class="ttc" id="astruct_solutions_html_a6bbe8ebb92a0ca5b42d2e57db2b58599"><div class="ttname"><a href="struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599">Solutions::roots_count</a></div><div class="ttdeci">RootsCount roots_count</div><div class="ttdoc">number of roots in this case</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00024">types.h:24</a></div></div>
 <div class="ttc" id="atypes_8h_html_aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9"><div class="ttname"><a href="types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3ad70cf9fb33249d71003f8e1fb22a7ed9">kZeroRoots</a></div><div class="ttdeci">@ kZeroRoots</div><div class="ttdoc">infinite number of roots</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00007">types.h:7</a></div></div>
 <div class="ttc" id="atypes_8h_html_aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484"><div class="ttname"><a href="types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3afb925499e4e76d0e9bddb52814123484">kInfRoots</a></div><div class="ttdeci">@ kInfRoots</div><div class="ttdoc">2 roots</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00006">types.h:6</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="types_8h_source.html#l00014">Coeffs::a</a>, <a class="el" href="algorithm_8cpp_source.html#l00116">AreEqual()</a>, <a class="el" href="types_8h_source.html#l00015">Coeffs::b</a>, <a class="el" href="types_8h_source.html#l00016">Coeffs::c</a>, <a class="el" href="algorithm_8cpp_source.html#l00076">CalculateDiscriminant()</a>, <a class="el" href="types_8h_source.html#l00006">kInfRoots</a>, <a class="el" href="types_8h_source.html#l00007">kZeroRoots</a>, and <a class="el" href="types_8h_source.html#l00024">Solutions::roots_count</a>.</p>
+<p class="reference">References <a class="el" href="types_8h_source.html#l00014">Coeffs::a</a>, <a class="el" href="algorithm_8cpp_source.html#l00119">AreEqual()</a>, <a class="el" href="types_8h_source.html#l00015">Coeffs::b</a>, <a class="el" href="types_8h_source.html#l00016">Coeffs::c</a>, <a class="el" href="algorithm_8cpp_source.html#l00079">CalculateDiscriminant()</a>, <a class="el" href="debug_8h_source.html#l00007">CHECK</a>, <a class="el" href="types_8h_source.html#l00006">kInfRoots</a>, <a class="el" href="types_8h_source.html#l00007">kZeroRoots</a>, and <a class="el" href="types_8h_source.html#l00024">Solutions::roots_count</a>.</p>
 
 </div>
 </div>

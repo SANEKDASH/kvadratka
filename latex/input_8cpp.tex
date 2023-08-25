@@ -48,34 +48,33 @@ Definition at line \mbox{\hyperlink{input_8cpp_source_l00081}{81}} of file \mbox
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00083\ \{}
-\DoxyCodeLine{00084\ \ \ \ \ CHECK(buf);}
-\DoxyCodeLine{00085\ \ \ \ \ CHECK(ptr\_coefficients);}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{debug_8h_a7b0a4b3c393708bef4a73475d5c2656c}{CHECK}}(buf);}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{debug_8h_a7b0a4b3c393708bef4a73475d5c2656c}{CHECK}}(ptr\_coefficients);}
 \DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{char}\ command[kMaxBuf]\ =\ \{0\};}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ command[kMaxBuf]\ =\ \{0\};}
 \DoxyCodeLine{00088\ \ \ \ \ command[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
 \DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_one\_word\ =\ CutSpaces(buf,\ command);}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_one\_word)}
-\DoxyCodeLine{00094\ \ \ \ \ \{}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{types_8h_a31d76570de85ceee764be01089e36338}{kCommandArraySize}};\ ++i)}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(command,\ \mbox{\hyperlink{types_8h_a0dc2133321a8d5b34317e2a1c5d20c63}{CommandArray}}[i].command\_name)\ ==\ 0)}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a0dc2133321a8d5b34317e2a1c5d20c63}{CommandArray}}[i].\mbox{\hyperlink{struct_command_ac3a3bfd38769f40d000c1ebb968082c5}{result}};}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00102\ \ \ \ \ \}}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8cpp_aaf73914d4c7ca2e77061d41564fe4b2e}{ConvertBufToCoeffs}}(buf,}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr\_coefficients);}
-\DoxyCodeLine{00106\ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_one\_word\ =\ CutSpaces(buf,\ command);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_one\_word)}
+\DoxyCodeLine{00093\ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{types_8h_a31d76570de85ceee764be01089e36338}{kCommandArraySize}};\ ++i)}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(command,\ \mbox{\hyperlink{types_8h_a0dc2133321a8d5b34317e2a1c5d20c63}{CommandArray}}[i].command\_name)\ ==\ 0)}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a0dc2133321a8d5b34317e2a1c5d20c63}{CommandArray}}[i].\mbox{\hyperlink{struct_command_ac3a3bfd38769f40d000c1ebb968082c5}{result}};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{input_8cpp_aaf73914d4c7ca2e77061d41564fe4b2e}{ConvertBufToCoeffs}}(buf,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptr\_coefficients);}
+\DoxyCodeLine{00105\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{types_8h_source_l00057}{Command\+Array}}, \mbox{\hyperlink{input_8cpp_source_l00108}{Convert\+Buf\+To\+Coeffs()}}, \mbox{\hyperlink{types_8h_source_l00046}{k\+Command\+Array\+Size}}, and \mbox{\hyperlink{types_8h_source_l00053}{Command\+::result}}.
+References \mbox{\hyperlink{debug_8h_source_l00007}{CHECK}}, \mbox{\hyperlink{types_8h_source_l00059}{Command\+Array}}, \mbox{\hyperlink{input_8cpp_source_l00107}{Convert\+Buf\+To\+Coeffs()}}, \mbox{\hyperlink{types_8h_source_l00048}{k\+Command\+Array\+Size}}, and \mbox{\hyperlink{types_8h_source_l00055}{Command\+::result}}.
 
 
 
@@ -104,49 +103,49 @@ if coefficients are written incorrectly in the buffer, returns the k\+Input\+Err
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{input_8cpp_source_l00108}{108}} of file \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}}.
+Definition at line \mbox{\hyperlink{input_8cpp_source_l00107}{107}} of file \mbox{\hyperlink{input_8cpp_source}{input.\+cpp}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00110\ \{}
-\DoxyCodeLine{00111\ \ \ \ \ CHECK(buf);}
-\DoxyCodeLine{00112\ \ \ \ \ CHECK(ptr\_coefficients);}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{char}\ *number\_end\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ \ \ \ \ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_a9fd94e3f65fc2a6a73dfc6a62b6967fb}{a}}\ =\ strtod(buf,\ \&number\_end);}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{if}\ (buf\ !=\ number\_end)}
-\DoxyCodeLine{00119\ \ \ \ \ \{}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ buf\ =\ number\_end;}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_ab88d1e5cb2a4d1584367319561acd096}{b}}\ =\ strtod(buf,\ \&number\_end);}
-\DoxyCodeLine{00122\ \ \ \ \ \}}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (buf\ !=\ number\_end)}
-\DoxyCodeLine{00125\ \ \ \ \ \{}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ buf\ =\ number\_end;}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_a43de4f7abb7965c80b34c895d4506cef}{c}}\ =\ strtod(buf,\ \&number\_end);}
-\DoxyCodeLine{00128\ \ \ \ \ \}}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{while}\ (isspace(*number\_end))}
-\DoxyCodeLine{00131\ \ \ \ \ \{}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ ++number\_end;}
-\DoxyCodeLine{00133\ \ \ \ \ \}}
-\DoxyCodeLine{00134\ }
-\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{if}\ (*number\_end\ ==\ \textcolor{charliteral}{'\(\backslash\)0'}\ \&\&\ buf[0]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})}
-\DoxyCodeLine{00136\ \ \ \ \ \{}
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa}{kInputSuccess}};}
-\DoxyCodeLine{00138\ \ \ \ \ \}}
-\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00140\ \ \ \ \ \{}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0}{kInputError}};}
-\DoxyCodeLine{00142\ \ \ \ \ \}}
-\DoxyCodeLine{00143\ \}}
+\DoxyCodeLine{00109\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{debug_8h_a7b0a4b3c393708bef4a73475d5c2656c}{CHECK}}(buf);}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{debug_8h_a7b0a4b3c393708bef4a73475d5c2656c}{CHECK}}(ptr\_coefficients);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{char}\ *number\_end\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_a9fd94e3f65fc2a6a73dfc6a62b6967fb}{a}}\ =\ strtod(buf,\ \&number\_end);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{if}\ (buf\ !=\ number\_end)}
+\DoxyCodeLine{00118\ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ buf\ =\ number\_end;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_ab88d1e5cb2a4d1584367319561acd096}{b}}\ =\ strtod(buf,\ \&number\_end);}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (buf\ !=\ number\_end)}
+\DoxyCodeLine{00124\ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ buf\ =\ number\_end;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ ptr\_coefficients-\/>\mbox{\hyperlink{struct_coeffs_a43de4f7abb7965c80b34c895d4506cef}{c}}\ =\ strtod(buf,\ \&number\_end);}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{while}\ (isspace(*number\_end))}
+\DoxyCodeLine{00130\ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ ++number\_end;}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{if}\ (*number\_end\ ==\ \textcolor{charliteral}{'\(\backslash\)0'}\ \&\&\ buf[0]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})}
+\DoxyCodeLine{00135\ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa}{kInputSuccess}};}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00139\ \ \ \ \ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{types_8h_a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0}{kInputError}};}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \}}
 
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{types_8h_source_l00014}{Coeffs\+::a}}, \mbox{\hyperlink{types_8h_source_l00015}{Coeffs\+::b}}, \mbox{\hyperlink{types_8h_source_l00016}{Coeffs\+::c}}, \mbox{\hyperlink{types_8h_source_l00030}{k\+Input\+Error}}, and \mbox{\hyperlink{types_8h_source_l00031}{k\+Input\+Success}}.
+References \mbox{\hyperlink{types_8h_source_l00014}{Coeffs\+::a}}, \mbox{\hyperlink{types_8h_source_l00015}{Coeffs\+::b}}, \mbox{\hyperlink{types_8h_source_l00016}{Coeffs\+::c}}, \mbox{\hyperlink{debug_8h_source_l00007}{CHECK}}, \mbox{\hyperlink{types_8h_source_l00030}{k\+Input\+Error}}, and \mbox{\hyperlink{types_8h_source_l00031}{k\+Input\+Success}}.
 
 
 
@@ -178,8 +177,8 @@ Definition at line \mbox{\hyperlink{input_8cpp_source_l00022}{22}} of file \mbox
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00024\ \{}
-\DoxyCodeLine{00025\ \ \ \ \ CHECK(ptr\_coefficients);}
-\DoxyCodeLine{00026\ \ \ \ \ CHECK(ptr\_file);}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{debug_8h_a7b0a4b3c393708bef4a73475d5c2656c}{CHECK}}(ptr\_coefficients);}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{debug_8h_a7b0a4b3c393708bef4a73475d5c2656c}{CHECK}}(ptr\_file);}
 \DoxyCodeLine{00027\ }
 \DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ buf[kMaxBuf]\ =\ \{0\};}
 \DoxyCodeLine{00029\ \ \ \ \ buf[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
@@ -235,5 +234,5 @@ Definition at line \mbox{\hyperlink{input_8cpp_source_l00022}{22}} of file \mbox
 \end{DoxyCode}
 
 
-References \mbox{\hyperlink{input_8cpp_source_l00081}{Convert\+Buf()}}, \mbox{\hyperlink{types_8h_source_l00032}{k\+Buffer\+Overflow\+Error}}, \mbox{\hyperlink{types_8h_source_l00033}{k\+Eof\+Error}}, \mbox{\hyperlink{types_8h_source_l00034}{k\+Input\+File\+Error}}, and \mbox{\hyperlink{types_8h_source_l00040}{k\+Zero\+Str}}.
+References \mbox{\hyperlink{debug_8h_source_l00007}{CHECK}}, \mbox{\hyperlink{input_8cpp_source_l00081}{Convert\+Buf()}}, \mbox{\hyperlink{types_8h_source_l00032}{k\+Buffer\+Overflow\+Error}}, \mbox{\hyperlink{types_8h_source_l00033}{k\+Eof\+Error}}, \mbox{\hyperlink{types_8h_source_l00034}{k\+Input\+File\+Error}}, and \mbox{\hyperlink{types_8h_source_l00042}{k\+Zero\+Str}}.
 

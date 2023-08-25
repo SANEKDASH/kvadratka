@@ -1,6 +1,13 @@
 #ifndef output
 #define output
 
+//! Sets color in cmd
+//!
+//! @param color_code code of color you need to set in cmd
+//!
+//! @see types.h
+void SetColor(const int color_code);
+
 //! Displays the value of coefficients, roots, number of roots, discriminant of the quadratic equation
 //!
 //! @param ptr_coeffients    pointer to the structure with coefficients of the quadratic equation
@@ -17,6 +24,16 @@ void PrintHelpList();
 
 //! Displays a kitty on the screen.
 void PrintKitty();
+
+
+//! Colorful printf
+//!
+//! @param color_code code of color defined in types.h
+//! @param str needed string to print
+//!
+//! @see types.h
+
+void cPrintf(const int color_code, const char *str);
 
 #endif
 

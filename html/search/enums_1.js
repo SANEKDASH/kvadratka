@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rootscount_0',['RootsCount',['../types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3',1,'types.h']]]
+  ['inputresults_0',['InputResults',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550',1,'types.h']]]
 ];

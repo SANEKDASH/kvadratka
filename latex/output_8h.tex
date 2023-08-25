@@ -3,6 +3,8 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{output_8h_aa50eb7853c18ea220897e4f6c578c5dc}{Set\+Color}} (const int color\+\_\+code)
+\item 
 void \mbox{\hyperlink{output_8h_a8b0452811c5edfc767c7992f889d549e}{Print\+Output}} (const \mbox{\hyperlink{struct_coeffs}{Coeffs}} \texorpdfstring{$\ast$}{*}coefficients, const \mbox{\hyperlink{struct_solutions}{Solutions}} \texorpdfstring{$\ast$}{*}solutions)
 \item 
 void \mbox{\hyperlink{output_8h_a5dbae1932946c4088c927f1d534d2cd1}{Print\+Welcome}} ()
@@ -10,10 +12,30 @@ void \mbox{\hyperlink{output_8h_a5dbae1932946c4088c927f1d534d2cd1}{Print\+Welcom
 void \mbox{\hyperlink{output_8h_aaf4fc82b310247c2feb814360683fc1e}{Print\+Help\+List}} ()
 \begin{DoxyCompactList}\small\item\em Displays a list with the functionality of the program. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{output_8h_ab523a9678e66976cbe8cc95c9034c5bc}{Print\+Kitty}} ()
-\begin{DoxyCompactList}\small\item\em Displays a kitty on the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Displays a kitty on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{output_8h_adf441d8ccffbac38e3832fe287fabe36}{c\+Printf}} (const int color\+\_\+code, const char \texorpdfstring{$\ast$}{*}str)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{output_8h_adf441d8ccffbac38e3832fe287fabe36}\label{output_8h_adf441d8ccffbac38e3832fe287fabe36} 
+\index{output.h@{output.h}!cPrintf@{cPrintf}}
+\index{cPrintf@{cPrintf}!output.h@{output.h}}
+\doxysubsubsection{\texorpdfstring{cPrintf()}{cPrintf()}}
+{\footnotesize\ttfamily void c\+Printf (\begin{DoxyParamCaption}\item[{const int}]{color\+\_\+code,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})}
+
+Colorful printf
+
+
+\begin{DoxyParams}{Parameters}
+{\em color\+\_\+code} & code of color defined in \doxylink{types_8h}{types.\+h} \\
+\hline
+{\em str} & needed string to print\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{types_8h}{types.\+h} 
+\end{DoxySeeAlso}
 \Hypertarget{output_8h_aaf4fc82b310247c2feb814360683fc1e}\label{output_8h_aaf4fc82b310247c2feb814360683fc1e} 
 \index{output.h@{output.h}!PrintHelpList@{PrintHelpList}}
 \index{PrintHelpList@{PrintHelpList}!output.h@{output.h}}
@@ -58,4 +80,24 @@ Displays the value of coefficients, roots, number of roots, discriminant of the 
 
 
 Displays a greeting with the user. 
+
+\Hypertarget{output_8h_aa50eb7853c18ea220897e4f6c578c5dc}\label{output_8h_aa50eb7853c18ea220897e4f6c578c5dc} 
+\index{output.h@{output.h}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!output.h@{output.h}}
+\doxysubsubsection{\texorpdfstring{SetColor()}{SetColor()}}
+{\footnotesize\ttfamily void Set\+Color (\begin{DoxyParamCaption}\item[{const int}]{color\+\_\+code }\end{DoxyParamCaption})}
+
+Sets color in cmd
+
+
+\begin{DoxyParams}{Parameters}
+{\em color\+\_\+code} & code of color you need to set in cmd\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{types_8h}{types.\+h} 
+\end{DoxySeeAlso}
+
+
+Referenced by \mbox{\hyperlink{test_8cpp_source_l00041}{Test()}}.
 

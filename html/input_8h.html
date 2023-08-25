@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Kvadratka: input.h File Reference</title>
+<title>My Project: input.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Kvadratka
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -124,35 +124,35 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="input_8cpp_source.html#l00081">81</a> of file <a class="el" href="input_8cpp_source.html">input.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   83</span>{</div>
-<div class="line"><span class="lineno">   84</span>    CHECK(buf);</div>
-<div class="line"><span class="lineno">   85</span>    CHECK(ptr_coefficients);</div>
+<div class="line"><span class="lineno">   84</span>    <a class="code hl_define" href="debug_8h.html#a7b0a4b3c393708bef4a73475d5c2656c">CHECK</a>(buf);</div>
+<div class="line"><span class="lineno">   85</span>    <a class="code hl_define" href="debug_8h.html#a7b0a4b3c393708bef4a73475d5c2656c">CHECK</a>(ptr_coefficients);</div>
 <div class="line"><span class="lineno">   86</span> </div>
-<div class="line"><span class="lineno">   87</span>    <span class="keywordtype">char</span> command[kMaxBuf] = {0};</div>
+<div class="line"><span class="lineno">   87</span>    <span class="keyword">static</span> <span class="keywordtype">char</span> command[kMaxBuf] = {0};</div>
 <div class="line"><span class="lineno">   88</span>    command[0] = <span class="charliteral">&#39;\0&#39;</span>;</div>
 <div class="line"><span class="lineno">   89</span> </div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>    <span class="keywordtype">bool</span> is_one_word = CutSpaces(buf, command);</div>
-<div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">if</span> (is_one_word)</div>
-<div class="line"><span class="lineno">   94</span>    {</div>
-<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="types_8h.html#a31d76570de85ceee764be01089e36338">kCommandArraySize</a>; ++i)</div>
-<div class="line"><span class="lineno">   96</span>        {</div>
-<div class="line"><span class="lineno">   97</span>            <span class="keywordflow">if</span> (strcmp(command, <a class="code hl_variable" href="types_8h.html#a0dc2133321a8d5b34317e2a1c5d20c63">CommandArray</a>[i].command_name) == 0)</div>
-<div class="line"><span class="lineno">   98</span>            {</div>
-<div class="line"><span class="lineno">   99</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="types_8h.html#a0dc2133321a8d5b34317e2a1c5d20c63">CommandArray</a>[i].<a class="code hl_variable" href="struct_command.html#ac3a3bfd38769f40d000c1ebb968082c5">result</a>;</div>
-<div class="line"><span class="lineno">  100</span>            }</div>
-<div class="line"><span class="lineno">  101</span>        }</div>
-<div class="line"><span class="lineno">  102</span>    }</div>
-<div class="line"><span class="lineno">  103</span> </div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="input_8cpp.html#aaf73914d4c7ca2e77061d41564fe4b2e">ConvertBufToCoeffs</a>(buf,</div>
-<div class="line"><span class="lineno">  105</span>                              ptr_coefficients);</div>
-<div class="line"><span class="lineno">  106</span>}</div>
-<div class="ttc" id="ainput_8cpp_html_aaf73914d4c7ca2e77061d41564fe4b2e"><div class="ttname"><a href="input_8cpp.html#aaf73914d4c7ca2e77061d41564fe4b2e">ConvertBufToCoeffs</a></div><div class="ttdeci">InputResults ConvertBufToCoeffs(char *buf, Coeffs *ptr_coefficients)</div><div class="ttdef"><b>Definition</b> <a href="input_8cpp_source.html#l00108">input.cpp:108</a></div></div>
-<div class="ttc" id="astruct_command_html_ac3a3bfd38769f40d000c1ebb968082c5"><div class="ttname"><a href="struct_command.html#ac3a3bfd38769f40d000c1ebb968082c5">Command::result</a></div><div class="ttdeci">InputResults result</div><div class="ttdoc">is a constant corresponding to the command</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00053">types.h:53</a></div></div>
-<div class="ttc" id="atypes_8h_html_a0dc2133321a8d5b34317e2a1c5d20c63"><div class="ttname"><a href="types_8h.html#a0dc2133321a8d5b34317e2a1c5d20c63">CommandArray</a></div><div class="ttdeci">const Command CommandArray[kCommandArraySize]</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00057">types.h:57</a></div></div>
-<div class="ttc" id="atypes_8h_html_a31d76570de85ceee764be01089e36338"><div class="ttname"><a href="types_8h.html#a31d76570de85ceee764be01089e36338">kCommandArraySize</a></div><div class="ttdeci">const int kCommandArraySize</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00046">types.h:46</a></div></div>
+<div class="line"><span class="lineno">   90</span>    <span class="keywordtype">bool</span> is_one_word = CutSpaces(buf, command);</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">if</span> (is_one_word)</div>
+<div class="line"><span class="lineno">   93</span>    {</div>
+<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="types_8h.html#a31d76570de85ceee764be01089e36338">kCommandArraySize</a>; ++i)</div>
+<div class="line"><span class="lineno">   95</span>        {</div>
+<div class="line"><span class="lineno">   96</span>            <span class="keywordflow">if</span> (strcmp(command, <a class="code hl_variable" href="types_8h.html#a0dc2133321a8d5b34317e2a1c5d20c63">CommandArray</a>[i].command_name) == 0)</div>
+<div class="line"><span class="lineno">   97</span>            {</div>
+<div class="line"><span class="lineno">   98</span>                <span class="keywordflow">return</span> <a class="code hl_variable" href="types_8h.html#a0dc2133321a8d5b34317e2a1c5d20c63">CommandArray</a>[i].<a class="code hl_variable" href="struct_command.html#ac3a3bfd38769f40d000c1ebb968082c5">result</a>;</div>
+<div class="line"><span class="lineno">   99</span>            }</div>
+<div class="line"><span class="lineno">  100</span>        }</div>
+<div class="line"><span class="lineno">  101</span>    }</div>
+<div class="line"><span class="lineno">  102</span> </div>
+<div class="line"><span class="lineno">  103</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="input_8cpp.html#aaf73914d4c7ca2e77061d41564fe4b2e">ConvertBufToCoeffs</a>(buf,</div>
+<div class="line"><span class="lineno">  104</span>                              ptr_coefficients);</div>
+<div class="line"><span class="lineno">  105</span>}</div>
+<div class="ttc" id="adebug_8h_html_a7b0a4b3c393708bef4a73475d5c2656c"><div class="ttname"><a href="debug_8h.html#a7b0a4b3c393708bef4a73475d5c2656c">CHECK</a></div><div class="ttdeci">#define CHECK(expression)</div><div class="ttdef"><b>Definition</b> <a href="debug_8h_source.html#l00007">debug.h:7</a></div></div>
+<div class="ttc" id="ainput_8cpp_html_aaf73914d4c7ca2e77061d41564fe4b2e"><div class="ttname"><a href="input_8cpp.html#aaf73914d4c7ca2e77061d41564fe4b2e">ConvertBufToCoeffs</a></div><div class="ttdeci">InputResults ConvertBufToCoeffs(char *buf, Coeffs *ptr_coefficients)</div><div class="ttdef"><b>Definition</b> <a href="input_8cpp_source.html#l00107">input.cpp:107</a></div></div>
+<div class="ttc" id="astruct_command_html_ac3a3bfd38769f40d000c1ebb968082c5"><div class="ttname"><a href="struct_command.html#ac3a3bfd38769f40d000c1ebb968082c5">Command::result</a></div><div class="ttdeci">InputResults result</div><div class="ttdoc">is a constant corresponding to the command</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00055">types.h:55</a></div></div>
+<div class="ttc" id="atypes_8h_html_a0dc2133321a8d5b34317e2a1c5d20c63"><div class="ttname"><a href="types_8h.html#a0dc2133321a8d5b34317e2a1c5d20c63">CommandArray</a></div><div class="ttdeci">const Command CommandArray[kCommandArraySize]</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00059">types.h:59</a></div></div>
+<div class="ttc" id="atypes_8h_html_a31d76570de85ceee764be01089e36338"><div class="ttname"><a href="types_8h.html#a31d76570de85ceee764be01089e36338">kCommandArraySize</a></div><div class="ttdeci">const int kCommandArraySize</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00048">types.h:48</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="types_8h_source.html#l00057">CommandArray</a>, <a class="el" href="input_8cpp_source.html#l00108">ConvertBufToCoeffs()</a>, <a class="el" href="types_8h_source.html#l00046">kCommandArraySize</a>, and <a class="el" href="types_8h_source.html#l00053">Command::result</a>.</p>
+<p class="reference">References <a class="el" href="debug_8h_source.html#l00007">CHECK</a>, <a class="el" href="types_8h_source.html#l00059">CommandArray</a>, <a class="el" href="input_8cpp_source.html#l00107">ConvertBufToCoeffs()</a>, <a class="el" href="types_8h_source.html#l00048">kCommandArraySize</a>, and <a class="el" href="types_8h_source.html#l00055">Command::result</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="input_8cpp_source.html#l00022">GetInput()</a>.</p>
 
@@ -194,48 +194,48 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>if coefficients are written incorrectly in the buffer, returns the kInputError error</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="input_8h.html">input.h</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="input_8cpp_source.html#l00108">108</a> of file <a class="el" href="input_8cpp_source.html">input.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  110</span>{</div>
-<div class="line"><span class="lineno">  111</span>    CHECK(buf);</div>
-<div class="line"><span class="lineno">  112</span>    CHECK(ptr_coefficients);</div>
-<div class="line"><span class="lineno">  113</span> </div>
-<div class="line"><span class="lineno">  114</span>    <span class="keywordtype">char</span> *number_end = <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">  115</span> </div>
-<div class="line"><span class="lineno">  116</span>    ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#a9fd94e3f65fc2a6a73dfc6a62b6967fb">a</a> = strtod(buf, &amp;number_end);</div>
-<div class="line"><span class="lineno">  117</span> </div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">if</span> (buf != number_end)</div>
-<div class="line"><span class="lineno">  119</span>    {</div>
-<div class="line"><span class="lineno">  120</span>        buf = number_end;</div>
-<div class="line"><span class="lineno">  121</span>        ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#ab88d1e5cb2a4d1584367319561acd096">b</a> = strtod(buf, &amp;number_end);</div>
-<div class="line"><span class="lineno">  122</span>    }</div>
-<div class="line"><span class="lineno">  123</span> </div>
-<div class="line"><span class="lineno">  124</span>    <span class="keywordflow">if</span> (buf != number_end)</div>
-<div class="line"><span class="lineno">  125</span>    {</div>
-<div class="line"><span class="lineno">  126</span>        buf = number_end;</div>
-<div class="line"><span class="lineno">  127</span>        ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#a43de4f7abb7965c80b34c895d4506cef">c</a> = strtod(buf, &amp;number_end);</div>
-<div class="line"><span class="lineno">  128</span>    }</div>
-<div class="line"><span class="lineno">  129</span> </div>
-<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">while</span> (isspace(*number_end))</div>
-<div class="line"><span class="lineno">  131</span>    {</div>
-<div class="line"><span class="lineno">  132</span>        ++number_end;</div>
-<div class="line"><span class="lineno">  133</span>    }</div>
-<div class="line"><span class="lineno">  134</span> </div>
-<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">if</span> (*number_end == <span class="charliteral">&#39;\0&#39;</span> &amp;&amp; buf[0] != <span class="charliteral">&#39;\0&#39;</span>)</div>
-<div class="line"><span class="lineno">  136</span>    {</div>
-<div class="line"><span class="lineno">  137</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa">kInputSuccess</a>;</div>
-<div class="line"><span class="lineno">  138</span>    }</div>
-<div class="line"><span class="lineno">  139</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  140</span>    {</div>
-<div class="line"><span class="lineno">  141</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0">kInputError</a>;</div>
-<div class="line"><span class="lineno">  142</span>    }</div>
-<div class="line"><span class="lineno">  143</span>}</div>
+<p class="definition">Definition at line <a class="el" href="input_8cpp_source.html#l00107">107</a> of file <a class="el" href="input_8cpp_source.html">input.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  109</span>{</div>
+<div class="line"><span class="lineno">  110</span>    <a class="code hl_define" href="debug_8h.html#a7b0a4b3c393708bef4a73475d5c2656c">CHECK</a>(buf);</div>
+<div class="line"><span class="lineno">  111</span>    <a class="code hl_define" href="debug_8h.html#a7b0a4b3c393708bef4a73475d5c2656c">CHECK</a>(ptr_coefficients);</div>
+<div class="line"><span class="lineno">  112</span> </div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordtype">char</span> *number_end = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>    ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#a9fd94e3f65fc2a6a73dfc6a62b6967fb">a</a> = strtod(buf, &amp;number_end);</div>
+<div class="line"><span class="lineno">  116</span> </div>
+<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">if</span> (buf != number_end)</div>
+<div class="line"><span class="lineno">  118</span>    {</div>
+<div class="line"><span class="lineno">  119</span>        buf = number_end;</div>
+<div class="line"><span class="lineno">  120</span>        ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#ab88d1e5cb2a4d1584367319561acd096">b</a> = strtod(buf, &amp;number_end);</div>
+<div class="line"><span class="lineno">  121</span>    }</div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">if</span> (buf != number_end)</div>
+<div class="line"><span class="lineno">  124</span>    {</div>
+<div class="line"><span class="lineno">  125</span>        buf = number_end;</div>
+<div class="line"><span class="lineno">  126</span>        ptr_coefficients-&gt;<a class="code hl_variable" href="struct_coeffs.html#a43de4f7abb7965c80b34c895d4506cef">c</a> = strtod(buf, &amp;number_end);</div>
+<div class="line"><span class="lineno">  127</span>    }</div>
+<div class="line"><span class="lineno">  128</span> </div>
+<div class="line"><span class="lineno">  129</span>    <span class="keywordflow">while</span> (isspace(*number_end))</div>
+<div class="line"><span class="lineno">  130</span>    {</div>
+<div class="line"><span class="lineno">  131</span>        ++number_end;</div>
+<div class="line"><span class="lineno">  132</span>    }</div>
+<div class="line"><span class="lineno">  133</span> </div>
+<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">if</span> (*number_end == <span class="charliteral">&#39;\0&#39;</span> &amp;&amp; buf[0] != <span class="charliteral">&#39;\0&#39;</span>)</div>
+<div class="line"><span class="lineno">  135</span>    {</div>
+<div class="line"><span class="lineno">  136</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa">kInputSuccess</a>;</div>
+<div class="line"><span class="lineno">  137</span>    }</div>
+<div class="line"><span class="lineno">  138</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  139</span>    {</div>
+<div class="line"><span class="lineno">  140</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0">kInputError</a>;</div>
+<div class="line"><span class="lineno">  141</span>    }</div>
+<div class="line"><span class="lineno">  142</span>}</div>
 <div class="ttc" id="astruct_coeffs_html_a43de4f7abb7965c80b34c895d4506cef"><div class="ttname"><a href="struct_coeffs.html#a43de4f7abb7965c80b34c895d4506cef">Coeffs::c</a></div><div class="ttdeci">double c</div><div class="ttdoc">free coefficient</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00016">types.h:16</a></div></div>
 <div class="ttc" id="astruct_coeffs_html_a9fd94e3f65fc2a6a73dfc6a62b6967fb"><div class="ttname"><a href="struct_coeffs.html#a9fd94e3f65fc2a6a73dfc6a62b6967fb">Coeffs::a</a></div><div class="ttdeci">double a</div><div class="ttdoc">coefficient x^2</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00014">types.h:14</a></div></div>
 <div class="ttc" id="astruct_coeffs_html_ab88d1e5cb2a4d1584367319561acd096"><div class="ttname"><a href="struct_coeffs.html#ab88d1e5cb2a4d1584367319561acd096">Coeffs::b</a></div><div class="ttdeci">double b</div><div class="ttdoc">coefficient x</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00015">types.h:15</a></div></div>
-<div class="ttc" id="atypes_8h_html_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa"><div class="ttname"><a href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa">kInputSuccess</a></div><div class="ttdeci">@ kInputSuccess</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00031">types.h:31</a></div></div>
+<div class="ttc" id="atypes_8h_html_a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa"><div class="ttname"><a href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550a807e7c93179fca5809ba35ef5978b5aa">kInputSuccess</a></div><div class="ttdeci">@ kInputSuccess</div><div class="ttdoc">three coefficients were successfully written</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00031">types.h:31</a></div></div>
 <div class="ttc" id="atypes_8h_html_a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0"><div class="ttname"><a href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550af0b1789aa0fbd00bc9eddddfd29086a0">kInputError</a></div><div class="ttdeci">@ kInputError</div><div class="ttdoc">an unknown function has been introduced</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00030">types.h:30</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="types_8h_source.html#l00014">Coeffs::a</a>, <a class="el" href="types_8h_source.html#l00015">Coeffs::b</a>, <a class="el" href="types_8h_source.html#l00016">Coeffs::c</a>, <a class="el" href="types_8h_source.html#l00030">kInputError</a>, and <a class="el" href="types_8h_source.html#l00031">kInputSuccess</a>.</p>
+<p class="reference">References <a class="el" href="types_8h_source.html#l00014">Coeffs::a</a>, <a class="el" href="types_8h_source.html#l00015">Coeffs::b</a>, <a class="el" href="types_8h_source.html#l00016">Coeffs::c</a>, <a class="el" href="debug_8h_source.html#l00007">CHECK</a>, <a class="el" href="types_8h_source.html#l00030">kInputError</a>, and <a class="el" href="types_8h_source.html#l00031">kInputSuccess</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="input_8cpp_source.html#l00081">ConvertBuf()</a>.</p>
 
@@ -278,8 +278,8 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="input_8cpp_source.html#l00022">22</a> of file <a class="el" href="input_8cpp_source.html">input.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   24</span>{</div>
-<div class="line"><span class="lineno">   25</span>    CHECK(ptr_coefficients);</div>
-<div class="line"><span class="lineno">   26</span>    CHECK(ptr_file);</div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_define" href="debug_8h.html#a7b0a4b3c393708bef4a73475d5c2656c">CHECK</a>(ptr_coefficients);</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_define" href="debug_8h.html#a7b0a4b3c393708bef4a73475d5c2656c">CHECK</a>(ptr_file);</div>
 <div class="line"><span class="lineno">   27</span> </div>
 <div class="line"><span class="lineno">   28</span>    <span class="keyword">static</span> <span class="keywordtype">char</span> buf[kMaxBuf] = {0};</div>
 <div class="line"><span class="lineno">   29</span>    buf[0] = <span class="charliteral">&#39;\0&#39;</span>;</div>
@@ -332,12 +332,12 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   76</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="input_8cpp.html#ab91f1cbe9d87c6e6408ecaa3a5a60c13">ConvertBuf</a>(buf, ptr_coefficients);</div>
 <div class="line"><span class="lineno">   77</span>}</div>
 <div class="ttc" id="ainput_8cpp_html_ab91f1cbe9d87c6e6408ecaa3a5a60c13"><div class="ttname"><a href="input_8cpp.html#ab91f1cbe9d87c6e6408ecaa3a5a60c13">ConvertBuf</a></div><div class="ttdeci">InputResults ConvertBuf(char *buf, Coeffs *ptr_coefficients)</div><div class="ttdef"><b>Definition</b> <a href="input_8cpp_source.html#l00081">input.cpp:81</a></div></div>
-<div class="ttc" id="atypes_8h_html_a664ee3cba8657b45aa8d2f5657160550a1e64a3973034ef5626a318f8d01ae43e"><div class="ttname"><a href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550a1e64a3973034ef5626a318f8d01ae43e">kInputFileError</a></div><div class="ttdeci">@ kInputFileError</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00034">types.h:34</a></div></div>
-<div class="ttc" id="atypes_8h_html_a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762"><div class="ttname"><a href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762">kZeroStr</a></div><div class="ttdeci">@ kZeroStr</div><div class="ttdoc">the null line is entered</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00040">types.h:40</a></div></div>
+<div class="ttc" id="atypes_8h_html_a664ee3cba8657b45aa8d2f5657160550a1e64a3973034ef5626a318f8d01ae43e"><div class="ttname"><a href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550a1e64a3973034ef5626a318f8d01ae43e">kInputFileError</a></div><div class="ttdeci">@ kInputFileError</div><div class="ttdoc">error while opening input file</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00034">types.h:34</a></div></div>
+<div class="ttc" id="atypes_8h_html_a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762"><div class="ttname"><a href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550a5b5a20221b6efa5bfd149050b17a2762">kZeroStr</a></div><div class="ttdeci">@ kZeroStr</div><div class="ttdoc">the null line is entered</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00042">types.h:42</a></div></div>
 <div class="ttc" id="atypes_8h_html_a664ee3cba8657b45aa8d2f5657160550a856ff97b1ffed6526ea7b9829d269f6c"><div class="ttname"><a href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550a856ff97b1ffed6526ea7b9829d269f6c">kBufferOverflowError</a></div><div class="ttdeci">@ kBufferOverflowError</div><div class="ttdoc">buffer is full</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00032">types.h:32</a></div></div>
 <div class="ttc" id="atypes_8h_html_a664ee3cba8657b45aa8d2f5657160550ae1b71afe494c96a4657a33fe9bd2a80e"><div class="ttname"><a href="types_8h.html#a664ee3cba8657b45aa8d2f5657160550ae1b71afe494c96a4657a33fe9bd2a80e">kEofError</a></div><div class="ttdeci">@ kEofError</div><div class="ttdoc">ran into EOF</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00033">types.h:33</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="input_8cpp_source.html#l00081">ConvertBuf()</a>, <a class="el" href="types_8h_source.html#l00032">kBufferOverflowError</a>, <a class="el" href="types_8h_source.html#l00033">kEofError</a>, <a class="el" href="types_8h_source.html#l00034">kInputFileError</a>, and <a class="el" href="types_8h_source.html#l00040">kZeroStr</a>.</p>
+<p class="reference">References <a class="el" href="debug_8h_source.html#l00007">CHECK</a>, <a class="el" href="input_8cpp_source.html#l00081">ConvertBuf()</a>, <a class="el" href="types_8h_source.html#l00032">kBufferOverflowError</a>, <a class="el" href="types_8h_source.html#l00033">kEofError</a>, <a class="el" href="types_8h_source.html#l00034">kInputFileError</a>, and <a class="el" href="types_8h_source.html#l00042">kZeroStr</a>.</p>
 
 </div>
 </div>

@@ -3,20 +3,29 @@
 #include "debug.h"
 #include "algorithm.h"
 #include <stdio.h>
+#include <windows.h>
 
 void PrintWelcome()
 {
+    SetColor(kGold);
     printf("#/ Hello! This program does many things.\n");
+    printf("#/ Write the command or type 'help' to invoke list of commands.\n");
+    SetColor(kWhite);
+    printf("#/ ");
 }
 
 void PrintHelpList()
 {
+    SetColor(kGold);
     printf("#/ type 3 numbers to solve quadratic equation with this coefficients.\n");
     for(int i = 0; i < kCommandArraySize; i++)
+    {
         printf("#/ '%s' - %s.\n",CommandArray[i].command_name,
                                  CommandArray[i].help_text);
-    printf("#/ ");
+    }
+    SetColor(kWhite);
 
+    printf("#/ ");
 }
 
 void PrintOutput(const Coeffs *ptr_coefficients,
@@ -24,6 +33,8 @@ void PrintOutput(const Coeffs *ptr_coefficients,
 {
     CHECK(ptr_coefficients);
     CHECK(ptr_solutions);
+
+    SetColor(9);
 
     printf("__________________________________________\n");
     printf("\nA = %0.4lf | B = %0.4lf | C = %0.4lf\n", ptr_coefficients->a,
@@ -71,16 +82,32 @@ void PrintOutput(const Coeffs *ptr_coefficients,
         }
     }
 
-    printf("__________________________________________\n"
-           "#/ ");
+    printf("__________________________________________\n");
+
+    SetColor(7);
+    printf("#/ ");
 }
 
 void PrintKitty()
 {
+    SetColor(5);
     printf("  /\\_/\\  \n"
            " ( o.o ) \n"
            "  > U <  \n");
+    SetColor(7);
     printf("#/ ");
 }
 
 
+void SetColor(const int color_code)
+{
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, (short unsigned int) color_code);
+}
+
+void cPrintf(const int color_code, const char *str)
+{
+    SetColor(color_code);
+    printf("%s", str);
+    SetColor(kWhite);
+}

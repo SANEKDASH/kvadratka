@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <windows.h>
 #include "types.h"
 #include "input.h"
 #include "algorithm.h"
@@ -18,8 +19,6 @@ int main()
 
     InputResults status = kInputSuccess;
 
-    printf("#/ Write the command or type 'help' to invoke list of commands.\n#/ ");
-
     while ((status = GetInput(stdin, &coefficients)) != kQuit &&
             status != kEofError &&
             status != kInputFileError)
@@ -34,13 +33,17 @@ int main()
 
             case kInputError:
             {
-                printf("#/ Hey, buddy, try to write a command one more time! Or write 'help'.\n#/ ");
+                cPrintf(kRed, "#/ Hey, buddy, try to write a command one more time! Or write 'help'.\n");
+                printf("#/ ");
+
                 break;
             }
 
             case kBufferOverflowError:
             {
-                printf("#/ Hey, buddy, program spotted buffer overflow.\n#/ ");
+                cPrintf(kRed, "#/ Hey, buddy, program spotted buffer overflow.\n");
+                printf("#/ ");
+
                 break;
             }
 
@@ -79,7 +82,8 @@ int main()
 
             case kTestFileError:
             {
-                printf("#/ Hey, buddy, we got a problem with test file.\n#/");
+                cPrintf(kRed, "#/ Hey, buddy, we got a problem with test file.\n");
+                printf("#/ ");
                 break;
             }
 
@@ -104,19 +108,19 @@ int main()
     {
         case kEofError:
         {
-            printf("#/ Hey, buddy, we were blinded by EOF.\n");
+            cPrintf(kRed, "#/ Hey, buddy, we were blinded by EOF.\n");
             break;
         }
 
         case kInputFileError:
         {
-            printf("#/ Hey, buddy, something went wrong with input file.\n#/ ");
+            cPrintf(kRed, "#/ Hey, buddy, something went wrong with input file.\n");
             break;
         }
 
         case kQuit:
         {
-            printf("#/ Have a good evening.");
+            cPrintf(kGold, "#/ Have a good evening.");
             break;
         }
 

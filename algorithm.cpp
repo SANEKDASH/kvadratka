@@ -13,8 +13,8 @@
 //! @note if the root of the square equation is one, then both roots in the solution structure are equal
 //! @see types.h
 static RootsCount SolveQuadCase(const Coeffs *ptr_coefficients,
-                         double discriminant,
-                         Solutions *ptr_solutions);
+                                double discriminant,
+                                Solutions *ptr_solutions);
 
 //! Calculates the values of the single root of the equation with the coefficient A = 0
 //! Returns a constant corresponding to one root
@@ -25,7 +25,7 @@ static RootsCount SolveQuadCase(const Coeffs *ptr_coefficients,
 //! @note both roots in the structure become equal to each other *
 //! @see types.h
 static RootsCount SolveLinearCase(const Coeffs *ptr_coefficients,
-                           Solutions *ptr_solutions);
+                                  Solutions *ptr_solutions);
 
 void SolveEquation(const Coeffs *ptr_coefficients,
                          Solutions *ptr_solutions)
@@ -43,7 +43,9 @@ void SolveEquation(const Coeffs *ptr_coefficients,
     }
     else if (!AreEqual(ptr_coefficients->a, 0))
     {
-        ptr_solutions->roots_count = SolveQuadCase(ptr_coefficients, discriminant, ptr_solutions);
+        ptr_solutions->roots_count = SolveQuadCase(ptr_coefficients,
+                                                   discriminant,
+                                                   ptr_solutions);
 
         return;
     }
@@ -51,7 +53,8 @@ void SolveEquation(const Coeffs *ptr_coefficients,
     {
         if (!AreEqual(ptr_coefficients->b, 0))
         {
-            ptr_solutions->roots_count = SolveLinearCase(ptr_coefficients, ptr_solutions);
+            ptr_solutions->roots_count = SolveLinearCase(ptr_coefficients,
+                                                         ptr_solutions);
 
             return;
         }
@@ -81,8 +84,8 @@ double CalculateDiscriminant(const Coeffs *ptr_coefficients)
 }
 
 static RootsCount SolveQuadCase(const Coeffs *ptr_coefficients,
-                         double discriminant,
-                         Solutions *ptr_solutions)
+                                double discriminant,
+                                Solutions *ptr_solutions)
 {
     CHECK(ptr_coefficients);
     CHECK(ptr_solutions);

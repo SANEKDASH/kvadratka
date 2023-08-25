@@ -84,9 +84,8 @@ InputResults ConvertBuf(char *buf,
     CHECK(buf);
     CHECK(ptr_coefficients);
 
-    char command[kMaxBuf] = {0};
+    static char command[kMaxBuf] = {0};
     command[0] = '\0';
-
 
     bool is_one_word = CutSpaces(buf, command);
 

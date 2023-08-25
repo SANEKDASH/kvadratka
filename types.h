@@ -28,15 +28,17 @@ typedef struct
 typedef enum
 {
     kInputError,            //!< an unknown function has been introduced
-    kInputSuccess,          //!<
+    kInputSuccess,          //!< three coefficients were successfully written
     kBufferOverflowError,   //!< buffer is full
     kEofError,              //!< ran into EOF
-    kInputFileError,        //!<
-    kTestFileError,         //!<
+    kInputFileError,        //!< error while opening input file
+    kTestFileError,         //!< error while opening test file
     kHelp,                  //!< the help command is entered
     kQuit,                  //!< the quit command is entered
     kMeow,                  //!< the meow command has been introduced
+    #ifdef DEBUG
     kTest,                  //!< the test command is entered
+    #endif
     kZeroStr,               //!< the null line is entered
 } InputResults;
 
@@ -55,11 +57,25 @@ typedef struct
 } Command;
 
 const Command CommandArray[kCommandArraySize] = {
-                                                   #ifdef DEBUG
-                                                   "test", kTest,"to start testing algorithm, using information from file test.txt in directory",
-                                                   #endif
-                                                   "help", kHelp,"invokes list of commands",
-                                                   "meow", kMeow,"to print a kitty",
-                                                   "quit", kQuit,"to shutdown the program"
-                                                  };
+                                                #ifdef DEBUG
+                                                "test", kTest,"to start testing algorithm, using information from file test.txt in directory",
+                                                #endif
+                                                "help", kHelp,"invokes list of commands",
+                                                "meow", kMeow,"to print a kitty",
+                                                "quit", kQuit,"to shutdown the program"
+                                                };
+//! Structure of color code
+typedef enum
+{
+    kDBlue = 1,//!< dark blue
+    kGreen = 2,//!< green
+    kBlue  = 3,//!< blue
+    kRed   = 4,//!< red
+    kPurp  = 5,//!< purple
+    kGold  = 6,//!< golden
+    kWhite = 7,//!< white
+    kGrey  = 8,//!< grey
+    kSky   = 9,//!< sky blue
+} Colors;
+
 

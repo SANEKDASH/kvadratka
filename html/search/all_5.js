@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['input_2ecpp_0',['input.cpp',['../input_8cpp.html',1,'']]],
-  ['input_2eh_1',['input.h',['../input_8h.html',1,'']]],
-  ['inputresults_2',['InputResults',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550',1,'types.h']]]
+  ['help_5ftext_0',['help_text',['../struct_command.html#a7b39c77bbe17f5769b7cd38fc97e338e',1,'Command']]]
 ];

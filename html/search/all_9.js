@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['result_0',['result',['../struct_command.html#ac3a3bfd38769f40d000c1ebb968082c5',1,'Command']]],
-  ['roots_5fcount_1',['roots_count',['../struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599',1,'Solutions']]],
-  ['rootscount_2',['RootsCount',['../types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3',1,'types.h']]]
+  ['printhelplist_0',['PrintHelpList',['../output_8h.html#aaf4fc82b310247c2feb814360683fc1e',1,'output.h']]],
+  ['printkitty_1',['PrintKitty',['../output_8h.html#ab523a9678e66976cbe8cc95c9034c5bc',1,'output.h']]],
+  ['printoutput_2',['PrintOutput',['../output_8h.html#a8b0452811c5edfc767c7992f889d549e',1,'output.h']]],
+  ['printwelcome_3',['PrintWelcome',['../output_8h.html#a5dbae1932946c4088c927f1d534d2cd1',1,'output.h']]]
 ];

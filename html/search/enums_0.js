@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputresults_0',['InputResults',['../types_8h.html#a664ee3cba8657b45aa8d2f5657160550',1,'types.h']]]
+  ['colors_0',['Colors',['../types_8h.html#a55ecd4f2ec2ebfe8d5b0163e4ac2a967',1,'types.h']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Kvadratka: output.h File Reference</title>
+<title>My Project: output.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Kvadratka
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -79,6 +79,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aa50eb7853c18ea220897e4f6c578c5dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8h.html#aa50eb7853c18ea220897e4f6c578c5dc">SetColor</a> (const int color_code)</td></tr>
+<tr class="separator:aa50eb7853c18ea220897e4f6c578c5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b0452811c5edfc767c7992f889d549e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8h.html#a8b0452811c5edfc767c7992f889d549e">PrintOutput</a> (const <a class="el" href="struct_coeffs.html">Coeffs</a> *coefficients, const <a class="el" href="struct_solutions.html">Solutions</a> *solutions)</td></tr>
 <tr class="separator:a8b0452811c5edfc767c7992f889d549e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dbae1932946c4088c927f1d534d2cd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8h.html#a5dbae1932946c4088c927f1d534d2cd1">PrintWelcome</a> ()</td></tr>
@@ -90,8 +92,47 @@ Functions</h2></td></tr>
 <tr class="memitem:ab523a9678e66976cbe8cc95c9034c5bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8h.html#ab523a9678e66976cbe8cc95c9034c5bc">PrintKitty</a> ()</td></tr>
 <tr class="memdesc:ab523a9678e66976cbe8cc95c9034c5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a kitty on the screen.  <br /></td></tr>
 <tr class="separator:ab523a9678e66976cbe8cc95c9034c5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf441d8ccffbac38e3832fe287fabe36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8h.html#adf441d8ccffbac38e3832fe287fabe36">cPrintf</a> (const int color_code, const char *str)</td></tr>
+<tr class="separator:adf441d8ccffbac38e3832fe287fabe36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="adf441d8ccffbac38e3832fe287fabe36" name="adf441d8ccffbac38e3832fe287fabe36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf441d8ccffbac38e3832fe287fabe36">&#9670;&#160;</a></span>cPrintf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cPrintf </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>color_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Colorful printf</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color_code</td><td>code of color defined in <a class="el" href="types_8h.html">types.h</a> </td></tr>
+    <tr><td class="paramname">str</td><td>needed string to print</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="types_8h.html">types.h</a> </dd></dl>
+
+</div>
+</div>
 <a id="aaf4fc82b310247c2feb814360683fc1e" name="aaf4fc82b310247c2feb814360683fc1e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaf4fc82b310247c2feb814360683fc1e">&#9670;&#160;</a></span>PrintHelpList()</h2>
 
@@ -182,6 +223,34 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Displays a greeting with the user. </p>
+
+</div>
+</div>
+<a id="aa50eb7853c18ea220897e4f6c578c5dc" name="aa50eb7853c18ea220897e4f6c578c5dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa50eb7853c18ea220897e4f6c578c5dc">&#9670;&#160;</a></span>SetColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetColor </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>color_code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets color in cmd</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color_code</td><td>code of color you need to set in cmd</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="types_8h.html">types.h</a> </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="test_8cpp_source.html#l00041">Test()</a>.</p>
 
 </div>
 </div>

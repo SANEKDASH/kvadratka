@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['solutions_0',['Solutions',['../struct_solutions.html',1,'']]],
-  ['solveequation_1',['SolveEquation',['../algorithm_8h.html#a34ee873441039d53bf2e644ccb538376',1,'SolveEquation(const Coeffs *ptr_coefficients, Solutions *ptr_solutions):&#160;algorithm.cpp'],['../algorithm_8cpp.html#a34ee873441039d53bf2e644ccb538376',1,'SolveEquation(const Coeffs *ptr_coefficients, Solutions *ptr_solutions):&#160;algorithm.cpp']]]
+  ['result_0',['result',['../struct_command.html#ac3a3bfd38769f40d000c1ebb968082c5',1,'Command']]],
+  ['roots_5fcount_1',['roots_count',['../struct_solutions.html#a6bbe8ebb92a0ca5b42d2e57db2b58599',1,'Solutions']]],
+  ['rootscount_2',['RootsCount',['../types_8h.html#aa25c6d8cdf0bee88e27388ccef3dcdc3',1,'types.h']]]
 ];
