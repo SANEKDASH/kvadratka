@@ -135,8 +135,9 @@ int main()
         case kHelp:
 
         case kMeow:
-
+        #ifdef DEBUG
         case kTest:
+        #endif
 
         case kZeroStr:
 

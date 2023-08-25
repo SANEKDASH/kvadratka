@@ -92,9 +92,9 @@ void Test()
             case kQuit:
 
             case kHelp:
-
+            #ifdef DEBUG
             case kTest:
-
+            #endif
             case kEofError:
 
             case kInputFileError:
