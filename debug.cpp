@@ -1,7 +1,10 @@
 #include "debug.h"
-#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "types.h"
+#include "output.h"
+
+
 
 void CheckIt(bool expr,
              int line,
@@ -10,6 +13,8 @@ void CheckIt(bool expr,
 {
     if (!expr)
     {
+        SetColor(kRed);
+
         printf("\n@@@@@@@@@@@@@@@@@@@@@@@@&&&&&&&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
                "\n@@@@@@@@@@@@@@@@@@&BGP55555555555555PG#@@@@@@@@@@@@@@@@@@@@@"
                "\n@@@@@@@@@@@@@@@&#BPPGGBBBBBBBBBBBBG5YJJ5B&@@@@@@@@@@@@@@@@@@"
@@ -38,6 +43,7 @@ void CheckIt(bool expr,
                "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#BBG#&#GGBGGGGPGB&@@@@@@@@@@@@@");
 
         printf("\n#/ Checker spoted a problem in file: %s, function: %s, line: %d", file_name, func_name, line);
+        SetColor(kWhite);
         abort();
     }
 }

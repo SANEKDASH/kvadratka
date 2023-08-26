@@ -149,17 +149,23 @@ static bool CutSpaces(const char *buf, char *command)
     int i = 0;
 
     while (isspace(buf[i]))
+    {
         ++i;
+    }
 
     int j = 0;
+
     while (!isspace(buf[i]) && buf[i] != '\0')
     {
         command[j++] = buf[i++];
     }
+
     command[j] = '\0';
 
     while (isspace(buf[i]))
+    {
         ++i;
+    }
 
     return buf[i] == '\0';
 }
